@@ -1,0 +1,13 @@
+/* line 2, ../scss/reset.scss */
+body * {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
