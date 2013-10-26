@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            <!--
+                body *
+                {
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    -moz-border-radius: 4px;
+                    -webkit-border-radius: 4px;
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    position: relative;
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                }
+
+                .card
+                {
+                    background-color: white;
+                    height: 172px;
+                    width: 112px;
+                }
+
+                .card .name
+                {
+                    height: 20px;
+                    margin: 8px;
+                }
+
+                .card .points
+                {
+                    border: 0;
+                    display: inline-block;
+                    left: 8px;
+                    line-height: 8px;
+                }
+
+                .card .point
+                {
+                    border: 0;
+                    width: 96px;
+                }
+
+                .card .effect
+                {
+                    bottom: 0;
+                    height: 24px;
+                    margin: 8px;
+                    position: absolute;
+                    width: 96px;
+                }
+
+                .effect, .action
+                {
+                    float: left;
+                    height: 24px;
+                    margin-right: 8px;
+                    width: 24px;
+                }
+
+                .me
+                {
+                    border: 0;
+                }
+
+                .me .effects
+                {
+                    border: 0;
+                }
+
+                .me .actions
+                {
+                    border: 0;
+                    overflow: auto;
+                }
+
+                .me .hand
+                {
+                    overflow: auto;
+                }
+
+                .me .hand .card
+                {
+                    float: left;
+                    margin: 12px;
+                }
+            -->
+        </style>
+        <title></title>
+    </head>
+
+    <body>
+        <div class="me">
+            <ul class="effects">
+                <li class="effect">eff</li>
+            </ul>
+
+            <ul class="actions">
+                <li class="action">act</li>
+                <li class="action">act</li>
+                <li class="action">act</li>
+            </ul>
+
+            <br />
+
+            <ul class="hand">
+                <li class="card">
+                    <div class="name">name</div>
+                    <ul class="points">
+                        <li class="point">*</li>
+                        <li class="point">*</li>
+                        <li class="point">*</li>
+                        <li class="point">*</li>
+                        <li class="point">*</li>
+                    </ul>
+                </li>
+                <li class="card">
+                    <div class="name">name</div>
+                    <ul class="points">
+                        <li class="point">*</li>
+                        <li class="point">*</li>
+                        <li class="point">*</li>
+                        <li class="point bonus">*</li>
+                        <li class="point bonus">*</li>
+                    </ul>
+                    <div class="effect">effect</div>
+                </li>
+                <li class="card">
+                    <div class="name">name</div>
+                    <ul class="points">
+                        <li class="point">*</li>
+                    </ul>
+                </li>
+                <li class="card">
+                    <div class="name">name</div>
+                    <ul class="points">
+                        <li class="point">*</li>
+                        <li class="point">*</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
