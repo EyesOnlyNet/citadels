@@ -1,0 +1,39 @@
+$footerHeight: 72px;
+
+.footer {
+    background-color: $brown;
+    bottom: 0;
+    color: white;
+    height: $footerHeight;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 2px black;
+    width: 100%;
+
+    li {
+        display: inline-block;
+        margin: 0 12px;
+
+        &:before,
+        &:after {
+            visibility: hidden;
+        }
+
+        &:before {
+            content: "[ ";
+        }
+
+        &:after {
+            content: " ]";
+        }
+
+        &:hover:before,
+        &:hover:after {
+            visibility: visible;
+        }
+    }
+}
+
+footer {
+    padding-top: 24px;
+}

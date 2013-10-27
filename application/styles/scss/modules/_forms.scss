@@ -1,0 +1,16 @@
+@import "_colors.scss";
+
+input, button {
+    @extend %border-lightgray-rounded;
+
+    padding: 8px 16px;
+
+    &:hover, &:focus {
+        border-color: $brown;
+        box-shadow: 0 0 8px $lightBrown inset;
+    }
+}
+
+button {
+    background-color: $lightBrown;
+}
