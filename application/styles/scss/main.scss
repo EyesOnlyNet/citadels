@@ -1,18 +1,19 @@
-@import "modules/_all.scss";
 @import "_reset.scss";
+@import "modules/_all.scss";
 @import url(http://fonts.googleapis.com/css?family=Amarante);
-
-html, body {
-    height: 100%;
-}
 
 html * {
     @include box-sizing(border-box);
     font-family: 'Amarante', cursive;
 }
 
-body {
-    padding-bottom: $footerHeight;
+html, body {
+    height: 100%;
+}
+
+.site-content {
+    margin-bottom: $footerHeight;
+    overflow: auto;
 }
 
 a {
@@ -20,6 +21,6 @@ a {
 }
 
 hr {
-  box-shadow: 0 0 8px 0 black;
-  width: 100%;
+    box-shadow: 0 0 8px 0 black;
+    width: 100%;
 }

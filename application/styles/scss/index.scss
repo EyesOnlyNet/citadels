@@ -1,13 +1,15 @@
-@import "modules/_all.scss";
+@import "main.scss";
 
 body {
     text-align: center;
 }
 
-form {
-    margin-top: -120px;
+.site-content {
+    margin-top: -160px;
     top: 40%;
+}
 
+form {
     label, input, button {
         display: block;
         margin: 0px auto;

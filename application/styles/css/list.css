@@ -8,7 +8,7 @@ html * {
   position: relative; }
 
 /* line 12, X:/Coding/projects/citadels/application/styles/scss/modules/_borders.scss */
-input, button {
+input, button, .box {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -47,7 +47,7 @@ input, button {
       visibility: visible; }
 
 /* line 12, X:/Coding/projects/citadels/application/styles/scss/modules/_borders.scss */
-input, button {
+input, button, .box {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -109,26 +109,31 @@ hr {
   box-shadow: 0 0 8px 0 black;
   width: 100%; }
 
-/* line 3, ../scss/index.scss */
-body {
-  text-align: center; }
-
-/* line 7, ../scss/index.scss */
-.site-content {
-  margin-top: -160px;
-  top: 40%; }
-
-/* line 13, ../scss/index.scss */
-form label, form input, form button {
-  display: block;
-  margin: 0px auto; }
-/* line 18, ../scss/index.scss */
-form label {
-  font-size: 24px;
-  margin-bottom: 40px; }
-/* line 23, ../scss/index.scss */
-form input {
-  height: 40px;
-  margin-bottom: 20px;
-  text-align: center;
+/* line 3, ../scss/list.scss */
+.box {
+  float: left;
+  margin: 40px;
+  overflow: auto;
   width: 400px; }
+  /* line 10, ../scss/list.scss */
+  .box .header {
+    background-color: burlywood;
+    border-bottom: 1px solid #cccccc;
+    padding: 12px;
+    text-shadow: 1px 1px 1px white; }
+  /* line 18, ../scss/list.scss */
+  .box .content {
+    margin: 16px; }
+
+/* line 25, ../scss/list.scss */
+.games li {
+  overflow: auto; }
+/* line 29, ../scss/list.scss */
+.games button {
+  float: right;
+  margin: 16px 0; }
+/* line 34, ../scss/list.scss */
+.games h5 {
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 8px;
+  padding-bottom: 8px; }

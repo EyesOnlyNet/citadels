@@ -1,0 +1,39 @@
+@import "main.scss";
+
+.box {
+    @extend %border-lightgray-rounded;
+    float: left;
+    margin: 40px;
+    overflow: auto;
+    width: 400px;
+
+    .header {
+        background-color: $lightBrown;
+        border-bottom: 1px solid $lightGray;
+        padding: 12px;
+        text-shadow: 1px 1px 1px white;
+
+    }
+
+    .content {
+        margin: 16px;
+    }
+}
+
+.games {
+    li
+    {
+        overflow: auto;
+    }
+
+    button {
+        float: right;
+        margin: 16px 0;
+    }
+
+    h5 {
+        border-bottom: 1px solid $lightGray;
+        margin-bottom: 8px;
+        padding-bottom: 8px;
+    }
+}

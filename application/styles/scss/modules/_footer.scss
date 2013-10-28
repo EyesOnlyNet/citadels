@@ -1,14 +1,18 @@
-$footerHeight: 72px;
+$footerHeight: 40px;
 
-.footer {
+.site-footer {
     background-color: $brown;
     bottom: 0;
     color: white;
     height: $footerHeight;
-    position: absolute;
+    position: fixed;
     text-align: center;
     text-shadow: 0 0 2px black;
     width: 100%;
+
+    footer {
+        line-height: $footerHeight;
+    }
 
     li {
         display: inline-block;
@@ -32,8 +36,4 @@ $footerHeight: 72px;
             visibility: visible;
         }
     }
-}
-
-footer {
-    padding-top: 24px;
 }

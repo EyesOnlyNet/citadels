@@ -1,18 +1,18 @@
 $headerHeight: 120px;
 
-.header {
+.site-header {
     background-color: $brown;
     color: white;
     height: $headerHeight;
     text-align: center;
     text-shadow: 0 0 2px black;
 
+    header {
+        padding-top: 24px;
+    }
+
     hr {
         bottom: 0;
         position: absolute;
     }
-}
-
-header {
-    padding-top: 24px;
 }
