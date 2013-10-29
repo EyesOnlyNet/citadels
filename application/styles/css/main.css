@@ -8,7 +8,7 @@ html * {
   position: relative; }
 
 /* line 12, X:/Coding/projects/citadels/application/styles/scss/modules/_borders.scss */
-input, button, .box {
+input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -47,7 +47,7 @@ input, button, .box {
       visibility: visible; }
 
 /* line 12, X:/Coding/projects/citadels/application/styles/scss/modules/_borders.scss */
-input, button, .box {
+input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -82,7 +82,7 @@ button {
     bottom: 0;
     position: absolute; }
 
-/* line 5, X:/Coding/projects/citadels/application/styles/scss/main.scss */
+/* line 5, ../scss/main.scss */
 html * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -91,56 +91,20 @@ html * {
   box-sizing: border-box;
   font-family: 'Amarante', cursive; }
 
-/* line 10, X:/Coding/projects/citadels/application/styles/scss/main.scss */
+/* line 10, ../scss/main.scss */
 html, body {
   height: 100%; }
 
-/* line 14, X:/Coding/projects/citadels/application/styles/scss/main.scss */
+/* line 14, ../scss/main.scss */
 .site-content {
   margin-bottom: 40px;
   overflow: auto; }
 
-/* line 19, X:/Coding/projects/citadels/application/styles/scss/main.scss */
+/* line 19, ../scss/main.scss */
 a {
   color: white; }
 
-/* line 23, X:/Coding/projects/citadels/application/styles/scss/main.scss */
+/* line 23, ../scss/main.scss */
 hr {
   box-shadow: 0 0 8px 0 black;
   width: 100%; }
-
-/* line 3, ../scss/list.scss */
-.box {
-  float: left;
-  margin: 40px;
-  overflow: auto;
-  width: 400px; }
-  /* line 10, ../scss/list.scss */
-  .box .header {
-    background-color: burlywood;
-    border-bottom: 1px solid #cccccc;
-    padding: 12px;
-    text-shadow: 1px 1px 1px white; }
-  /* line 18, ../scss/list.scss */
-  .box .content {
-    margin: 16px; }
-
-/* line 23, ../scss/list.scss */
-.games {
-  overflow: auto; }
-  /* line 27, ../scss/list.scss */
-  .games .content li {
-    overflow: auto; }
-  /* line 32, ../scss/list.scss */
-  .games .pending,
-  .games .in-progress {
-    width: 280px; }
-  /* line 36, ../scss/list.scss */
-  .games button {
-    float: right;
-    margin: 16px 0; }
-  /* line 41, ../scss/list.scss */
-  .games h5 {
-    border-bottom: 1px solid #cccccc;
-    margin-bottom: 8px;
-    padding-bottom: 8px; }

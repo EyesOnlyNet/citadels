@@ -53,7 +53,7 @@
                 </li>
 
                 <li class="in-progress box">
-                    <h4 class="header">hier bauen Sie</h4>
+                    <h4 class="header">hier bauen Sie gerade</h4>
                     <ul class="content">
                         <li>
                             <h5>Land #3</h5>

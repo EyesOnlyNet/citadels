@@ -21,9 +21,16 @@
 }
 
 .games {
-    li
+    overflow: auto;
+
+    .content li
     {
         overflow: auto;
+    }
+
+    .pending,
+    .in-progress {
+        width: 280px;
     }
 
     button {
