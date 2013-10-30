@@ -1,26 +1,10 @@
-@import "_reset.scss";
-@import "modules/_all.scss";
 @import url(http://fonts.googleapis.com/css?family=Amarante);
-
-html * {
-    @include box-sizing(border-box);
-    font-family: 'Amarante', cursive;
-}
-
-html, body {
-    height: 100%;
-}
-
-.site-content {
-    margin-bottom: $footerHeight;
-    overflow: auto;
-}
-
-a {
-    color: white;
-}
-
-hr {
-    box-shadow: 0 0 8px 0 black;
-    width: 100%;
-}
+@import "variables/colors";
+@import "compatibility";
+@import "reset";
+@import "base";
+@import "elements/borders";
+@import "elements/box";
+@import "elements/footer";
+@import "elements/forms";
+@import "elements/header";

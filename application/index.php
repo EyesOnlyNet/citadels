@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="../application/styles/css/main.css" type="text/css" />
         <link rel="stylesheet" href="../application/styles/css/index.css" type="text/css" />
         <title>Citadels - the Webversion</title>
     </head>

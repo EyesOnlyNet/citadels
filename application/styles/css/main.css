@@ -1,22 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Amarante);
 /* line 2, X:/Coding/projects/citadels/application/styles/scss/_reset.scss */
-html * {
+* {
   border: 0;
   list-style: none;
   margin: 0 auto;
   padding: 0;
   position: relative; }
 
-/* line 12, X:/Coding/projects/citadels/application/styles/scss/modules/_borders.scss */
-input, button {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #cccccc; }
-
-/* line 3, X:/Coding/projects/citadels/application/styles/scss/modules/_footer.scss */
+/* line 5, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
 .site-footer {
   background-color: sienna;
   bottom: 0;
@@ -26,64 +17,31 @@ input, button {
   text-align: center;
   text-shadow: 0 0 2px black;
   width: 100%; }
-  /* line 13, X:/Coding/projects/citadels/application/styles/scss/modules/_footer.scss */
+  /* line 15, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+  .site-footer a {
+    color: white; }
+  /* line 19, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
   .site-footer footer {
     line-height: 40px; }
-  /* line 17, X:/Coding/projects/citadels/application/styles/scss/modules/_footer.scss */
+  /* line 23, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
   .site-footer li {
     display: inline-block;
     margin: 0 12px; }
-    /* line 22, X:/Coding/projects/citadels/application/styles/scss/modules/_footer.scss */
+    /* line 28, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
     .site-footer li:before, .site-footer li:after {
       visibility: hidden; }
-    /* line 26, X:/Coding/projects/citadels/application/styles/scss/modules/_footer.scss */
+    /* line 32, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
     .site-footer li:before {
       content: "[ "; }
-    /* line 30, X:/Coding/projects/citadels/application/styles/scss/modules/_footer.scss */
+    /* line 36, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
     .site-footer li:after {
       content: " ]"; }
-    /* line 35, X:/Coding/projects/citadels/application/styles/scss/modules/_footer.scss */
+    /* line 41, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
     .site-footer li:hover:before, .site-footer li:hover:after {
       visibility: visible; }
 
-/* line 12, X:/Coding/projects/citadels/application/styles/scss/modules/_borders.scss */
-input, button {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #cccccc; }
-
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/modules/_forms.scss */
-input, button {
-  padding: 8px 16px; }
-  /* line 9, X:/Coding/projects/citadels/application/styles/scss/modules/_forms.scss */
-  input:hover, input:focus, button:hover, button:focus {
-    border-color: sienna;
-    box-shadow: 0 0 8px burlywood inset; }
-
-/* line 15, X:/Coding/projects/citadels/application/styles/scss/modules/_forms.scss */
-button {
-  background-color: burlywood; }
-
-/* line 3, X:/Coding/projects/citadels/application/styles/scss/modules/_header.scss */
-.site-header {
-  background-color: sienna;
-  color: white;
-  height: 120px;
-  text-align: center;
-  text-shadow: 0 0 2px black; }
-  /* line 10, X:/Coding/projects/citadels/application/styles/scss/modules/_header.scss */
-  .site-header header {
-    padding-top: 24px; }
-  /* line 14, X:/Coding/projects/citadels/application/styles/scss/modules/_header.scss */
-  .site-header hr {
-    bottom: 0;
-    position: absolute; }
-
-/* line 5, ../scss/main.scss */
-html * {
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/_base.scss */
+* {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -91,20 +49,110 @@ html * {
   box-sizing: border-box;
   font-family: 'Amarante', cursive; }
 
-/* line 10, ../scss/main.scss */
+/* line 9, X:/Coding/projects/citadels/application/styles/scss/_base.scss */
 html, body {
   height: 100%; }
 
-/* line 14, ../scss/main.scss */
+/* line 13, X:/Coding/projects/citadels/application/styles/scss/_base.scss */
 .site-content {
   margin-bottom: 40px;
   overflow: auto; }
 
-/* line 19, ../scss/main.scss */
-a {
-  color: white; }
-
-/* line 23, ../scss/main.scss */
+/* line 18, X:/Coding/projects/citadels/application/styles/scss/_base.scss */
 hr {
   box-shadow: 0 0 8px 0 black;
   width: 100%; }
+
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/_borders.scss */
+.box, input, button {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #cccccc; }
+
+/* line 1, X:/Coding/projects/citadels/application/styles/scss/elements/_box.scss */
+.box {
+  float: left;
+  margin: 40px;
+  overflow: auto;
+  width: 400px; }
+  /* line 8, X:/Coding/projects/citadels/application/styles/scss/elements/_box.scss */
+  .box .header {
+    background-color: burlywood;
+    border-bottom: 1px solid #cccccc;
+    padding: 12px;
+    text-shadow: 1px 1px 1px white; }
+  /* line 16, X:/Coding/projects/citadels/application/styles/scss/elements/_box.scss */
+  .box .content {
+    margin: 16px; }
+
+/* line 5, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+.site-footer {
+  background-color: sienna;
+  bottom: 0;
+  color: white;
+  height: 40px;
+  position: fixed;
+  text-align: center;
+  text-shadow: 0 0 2px black;
+  width: 100%; }
+  /* line 15, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+  .site-footer a {
+    color: white; }
+  /* line 19, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+  .site-footer footer {
+    line-height: 40px; }
+  /* line 23, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+  .site-footer li {
+    display: inline-block;
+    margin: 0 12px; }
+    /* line 28, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+    .site-footer li:before, .site-footer li:after {
+      visibility: hidden; }
+    /* line 32, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+    .site-footer li:before {
+      content: "[ "; }
+    /* line 36, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+    .site-footer li:after {
+      content: " ]"; }
+    /* line 41, X:/Coding/projects/citadels/application/styles/scss/elements/_footer.scss */
+    .site-footer li:hover:before, .site-footer li:hover:after {
+      visibility: visible; }
+
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/_borders.scss */
+.box, input, button {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #cccccc; }
+
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/_forms.scss */
+input, button {
+  padding: 8px 16px; }
+  /* line 9, X:/Coding/projects/citadels/application/styles/scss/elements/_forms.scss */
+  input:hover, input:focus, button:hover, button:focus {
+    border-color: sienna;
+    box-shadow: 0 0 8px burlywood inset; }
+
+/* line 15, X:/Coding/projects/citadels/application/styles/scss/elements/_forms.scss */
+button {
+  background-color: burlywood; }
+
+/* line 5, X:/Coding/projects/citadels/application/styles/scss/elements/_header.scss */
+.site-header {
+  background-color: sienna;
+  color: white;
+  height: 120px;
+  text-align: center;
+  text-shadow: 0 0 2px black; }
+  /* line 12, X:/Coding/projects/citadels/application/styles/scss/elements/_header.scss */
+  .site-header header {
+    padding-top: 24px; }
+  /* line 16, X:/Coding/projects/citadels/application/styles/scss/elements/_header.scss */
+  .site-header hr {
+    bottom: 0;
+    position: absolute; }

@@ -1,0 +1,17 @@
+@import "../variables/colors";
+@import "borders";
+
+input, button {
+    @extend %border-lightgray-rounded;
+
+    padding: 8px 16px;
+
+    &:hover, &:focus {
+        border-color: $colorBrown;
+        box-shadow: 0 0 8px $colorLightBrown inset;
+    }
+}
+
+button {
+    background-color: $colorLightBrown;
+}

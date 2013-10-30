@@ -1,7 +1,9 @@
+@import "../variables/colors";
+
 $headerHeight: 120px;
 
 .site-header {
-    background-color: $brown;
+    background-color: $colorBrown;
     color: white;
     height: $headerHeight;
     text-align: center;

@@ -1,7 +1,9 @@
+@import "../variables/colors";
+
 $footerHeight: 40px;
 
 .site-footer {
-    background-color: $brown;
+    background-color: $colorBrown;
     bottom: 0;
     color: white;
     height: $footerHeight;
@@ -9,6 +11,10 @@ $footerHeight: 40px;
     text-align: center;
     text-shadow: 0 0 2px black;
     width: 100%;
+
+    a {
+        color: white;
+    }
 
     footer {
         line-height: $footerHeight;

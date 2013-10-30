@@ -1,46 +1,38 @@
-@import "main.scss";
+@import "variables/colors";
+@import "elements/borders";
 
-.box {
-    @extend %border-lightgray-rounded;
-    float: left;
-    margin: 40px;
-    overflow: auto;
-    width: 400px;
-
-    .header {
-        background-color: $lightBrown;
-        border-bottom: 1px solid $lightGray;
-        padding: 12px;
-        text-shadow: 1px 1px 1px white;
-
-    }
-
-    .content {
-        margin: 16px;
-    }
-}
-
-.games {
-    overflow: auto;
-
-    .content li
-    {
-        overflow: auto;
-    }
-
-    .pending,
-    .in-progress {
-        width: 280px;
-    }
-
+.create-game {
     button {
         float: right;
         margin: 16px 0;
     }
 
-    h5 {
-        border-bottom: 1px solid $lightGray;
-        margin-bottom: 8px;
-        padding-bottom: 8px;
+}
+
+.game-pending,
+.game-in-progress {
+    width: 280px;
+
+    button {
+        padding: 4px;
+        position: absolute;
+        right: 8px;
+        top: 0;
     }
+}
+
+.content > li {
+    margin-bottom: 16px;
+    overflow: auto;
+}
+
+.list > li {
+    line-height: 24px;
+    padding-left: 8px;
+}
+
+h5 {
+    padding: 8px;
+    border-bottom: 1px solid $colorLightGray;
+    margin-bottom: 8px;
 }
