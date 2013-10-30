@@ -1,0 +1,32 @@
+/* line 5, ../scss/list.scss */
+.create-game button {
+  float: right;
+  margin: 16px 0; }
+
+/* line 13, ../scss/list.scss */
+.game-pending,
+.game-in-progress {
+  width: 280px; }
+  /* line 16, ../scss/list.scss */
+  .game-pending button,
+  .game-in-progress button {
+    padding: 4px;
+    position: absolute;
+    right: 8px;
+    top: 0; }
+
+/* line 24, ../scss/list.scss */
+.content > li {
+  margin-bottom: 16px;
+  overflow: auto; }
+
+/* line 29, ../scss/list.scss */
+.list > li {
+  line-height: 24px;
+  padding-left: 8px; }
+
+/* line 34, ../scss/list.scss */
+h5 {
+  padding: 8px;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 8px; }

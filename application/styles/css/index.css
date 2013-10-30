@@ -1,0 +1,23 @@
+/* line 1, ../scss/index.scss */
+body {
+  text-align: center; }
+
+/* line 5, ../scss/index.scss */
+.site-content {
+  margin-top: -160px;
+  top: 40%; }
+
+/* line 11, ../scss/index.scss */
+form label, form input, form button {
+  display: block;
+  margin: 0px auto; }
+/* line 16, ../scss/index.scss */
+form label {
+  font-size: 24px;
+  margin-bottom: 40px; }
+/* line 21, ../scss/index.scss */
+form input {
+  height: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 400px; }
