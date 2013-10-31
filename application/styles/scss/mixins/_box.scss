@@ -1,0 +1,11 @@
+@import "../variables/colors";
+
+%box-inner-shadow-brown {
+    border-color: $colorBrown;
+    box-shadow: 0 0 8px $colorLightBrown inset;
+}
+
+%box-inner-shadow-gray {
+    border-color: $colorGray;
+    box-shadow: 0 0 8px $colorLightGray inset;
+}

@@ -1,16 +1,18 @@
 @import "../variables/colors";
-
-$headerHeight: 120px;
+@import "../variables/dimensions";
 
 .site-header {
     background-color: $colorBrown;
     color: white;
     height: $headerHeight;
     text-align: center;
-    text-shadow: 0 0 2px black;
 
     header {
         padding-top: 24px;
+
+        * {
+            text-shadow: 0 0 2px black;
+        }
     }
 
     hr {

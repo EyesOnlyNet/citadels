@@ -1,6 +1,5 @@
 @import "../variables/colors";
-
-$footerHeight: 40px;
+@import "../variables/dimensions";
 
 .site-footer {
     background-color: $colorBrown;
@@ -9,7 +8,6 @@ $footerHeight: 40px;
     height: $footerHeight;
     position: fixed;
     text-align: center;
-    text-shadow: 0 0 2px black;
     width: 100%;
 
     a {
@@ -18,6 +16,10 @@ $footerHeight: 40px;
 
     footer {
         line-height: $footerHeight;
+
+        * {
+            text-shadow: 0 0 2px black;
+        }
     }
 
     li {

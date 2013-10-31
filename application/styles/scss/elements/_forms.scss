@@ -1,6 +1,6 @@
 @import "../variables/colors";
-@import "borders";
-@import "box";
+@import "../mixins/borders";
+@import "../mixins/box";
 
 input, button {
     @extend %border-lightgray-rounded;

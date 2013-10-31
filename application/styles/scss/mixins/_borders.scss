@@ -1,5 +1,5 @@
 @import "../variables/colors";
-@import "../compatibility";
+@import "../mixins/compatibility";
 
 %border-lightgray-rounded {
     @include border-radius(4px);
