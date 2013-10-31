@@ -4,20 +4,20 @@
   margin: 16px 0; }
 
 /* line 13, ../scss/list.scss */
-.game-pending,
-.game-in-progress {
+.box.game-pending,
+.box.game-in-progress {
   width: 280px; }
   /* line 16, ../scss/list.scss */
-  .game-pending button,
-  .game-in-progress button {
+  .box.game-pending button,
+  .box.game-in-progress button {
     padding: 4px;
     position: absolute;
     right: 8px;
-    top: 0; }
+    top: 8px; }
 
 /* line 24, ../scss/list.scss */
 .content > li {
-  margin-bottom: 16px;
+  padding: 8px 0;
   overflow: auto; }
 
 /* line 29, ../scss/list.scss */

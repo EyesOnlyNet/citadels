@@ -1,0 +1,25 @@
+@import "../variables/colors";
+@import "../elements/box";
+
+.characters {
+    li {
+        border: 1px solid white;
+        padding: 8px 12px;
+
+        &.not-available {
+            color: $colorLightGray;
+
+            &:hover {
+                @extend %box-inner-shadow-gray;
+            }
+        }
+
+        &.out {
+            color: $colorLightBrown;
+        }
+
+        &:hover {
+            @extend %box-inner-shadow-brown;
+        }
+    }
+}
