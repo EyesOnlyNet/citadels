@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../application/styles/css/partials/characters.css" type="text/css" />
+<link rel="stylesheet" href="../application/styles/css/partials/character-choice.css" type="text/css" />
 
 <div class="box characters">
     <h4 class="header">Wähle deine Gesinnung</h4>

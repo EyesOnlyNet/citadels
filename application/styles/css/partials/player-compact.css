@@ -1,0 +1,24 @@
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_borders.scss */
+.player {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #cccccc; }
+
+/* line 4, ../../scss/partials/player-compact.scss */
+.player {
+  display: inline-block;
+  padding: 8px; }
+  /* line 9, ../../scss/partials/player-compact.scss */
+  .player .name {
+    background-color: burlywood; }
+  /* line 13, ../../scss/partials/player-compact.scss */
+  .player .statistic {
+    margin-top: 12px;
+    overflow: auto; }
+    /* line 17, ../../scss/partials/player-compact.scss */
+    .player .statistic li {
+      float: left;
+      width: 28px; }

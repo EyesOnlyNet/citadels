@@ -1,0 +1,22 @@
+@import "../variables/colors";
+@import "../mixins/borders";
+
+.player {
+    @extend %border-lightgray-rounded;
+    display: inline-block;
+    padding: 8px;
+
+    .name {
+        background-color: $colorLightBrown;
+    }
+
+    .statistic {
+        margin-top: 12px;
+        overflow: auto;
+
+        li {
+            float: left;
+            width: 28px;
+        }
+    }
+}

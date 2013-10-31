@@ -2,6 +2,9 @@
 @import "../mixins/box";
 
 .characters {
+    text-align: center;
+    width: 200px;
+
     li {
         border: 1px solid white;
         padding: 8px 12px;

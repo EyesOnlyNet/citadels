@@ -1,0 +1,9 @@
+/* line 1, ../../../scss/partials/boxes/games-pending.scss */
+.box.games-pending {
+  width: 280px; }
+  /* line 4, ../../../scss/partials/boxes/games-pending.scss */
+  .box.games-pending button {
+    padding: 4px;
+    position: absolute;
+    right: 8px;
+    top: 8px; }

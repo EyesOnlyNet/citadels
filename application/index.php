@@ -25,14 +25,7 @@
         </div>
 
         <div class="site-footer">
-            <hr />
-            <footer>
-                <ul>
-                    <li><a href="http://www.brettspielwelt.de/Hilfe/Anleitungen/OhneFurchtUndAdel/" target="_blank">How To</a></li>
-                    <li><a href="http://de.wikipedia.org/wiki/Ohne_Furcht_und_Adel" target="_blank">Wikipedia</a></li>
-                    <li>Version: dev-20131027</li>
-                </ul>
-            </footer>
+            <?php include './views/partials/footer.php'; ?>
         </div>
     </body>
 </html>

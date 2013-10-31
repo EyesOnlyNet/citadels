@@ -1,25 +1,4 @@
 @import "variables/colors";
-@import "elements/borders";
-
-.create-game {
-    button {
-        float: right;
-        margin: 16px 0;
-    }
-
-}
-
-.box.game-pending,
-.box.game-in-progress {
-    width: 280px;
-
-    button {
-        padding: 4px;
-        position: absolute;
-        right: 8px;
-        top: 8px;
-    }
-}
 
 .content > li {
     padding: 8px 0;

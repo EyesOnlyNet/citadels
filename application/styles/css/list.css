@@ -1,31 +1,14 @@
-/* line 5, ../scss/list.scss */
-.create-game button {
-  float: right;
-  margin: 16px 0; }
-
-/* line 13, ../scss/list.scss */
-.box.game-pending,
-.box.game-in-progress {
-  width: 280px; }
-  /* line 16, ../scss/list.scss */
-  .box.game-pending button,
-  .box.game-in-progress button {
-    padding: 4px;
-    position: absolute;
-    right: 8px;
-    top: 8px; }
-
-/* line 24, ../scss/list.scss */
+/* line 3, ../scss/list.scss */
 .content > li {
   padding: 8px 0;
   overflow: auto; }
 
-/* line 29, ../scss/list.scss */
+/* line 8, ../scss/list.scss */
 .list > li {
   line-height: 24px;
   padding-left: 8px; }
 
-/* line 34, ../scss/list.scss */
+/* line 13, ../scss/list.scss */
 h5 {
   padding: 8px;
   border-bottom: 1px solid #cccccc;

@@ -3,23 +3,24 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="../application/styles/css/main.css" type="text/css" />
-        <link rel="stylesheet" href="../application/styles/css/list.css" type="text/css" />
-        <title>Citadels - game list</title>
+        <link rel="stylesheet" href="../application/styles/css/field.css" type="text/css" />
+        <title>Citadels - game field</title>
     </head>
 
     <body>
         <div class="site-header">
             <header>
-                <h1>Willkommen [Spielername]</h1>
-                <h2>- Spielliste -</h2>
+                <ul>
+                    <li>
+                        <?php include './views/partials/player-compact.php'; ?>
+                    </li>
+                </ul>
             </header>
             <hr />
         </div>
 
         <div class="site-content">
-            <?php include './views/partials/boxes/create-game.php'; ?>
-            <?php include './views/partials/boxes/games-pending.php'; ?>
-            <?php include './views/partials/boxes/games-in-progress.php'; ?>
+            <?php include './views/partials/character-choice.php'; ?>
         </div>
 
         <div class="site-footer">

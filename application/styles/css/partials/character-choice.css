@@ -1,0 +1,24 @@
+/* line 3, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.characters li:hover {
+  border-color: sienna;
+  box-shadow: 0 0 8px burlywood inset; }
+
+/* line 8, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.characters li.not-available:hover {
+  border-color: gray;
+  box-shadow: 0 0 8px #cccccc inset; }
+
+/* line 4, ../../scss/partials/character-choice.scss */
+.characters {
+  text-align: center;
+  width: 200px; }
+  /* line 8, ../../scss/partials/character-choice.scss */
+  .characters li {
+    border: 1px solid white;
+    padding: 8px 12px; }
+    /* line 12, ../../scss/partials/character-choice.scss */
+    .characters li.not-available {
+      color: #cccccc; }
+    /* line 20, ../../scss/partials/character-choice.scss */
+    .characters li.out {
+      color: burlywood; }

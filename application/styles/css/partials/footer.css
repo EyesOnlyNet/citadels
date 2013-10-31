@@ -1,0 +1,34 @@
+/* line 4, ../../scss/partials/footer.scss */
+.site-footer {
+  background-color: sienna;
+  bottom: 0;
+  color: white;
+  height: 40px;
+  position: fixed;
+  text-align: center;
+  width: 100%; }
+  /* line 13, ../../scss/partials/footer.scss */
+  .site-footer a {
+    color: white; }
+  /* line 17, ../../scss/partials/footer.scss */
+  .site-footer footer {
+    line-height: 40px; }
+    /* line 20, ../../scss/partials/footer.scss */
+    .site-footer footer * {
+      text-shadow: 0 0 2px black; }
+  /* line 25, ../../scss/partials/footer.scss */
+  .site-footer li {
+    display: inline-block;
+    margin: 0 12px; }
+    /* line 30, ../../scss/partials/footer.scss */
+    .site-footer li:before, .site-footer li:after {
+      visibility: hidden; }
+    /* line 34, ../../scss/partials/footer.scss */
+    .site-footer li:before {
+      content: "[ "; }
+    /* line 38, ../../scss/partials/footer.scss */
+    .site-footer li:after {
+      content: " ]"; }
+    /* line 43, ../../scss/partials/footer.scss */
+    .site-footer li:hover:before, .site-footer li:hover:after {
+      visibility: visible; }
