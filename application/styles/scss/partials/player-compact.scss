@@ -1,7 +1,7 @@
 @import "../variables/colors";
 @import "../mixins/borders";
 
-.player {
+.player-compact {
     @extend %border-lightgray-rounded;
     display: inline-block;
     padding: 8px;
@@ -15,8 +15,14 @@
         overflow: auto;
 
         li {
+            border-left: 1px solid $colorLightBrown;
             float: left;
-            width: 28px;
+            padding: 0 4px;
+            width: 32px;
+
+            &:first-of-type {
+                border: 0;
+            }
         }
     }
 }

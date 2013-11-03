@@ -1,0 +1,90 @@
+@import "../mixins/borders";
+
+.card {
+    @extend %border-lightgray-rounded;
+    background-color: white;
+    height: 172px;
+    width: 112px;
+
+    .name {
+        @extend %border-lightgray-rounded;
+        height: 20px;
+        margin: 8px;
+    }
+
+    .points {
+        display: inline-block;
+        left: 8px;
+        line-height: 8px;
+    }
+
+    .point {
+        width: 96px;
+    }
+
+    .effect {
+        bottom: 0;
+        height: 24px;
+        margin: 8px;
+        position: absolute;
+        width: 96px;
+    }
+}
+
+.player
+{
+    overflow: auto;
+    margin: 16px 8px;
+    width: 480px;
+
+    .character,
+    .calculations,
+    .name {
+        @extend %border-lightgray-rounded;
+    }
+
+    > .name {
+        padding: 8px 12px;
+        width: 100%;
+    }
+
+    .statistic {
+        float: left;
+        text-align: center;
+    }
+
+    .character {
+        height: 120px;
+        margin-top: 12px;
+        width: 80px;
+    }
+
+    .calculations {
+        margin-top: 12px;
+        padding: 8px;
+    }
+
+    .calculations .gold,
+    .calculations .points {
+        display: inline-block;
+        width: 28px;
+    }
+
+    .cards {
+        margin: 12px 0 0 92px;
+        overflow: auto;
+    }
+
+    .card {
+        float: left;
+        margin-left: -20px;
+
+        &:hover {
+            z-index: 1;
+        }
+
+        &:first-child {
+            margin: 0;
+        }
+    }
+}

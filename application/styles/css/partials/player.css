@@ -1,0 +1,77 @@
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_borders.scss */
+.card, .card .name, .player .character,
+.player .calculations,
+.player .name {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #cccccc; }
+
+/* line 3, ../../scss/partials/player.scss */
+.card {
+  background-color: white;
+  height: 172px;
+  width: 112px; }
+  /* line 9, ../../scss/partials/player.scss */
+  .card .name {
+    height: 20px;
+    margin: 8px; }
+  /* line 15, ../../scss/partials/player.scss */
+  .card .points {
+    display: inline-block;
+    left: 8px;
+    line-height: 8px; }
+  /* line 21, ../../scss/partials/player.scss */
+  .card .point {
+    width: 96px; }
+  /* line 25, ../../scss/partials/player.scss */
+  .card .effect {
+    bottom: 0;
+    height: 24px;
+    margin: 8px;
+    position: absolute;
+    width: 96px; }
+
+/* line 35, ../../scss/partials/player.scss */
+.player {
+  overflow: auto;
+  margin: 16px 8px;
+  width: 480px; }
+  /* line 46, ../../scss/partials/player.scss */
+  .player > .name {
+    padding: 8px 12px;
+    width: 100%; }
+  /* line 51, ../../scss/partials/player.scss */
+  .player .statistic {
+    float: left;
+    text-align: center; }
+  /* line 56, ../../scss/partials/player.scss */
+  .player .character {
+    height: 120px;
+    margin-top: 12px;
+    width: 80px; }
+  /* line 62, ../../scss/partials/player.scss */
+  .player .calculations {
+    margin-top: 12px;
+    padding: 8px; }
+  /* line 68, ../../scss/partials/player.scss */
+  .player .calculations .gold,
+  .player .calculations .points {
+    display: inline-block;
+    width: 28px; }
+  /* line 73, ../../scss/partials/player.scss */
+  .player .cards {
+    margin: 12px 0 0 92px;
+    overflow: auto; }
+  /* line 78, ../../scss/partials/player.scss */
+  .player .card {
+    float: left;
+    margin-left: -20px; }
+    /* line 82, ../../scss/partials/player.scss */
+    .player .card:hover {
+      z-index: 1; }
+    /* line 86, ../../scss/partials/player.scss */
+    .player .card:first-child {
+      margin: 0; }

@@ -1,5 +1,5 @@
 /* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_borders.scss */
-.player {
+.player-compact {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -8,17 +8,22 @@
   border: 1px solid #cccccc; }
 
 /* line 4, ../../scss/partials/player-compact.scss */
-.player {
+.player-compact {
   display: inline-block;
   padding: 8px; }
   /* line 9, ../../scss/partials/player-compact.scss */
-  .player .name {
+  .player-compact .name {
     background-color: burlywood; }
   /* line 13, ../../scss/partials/player-compact.scss */
-  .player .statistic {
+  .player-compact .statistic {
     margin-top: 12px;
     overflow: auto; }
     /* line 17, ../../scss/partials/player-compact.scss */
-    .player .statistic li {
+    .player-compact .statistic li {
+      border-left: 1px solid burlywood;
       float: left;
-      width: 28px; }
+      padding: 0 4px;
+      width: 32px; }
+      /* line 23, ../../scss/partials/player-compact.scss */
+      .player-compact .statistic li:first-of-type {
+        border: 0; }
