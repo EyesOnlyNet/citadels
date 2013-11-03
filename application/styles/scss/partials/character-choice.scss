@@ -11,9 +11,10 @@
 
         &.not-available {
             color: $colorLightGray;
+            text-shadow: 0 0 0;
 
             &:hover {
-                @extend %box-inner-shadow-gray;
+                @extend %boxInnerShadowLightGray;
             }
         }
 
@@ -22,7 +23,7 @@
         }
 
         &:hover {
-            @extend %box-inner-shadow-brown;
+            @extend %boxInnerShadowBrown;
         }
     }
 }

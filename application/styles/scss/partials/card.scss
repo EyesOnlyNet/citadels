@@ -1,0 +1,31 @@
+@import "../mixins/borders";
+
+.card {
+    @extend %borderRoundedLightGray;
+    background-color: white;
+    height: 172px;
+    width: 112px;
+
+    .label {
+        height: 20px;
+        margin: 8px;
+    }
+
+    .costs {
+        display: inline-block;
+        left: 8px;
+        line-height: 8px;
+    }
+
+    .cost {
+        width: 96px;
+    }
+
+    .effect {
+        bottom: 0;
+        height: 24px;
+        margin: 8px;
+        position: absolute;
+        width: 96px;
+    }
+}

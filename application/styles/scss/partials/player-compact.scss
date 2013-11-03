@@ -1,13 +1,14 @@
 @import "../variables/colors";
+@import "../mixins/box";
 @import "../mixins/borders";
 
 .player-compact {
-    @extend %border-lightgray-rounded;
+    @extend %borderRoundedLightGray;
     display: inline-block;
     padding: 8px;
 
     .name {
-        background-color: $colorLightBrown;
+        @extend %boxColorLightBrown;
     }
 
     .statistic {

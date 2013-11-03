@@ -3,12 +3,11 @@
 @import "../mixins/box";
 
 input, button {
-    @extend %border-lightgray-rounded;
-
+    @extend %borderRoundedLightGray;
     padding: 8px 16px;
 
     &:hover, &:focus {
-        @extend %box-inner-shadow-brown;
+        @extend %boxInnerShadowBrown;
     }
 }
 

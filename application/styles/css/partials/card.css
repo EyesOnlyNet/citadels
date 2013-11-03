@@ -1,0 +1,33 @@
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_borders.scss */
+.card {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  border: 1px solid #cccccc; }
+
+/* line 3, ../../scss/partials/card.scss */
+.card {
+  background-color: white;
+  height: 172px;
+  width: 112px; }
+  /* line 9, ../../scss/partials/card.scss */
+  .card .label {
+    height: 20px;
+    margin: 8px; }
+  /* line 14, ../../scss/partials/card.scss */
+  .card .costs {
+    display: inline-block;
+    left: 8px;
+    line-height: 8px; }
+  /* line 20, ../../scss/partials/card.scss */
+  .card .cost {
+    width: 96px; }
+  /* line 24, ../../scss/partials/card.scss */
+  .card .effect {
+    bottom: 0;
+    height: 24px;
+    margin: 8px;
+    position: absolute;
+    width: 96px; }

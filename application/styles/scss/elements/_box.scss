@@ -1,18 +1,18 @@
 @import "../variables/colors";
+@import "../mixins/box";
 @import "../mixins/borders";
 
 .box {
-    @extend %border-lightgray-rounded;
+    @extend %borderRoundedLightGray;
     float: left;
     margin: 40px;
     overflow: auto;
     width: 400px;
 
     .header {
-        background-color: $colorLightBrown;
+        @extend %boxColorLightBrown;
         border-bottom: 1px solid $colorLightGray;
         padding: 12px;
-        text-shadow: 1px 1px 1px white;
 
     }
 

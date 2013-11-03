@@ -1,52 +1,29 @@
 <link rel="stylesheet" href="../application/styles/css/partials/player.css" type="text/css" />
 
 <div class="player">
-    <div class="name">name</div>
-
     <div class="statistic">
-        <div class="character">character</div>
+        <div class="character">Dieb</div>
         <ul class="calculations">
             <li class="gold">
                 <div>gld</div>
-                <div>0</div>
+                <div>11</div>
             </li>
-            <li class="points">
-                <div>pts</div>
-                <div>0</div>
+            <li class="cards">
+                <div>crd</div>
+                <div>3</div>
             </li>
         </ul>
     </div>
 
-    <ul class="cards">
-        <li class="card">
-            <div class="name">name</div>
-            <ul class="points">
-                <li class="point">*</li>
-                <li class="point">*</li>
-            </ul>
-        </li>
-        <li class="card">
-            <div class="name">name</div>
-            <ul class="points">
-                <li class="point">*</li>
-                <li class="point">*</li>
-                <li class="point">*</li>
-                <li class="point">*</li>
-            </ul>
-        </li>
-        <li class="card">
-            <div class="name">name</div>
-            <ul class="points">
-                <li class="point">*</li>
-            </ul>
-            <div class="effect">effect</div>
-        </li>
-        <li class="card">
-            <div class="name">name</div>
-            <ul class="points">
-                <li class="point">*</li>
-                <li class="point">*</li>
-            </ul>
-        </li>
+    <div class="info">
+        <div class="is-king">iskng</div>
+        <div class="name">name</div>
+    </div>
+
+    <ul class="buildings">
+        <?php include './views/partials/card.php'; ?>
+        <?php include './views/partials/card.php'; ?>
+        <?php include './views/partials/card.php'; ?>
+        <?php include './views/partials/card.php'; ?>
     </ul>
 </div>

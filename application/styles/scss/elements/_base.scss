@@ -3,7 +3,7 @@
 @import "../mixins/borders";
 
 * {
-    @include box-sizing(border-box);
+    @include boxSizing(border-box);
     font-family: 'Amarante', cursive;
     text-shadow: 0px 0px 1px $colorLightBrown;
 }

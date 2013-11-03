@@ -1,7 +1,7 @@
 @import "../variables/colors";
 @import "../mixins/compatibility";
 
-%border-lightgray-rounded {
-    @include border-radius(4px);
+%borderRoundedLightGray {
+    @include borderRadius(4px);
     border: 1px solid $colorLightGray;
 }
