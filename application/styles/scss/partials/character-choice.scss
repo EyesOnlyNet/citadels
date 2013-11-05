@@ -1,6 +1,6 @@
-@import "../variables/characters";
 @import "../variables/colors";
 @import "../variables/dimensions";
+@import "../variables/maps";
 @import "../mixins/box";
 @import "../mixins/icon";
 
@@ -22,9 +22,9 @@
             z-index: -1;
         }
 
-        @each $char in $charList {
+        @each $char in $listChar {
             &.#{$char}:before {
-                @include iconCharacterBg($iconCharWidth * (index($charList, $char) - 1));
+                @include iconCharacterBg($iconCharWidth * (index($listChar, $char) - 1));
             }
         }
 

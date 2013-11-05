@@ -1,5 +1,5 @@
-@import "../variables/characters";
 @import "../variables/dimensions";
+@import "../variables/maps";
 @import "../mixins/border";
 @import "../mixins/icon";
 
@@ -48,9 +48,9 @@
                 z-index: -1;
             }
 
-            @each $char in $charList {
+            @each $char in $listChar {
                 &.#{$char}:before {
-                    @include iconCharacterBg($iconCharWidth * (index($charList, $char) - 1));
+                    @include iconCharacterBg($iconCharWidth * (index($listChar, $char) - 1));
                 }
             }
         }
@@ -76,9 +76,10 @@
     .card {
         float: left;
         margin-left: -84px;
+        z-index: 1;
 
         &:hover {
-            z-index: 1;
+            z-index: 2;
         }
 
         &:first-of-type {

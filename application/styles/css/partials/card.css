@@ -7,27 +7,41 @@
   border-radius: 4px;
   border: 1px solid #cccccc; }
 
-/* line 3, ../../scss/partials/card.scss */
+/* line 5, ../../scss/partials/card.scss */
 .card {
   background-color: white;
   height: 172px;
+  text-align: center;
   width: 120px; }
-  /* line 9, ../../scss/partials/card.scss */
+  /* line 12, ../../scss/partials/card.scss */
   .card .label {
-    height: 20px;
-    margin: 8px; }
-  /* line 14, ../../scss/partials/card.scss */
-  .card .costs {
-    display: inline-block;
-    left: 8px;
-    line-height: 8px; }
-  /* line 20, ../../scss/partials/card.scss */
-  .card .cost {
-    width: 96px; }
-  /* line 24, ../../scss/partials/card.scss */
+    border-bottom: 1px solid #cccccc;
+    margin: 0 8px;
+    padding: 8px 0; }
+  /* line 18, ../../scss/partials/card.scss */
   .card .effect {
+    padding: 4px 0; }
+  /* line 22, ../../scss/partials/card.scss */
+  .card .cost {
+    border-radius: 0 4px;
+    border-right: 1px solid lightgray;
+    border-top: 1px solid lightgray;
     bottom: 0;
-    height: 24px;
-    margin: 8px;
+    left: 0;
     position: absolute;
-    width: 96px; }
+    width: 24px; }
+  /* line 36, ../../scss/partials/card.scss */
+  .card.kng .cost {
+    background-color: gold; }
+  /* line 36, ../../scss/partials/card.scss */
+  .card.prs .cost {
+    background-color: lightskyblue; }
+  /* line 36, ../../scss/partials/card.scss */
+  .card.chn .cost {
+    background-color: lawngreen; }
+  /* line 36, ../../scss/partials/card.scss */
+  .card.mry .cost {
+    background-color: tomato; }
+  /* line 36, ../../scss/partials/card.scss */
+  .card.ntr .cost {
+    background-color: violet; }

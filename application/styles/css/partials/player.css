@@ -99,10 +99,11 @@
   /* line 76, ../../scss/partials/player.scss */
   .player .card {
     float: left;
-    margin-left: -84px; }
-    /* line 80, ../../scss/partials/player.scss */
+    margin-left: -84px;
+    z-index: 1; }
+    /* line 81, ../../scss/partials/player.scss */
     .player .card:hover {
-      z-index: 1; }
-    /* line 84, ../../scss/partials/player.scss */
+      z-index: 2; }
+    /* line 85, ../../scss/partials/player.scss */
     .player .card:first-of-type {
       margin: 0; }
