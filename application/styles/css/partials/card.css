@@ -31,17 +31,32 @@
     position: absolute;
     width: 24px; }
   /* line 36, ../../scss/partials/card.scss */
-  .card.kng .cost {
-    background-color: gold; }
+  .card.kng {
+    border-color: gold; }
+    /* line 39, ../../scss/partials/card.scss */
+    .card.kng .cost {
+      background-color: gold; }
   /* line 36, ../../scss/partials/card.scss */
-  .card.prs .cost {
-    background-color: lightskyblue; }
+  .card.prs {
+    border-color: lightskyblue; }
+    /* line 39, ../../scss/partials/card.scss */
+    .card.prs .cost {
+      background-color: lightskyblue; }
   /* line 36, ../../scss/partials/card.scss */
-  .card.chn .cost {
-    background-color: lawngreen; }
+  .card.chn {
+    border-color: lawngreen; }
+    /* line 39, ../../scss/partials/card.scss */
+    .card.chn .cost {
+      background-color: lawngreen; }
   /* line 36, ../../scss/partials/card.scss */
-  .card.mry .cost {
-    background-color: tomato; }
+  .card.mry {
+    border-color: tomato; }
+    /* line 39, ../../scss/partials/card.scss */
+    .card.mry .cost {
+      background-color: tomato; }
   /* line 36, ../../scss/partials/card.scss */
-  .card.ntr .cost {
-    background-color: violet; }
+  .card.ntr {
+    border-color: violet; }
+    /* line 39, ../../scss/partials/card.scss */
+    .card.ntr .cost {
+      background-color: violet; }

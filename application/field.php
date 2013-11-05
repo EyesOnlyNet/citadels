@@ -22,6 +22,7 @@
         <div class="site-content">
             <?php include './views/partials/character-choice.php'; ?>
             <?php include './views/partials/player.php'; ?>
+            <?php include './views/partials/hand.php'; ?>
         </div>
 
         <div class="site-footer">

@@ -33,8 +33,12 @@
         $char: nth($charColor, 1);
         $color: nth($charColor, 2);
 
-        &.#{$char} .cost {
-            background-color: $color;
+        &.#{$char} {
+            border-color: $color;
+            
+            .cost {
+                background-color: $color;
+            }
         }
     }
 }
