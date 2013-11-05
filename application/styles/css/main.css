@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Amarante);
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/mixins/_borders.scss */
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/mixins/_border.scss */
 .box, input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -27,7 +27,7 @@ input:hover, input:focus, button:hover, button:focus {
   padding: 0;
   position: relative; }
 
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_borders.scss */
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_border.scss */
 .box, input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -61,7 +61,7 @@ input:hover, input:focus, button:hover, button:focus {
   color: black;
   text-shadow: 0 0 2px white; }
 
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_borders.scss */
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_border.scss */
 .box, input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -89,7 +89,7 @@ input:hover, input:focus, button:hover, button:focus {
   margin-bottom: 40px;
   overflow: auto; }
 
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_borders.scss */
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_border.scss */
 .box, input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

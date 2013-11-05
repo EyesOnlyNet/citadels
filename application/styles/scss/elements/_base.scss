@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Amarante);
 @import "../variables/colors";
-@import "../mixins/borders";
+@import "../mixins/border";
 
 * {
     @include boxSizing(border-box);

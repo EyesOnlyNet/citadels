@@ -1,21 +1,36 @@
+@import "../variables/characters";
 @import "../variables/colors";
+@import "../variables/dimensions";
 @import "../mixins/box";
+@import "../mixins/icon";
 
 .characters {
     text-align: center;
     width: 200px;
 
     li {
-        border: 1px solid white;
-        padding: 8px 12px;
+        border: 1px solid transparent;
+        padding: 8px 12px 8px 32px;
+
+        &:before {
+            content: "";
+            height: 28px;
+            left: 0;
+            position: absolute;
+            top: 4px;
+            width: $iconCharWidth;
+            z-index: -1;
+        }
+
+        @each $char in $charList {
+            &.#{$char}:before {
+                @include iconCharacterBg($iconCharWidth * (index($charList, $char) - 1));
+            }
+        }
 
         &.not-available {
             color: $colorLightGray;
             text-shadow: 0 0 0;
-
-            &:hover {
-                @extend %boxInnerShadowLightGray;
-            }
         }
 
         &.out {
@@ -23,7 +38,7 @@
         }
 
         &:hover {
-            @extend %boxInnerShadowBrown;
+            @extend %boxInnerShadowLightGray;
         }
     }
 }

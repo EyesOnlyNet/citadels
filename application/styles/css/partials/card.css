@@ -1,4 +1,4 @@
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_borders.scss */
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_border.scss */
 .card {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -11,7 +11,7 @@
 .card {
   background-color: white;
   height: 172px;
-  width: 112px; }
+  width: 120px; }
   /* line 9, ../../scss/partials/card.scss */
   .card .label {
     height: 20px;

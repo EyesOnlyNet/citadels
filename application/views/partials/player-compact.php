@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../application/styles/css/partials/player-compact.css" type="text/css" />
 
-<div class="player-compact">
+<div class="player-compact is-king">
     <div class="name">name</div>
 
     <ul class="statistic">

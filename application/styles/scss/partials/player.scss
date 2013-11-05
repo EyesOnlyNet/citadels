@@ -1,4 +1,7 @@
-@import "../mixins/borders";
+@import "../variables/characters";
+@import "../variables/dimensions";
+@import "../mixins/border";
+@import "../mixins/icon";
 
 .player
 {
@@ -8,49 +11,71 @@
 
     .character,
     .calculations,
-    .info {
+    .name {
         @extend %borderRoundedLightGray;
     }
 
-    .info {
+    .name {
         padding: 8px 12px;
-        margin-left: 92px;
+    }
 
-        .is-king {
-            float: right;
+    &.is-king .name {
+        background: {
+            image: url("../../../images/crown.png");
+            repeat: no-repeat;
+            position: right center;
+            size: 80px;
         }
     }
 
     .statistic {
         float: left;
-        text-align: center;
-    }
-
-    .character {
-        height: 152px;
-        padding-top: 8px;
-        width: 80px;
-    }
-
-    .calculations {
         margin-top: 12px;
-        padding: 8px;
-    }
+        text-align: center;
+        width: 96px;
 
-    .calculations .gold,
-    .calculations .cards {
-        display: inline-block;
-        width: 28px;
+        .character {
+            height: 100px;
+            padding-top: 8px;
+
+            &:before {
+                content: "";
+                height: $iconCharHeight;
+                left: 28px;
+                position: absolute;
+                top: 44px;
+                width: $iconCharWidth;
+                z-index: -1;
+            }
+
+            @each $char in $charList {
+                &.#{$char}:before {
+                    @include iconCharacterBg($iconCharWidth * (index($charList, $char) - 1));
+                }
+            }
+        }
+
+        .calculations {
+            margin-top: 12px;
+            padding: 8px;
+        }
+
+        .calculations .gold,
+        .calculations .cards,
+        .calculations .points {
+            display: inline-block;
+            width: 22px;
+        }
     }
 
     .buildings {
-        margin: 12px 0 0 92px;
+        margin: 12px 0 0 108px;
         overflow: auto;
     }
 
     .card {
         float: left;
-        margin-left: -20px;
+        margin-left: -84px;
 
         &:hover {
             z-index: 1;

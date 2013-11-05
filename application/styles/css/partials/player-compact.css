@@ -4,7 +4,7 @@
   color: black;
   text-shadow: 0 0 2px white; }
 
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_borders.scss */
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_border.scss */
 .player-compact {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -17,16 +17,19 @@
 .player-compact {
   display: inline-block;
   padding: 8px; }
-  /* line 14, ../../scss/partials/player-compact.scss */
+  /* line 15, ../../scss/partials/player-compact.scss */
+  .player-compact.is-king .name {
+    background-color: gold; }
+  /* line 19, ../../scss/partials/player-compact.scss */
   .player-compact .statistic {
     margin-top: 12px;
     overflow: auto; }
-    /* line 18, ../../scss/partials/player-compact.scss */
+    /* line 23, ../../scss/partials/player-compact.scss */
     .player-compact .statistic li {
       border-left: 1px solid burlywood;
       float: left;
       padding: 0 4px;
       width: 32px; }
-      /* line 24, ../../scss/partials/player-compact.scss */
+      /* line 29, ../../scss/partials/player-compact.scss */
       .player-compact .statistic li:first-of-type {
         border: 0; }

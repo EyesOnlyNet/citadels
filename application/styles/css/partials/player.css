@@ -1,7 +1,7 @@
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_borders.scss */
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_border.scss */
 .player .character,
 .player .calculations,
-.player .info {
+.player .name {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -9,47 +9,100 @@
   border-radius: 4px;
   border: 1px solid #cccccc; }
 
-/* line 4, ../../scss/partials/player.scss */
+/* line 7, ../../scss/partials/player.scss */
 .player {
   overflow: auto;
   margin: 40px;
   width: 480px; }
-  /* line 15, ../../scss/partials/player.scss */
-  .player .info {
-    padding: 8px 12px;
-    margin-left: 92px; }
-    /* line 19, ../../scss/partials/player.scss */
-    .player .info .is-king {
-      float: right; }
-  /* line 24, ../../scss/partials/player.scss */
+  /* line 18, ../../scss/partials/player.scss */
+  .player .name {
+    padding: 8px 12px; }
+  /* line 22, ../../scss/partials/player.scss */
+  .player.is-king .name {
+    background-image: url("../../../images/crown.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 80px; }
+  /* line 31, ../../scss/partials/player.scss */
   .player .statistic {
     float: left;
-    text-align: center; }
-  /* line 29, ../../scss/partials/player.scss */
-  .player .character {
-    height: 152px;
-    padding-top: 8px;
-    width: 80px; }
-  /* line 35, ../../scss/partials/player.scss */
-  .player .calculations {
     margin-top: 12px;
-    padding: 8px; }
-  /* line 41, ../../scss/partials/player.scss */
-  .player .calculations .gold,
-  .player .calculations .cards {
-    display: inline-block;
-    width: 28px; }
-  /* line 46, ../../scss/partials/player.scss */
+    text-align: center;
+    width: 96px; }
+    /* line 37, ../../scss/partials/player.scss */
+    .player .statistic .character {
+      height: 100px;
+      padding-top: 8px; }
+      /* line 41, ../../scss/partials/player.scss */
+      .player .statistic .character:before {
+        content: "";
+        height: 31px;
+        left: 28px;
+        position: absolute;
+        top: 44px;
+        width: 38px;
+        z-index: -1; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.ass:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -0px;
+        background-repeat: no-repeat; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.thf:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -38px;
+        background-repeat: no-repeat; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.prs:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -76px;
+        background-repeat: no-repeat; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.chn:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -114px;
+        background-repeat: no-repeat; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.mgc:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -152px;
+        background-repeat: no-repeat; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.bld:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -190px;
+        background-repeat: no-repeat; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.mry:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -228px;
+        background-repeat: no-repeat; }
+      /* line 52, ../../scss/partials/player.scss */
+      .player .statistic .character.kng:before {
+        background-image: url("../../../images/sprite_characters.png");
+        background-position: -266px;
+        background-repeat: no-repeat; }
+    /* line 58, ../../scss/partials/player.scss */
+    .player .statistic .calculations {
+      margin-top: 12px;
+      padding: 8px; }
+    /* line 65, ../../scss/partials/player.scss */
+    .player .statistic .calculations .gold,
+    .player .statistic .calculations .cards,
+    .player .statistic .calculations .points {
+      display: inline-block;
+      width: 22px; }
+  /* line 71, ../../scss/partials/player.scss */
   .player .buildings {
-    margin: 12px 0 0 92px;
+    margin: 12px 0 0 108px;
     overflow: auto; }
-  /* line 51, ../../scss/partials/player.scss */
+  /* line 76, ../../scss/partials/player.scss */
   .player .card {
     float: left;
-    margin-left: -20px; }
-    /* line 55, ../../scss/partials/player.scss */
+    margin-left: -84px; }
+    /* line 80, ../../scss/partials/player.scss */
     .player .card:hover {
       z-index: 1; }
-    /* line 59, ../../scss/partials/player.scss */
+    /* line 84, ../../scss/partials/player.scss */
     .player .card:first-of-type {
       margin: 0; }

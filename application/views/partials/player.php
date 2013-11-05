@@ -1,8 +1,11 @@
 <link rel="stylesheet" href="../application/styles/css/partials/player.css" type="text/css" />
 
-<div class="player">
+<div class="player is-king">
+    <div class="name">name</div>
+
     <div class="statistic">
-        <div class="character">Dieb</div>
+        <div class="character bld">Baumeister</div>
+
         <ul class="calculations">
             <li class="gold">
                 <div>gld</div>
@@ -12,15 +15,18 @@
                 <div>crd</div>
                 <div>3</div>
             </li>
+            <li class="points">
+                <div>pts</div>
+                <div>8</div>
+            </li>
         </ul>
     </div>
 
-    <div class="info">
-        <div class="is-king">iskng</div>
-        <div class="name">name</div>
-    </div>
-
     <ul class="buildings">
+        <?php include './views/partials/card.php'; ?>
+        <?php include './views/partials/card.php'; ?>
+        <?php include './views/partials/card.php'; ?>
+        <?php include './views/partials/card.php'; ?>
         <?php include './views/partials/card.php'; ?>
         <?php include './views/partials/card.php'; ?>
         <?php include './views/partials/card.php'; ?>
