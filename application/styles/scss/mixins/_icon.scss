@@ -2,7 +2,7 @@
 
 @mixin iconCharacterBg($position) {
     background: {
-        image: url("../../../images/sprite_characters.png");
+        image: url("../../images/sprite_characters.png");
         position: -#{$position};
         repeat: no-repeat;
     }

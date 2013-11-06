@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="../application/styles/css/partials/boxes/games-pending.css" type="text/css" />
-
 <div class="box games-pending">
     <h4 class="header">Grundstein gelegt</h4>
     <ul class="content">

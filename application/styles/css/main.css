@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Amarante);
 /* line 4, X:/Coding/projects/citadels/application/styles/scss/mixins/_border.scss */
-.box, input, button {
+input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -13,12 +13,6 @@ input:hover, input:focus, button:hover, button:focus {
   border-color: sienna;
   box-shadow: 0 0 8px burlywood inset; }
 
-/* line 26, X:/Coding/projects/citadels/application/styles/scss/mixins/_box.scss */
-.box .header {
-  background-color: burlywood;
-  color: black;
-  text-shadow: 0 0 2px white; }
-
 /* line 2, X:/Coding/projects/citadels/application/styles/scss/elements/_reset.scss */
 * {
   border: 0;
@@ -28,7 +22,7 @@ input:hover, input:focus, button:hover, button:focus {
   position: relative; }
 
 /* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_border.scss */
-.box, input, button {
+input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -50,47 +44,8 @@ input:hover, input:focus, button:hover, button:focus {
 html, body {
   height: 100%; }
 
-/* line 14, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_box.scss */
-input:hover, input:focus, button:hover, button:focus {
-  border-color: sienna;
-  box-shadow: 0 0 8px burlywood inset; }
-
-/* line 26, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_box.scss */
-.box .header {
-  background-color: burlywood;
-  color: black;
-  text-shadow: 0 0 2px white; }
-
 /* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_border.scss */
-.box, input, button {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #cccccc; }
-
-/* line 5, X:/Coding/projects/citadels/application/styles/scss/elements/_box.scss */
-.box {
-  float: left;
-  margin: 40px;
-  overflow: auto;
-  width: 400px; }
-  /* line 12, X:/Coding/projects/citadels/application/styles/scss/elements/_box.scss */
-  .box .header {
-    border-bottom: 1px solid #cccccc;
-    padding: 12px; }
-  /* line 19, X:/Coding/projects/citadels/application/styles/scss/elements/_box.scss */
-  .box .content {
-    margin: 16px; }
-
-/* line 3, X:/Coding/projects/citadels/application/styles/scss/elements/_content.scss */
-.site-content {
-  margin-bottom: 40px;
-  overflow: auto; }
-
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_border.scss */
-.box, input, button {
+input, button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -102,12 +57,6 @@ input:hover, input:focus, button:hover, button:focus {
 input:hover, input:focus, button:hover, button:focus {
   border-color: sienna;
   box-shadow: 0 0 8px burlywood inset; }
-
-/* line 26, X:/Coding/projects/citadels/application/styles/scss/elements/../mixins/_box.scss */
-.box .header {
-  background-color: burlywood;
-  color: black;
-  text-shadow: 0 0 2px white; }
 
 /* line 5, X:/Coding/projects/citadels/application/styles/scss/elements/_forms.scss */
 input, button {
@@ -117,24 +66,64 @@ input, button {
 button {
   background-color: burlywood; }
 
-/* line 4, X:/Coding/projects/citadels/application/styles/scss/elements/_header.scss */
+/* line 1, X:/Coding/projects/citadels/application/styles/scss/elements/_seperator.scss */
+hr {
+  box-shadow: 0 0 8px 0 black;
+  width: 100%; }
+
+/* line 3, X:/Coding/projects/citadels/application/styles/scss/partials/_content.scss */
+.site-content {
+  margin-bottom: 40px;
+  overflow: auto; }
+
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/_header.scss */
 .site-header {
   background-color: sienna;
   color: white;
   height: 120px;
   text-align: center; }
-  /* line 10, X:/Coding/projects/citadels/application/styles/scss/elements/_header.scss */
+  /* line 10, X:/Coding/projects/citadels/application/styles/scss/partials/_header.scss */
   .site-header header {
     padding-top: 24px; }
-    /* line 13, X:/Coding/projects/citadels/application/styles/scss/elements/_header.scss */
+    /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/_header.scss */
     .site-header header * {
       text-shadow: 0 0 2px black; }
-  /* line 18, X:/Coding/projects/citadels/application/styles/scss/elements/_header.scss */
+  /* line 18, X:/Coding/projects/citadels/application/styles/scss/partials/_header.scss */
   .site-header hr {
     bottom: 0;
     position: absolute; }
 
-/* line 1, X:/Coding/projects/citadels/application/styles/scss/elements/_seperator.scss */
-hr {
-  box-shadow: 0 0 8px 0 black;
+/* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+.site-footer {
+  background-color: sienna;
+  bottom: 0;
+  color: white;
+  height: 40px;
+  position: fixed;
+  text-align: center;
   width: 100%; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+  .site-footer a {
+    color: white; }
+  /* line 17, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+  .site-footer footer {
+    line-height: 40px; }
+    /* line 20, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+    .site-footer footer * {
+      text-shadow: 0 0 2px black; }
+  /* line 25, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+  .site-footer li {
+    display: inline-block;
+    margin: 0 12px; }
+    /* line 30, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+    .site-footer li:before, .site-footer li:after {
+      visibility: hidden; }
+    /* line 34, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+    .site-footer li:before {
+      content: "[ "; }
+    /* line 38, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+    .site-footer li:after {
+      content: " ]"; }
+    /* line 43, X:/Coding/projects/citadels/application/styles/scss/partials/_footer.scss */
+    .site-footer li:hover:before, .site-footer li:hover:after {
+      visibility: visible; }

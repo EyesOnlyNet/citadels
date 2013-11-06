@@ -21,7 +21,7 @@
 
     &.is-king .name {
         background: {
-            image: url("../../../images/crown.png");
+            image: url("../../images/crown.png");
             repeat: no-repeat;
             position: right center;
             size: 80px;
@@ -35,6 +35,15 @@
         width: 96px;
 
         .character {
+            @each $charColor in $mapCharColor {
+                $char: nth($charColor, 1);
+                $color: nth($charColor, 2);
+
+                &.#{$char} {
+                    border-color: $color;
+                }
+            }
+
             height: 100px;
             padding-top: 8px;
 
@@ -71,19 +80,16 @@
     .buildings {
         margin: 12px 0 0 108px;
         overflow: auto;
-    }
 
-    .card {
-        float: left;
-        margin-left: -84px;
-        z-index: 1;
+        .card {
+            float: left;
+            margin-right: -84px;
+            z-index: 1;
 
-        &:hover {
-            z-index: 2;
-        }
-
-        &:first-of-type {
-            margin: 0;
+            &:hover {
+                box-shadow: 0 0 8px 4px $colorLightGray;
+                z-index: 2;
+            }
         }
     }
 }

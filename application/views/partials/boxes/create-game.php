@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="../application/styles/css/partials/boxes/create-game.css" type="text/css" />
-
 <div class="box create-game">
     <h4 class="header">Land einnehmen</h4>
     <p class="content">

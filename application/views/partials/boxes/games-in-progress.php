@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="../application/styles/css/partials/boxes/games-in-progress.css" type="text/css" />
-
 <div class="box games-in-progress">
     <h4 class="header">hier bauen Sie gerade</h4>
     <ul class="content">

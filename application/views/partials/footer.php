@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="../application/styles/css/partials/footer.css" type="text/css" />
-
 <?php
     $times = [];
 
