@@ -1,9 +1,10 @@
 @import "partials/actions";
 @import "partials/card";
 @import "partials/character-choice";
-@import "partials/hand";
 @import "partials/player-compact";
 @import "partials/player";
+@import "partials/tabs";
+@import "partials/tabs/hand";
 
 .site-header header {
     padding-top: 12px;

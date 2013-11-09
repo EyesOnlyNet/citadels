@@ -185,15 +185,6 @@
     .characters li.out {
       color: burlywood; }
 
-/* line 1, X:/Coding/projects/citadels/application/styles/scss/partials/_hand.scss */
-.hand {
-  margin: 40px;
-  overflow: auto; }
-  /* line 5, X:/Coding/projects/citadels/application/styles/scss/partials/_hand.scss */
-  .hand .card {
-    float: left;
-    margin-right: 12px; }
-
 /* line 18, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
 .characters li:hover {
   border-color: gray;
@@ -360,6 +351,22 @@
         box-shadow: 0 0 8px 4px #cccccc;
         z-index: 2; }
 
-/* line 8, ../scss/field.scss */
+/* line 3, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+.tabs .tab-body {
+  border: 1px solid #D3D3D3;
+  margin: 0;
+  overflow: auto;
+  width: 960px; }
+
+/* line 1, X:/Coding/projects/citadels/application/styles/scss/partials/tabs/_hand.scss */
+.hand {
+  margin: 40px;
+  overflow: auto; }
+  /* line 5, X:/Coding/projects/citadels/application/styles/scss/partials/tabs/_hand.scss */
+  .hand .card {
+    float: left;
+    margin-right: 12px; }
+
+/* line 9, ../scss/field.scss */
 .site-header header {
   padding-top: 12px; }

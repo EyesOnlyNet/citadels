@@ -1,0 +1,1 @@
+<div id="tab-effect-stall-character" class="tab-content">Effekt: Attentat</div>
