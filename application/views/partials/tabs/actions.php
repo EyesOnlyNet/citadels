@@ -32,11 +32,11 @@
     </li>
 
     <li class="tab action">
-        <a href="#tab-effect-exchange-cards-stack">Effekt: Gebäude Tauschen - Nachziehstapel</a>
+        <a href="#tab-effect-exchange-cards-stack">Effekt: Gebäude tauschen - Nachziehstapel</a>
     </li>
 
     <li class="tab action">
-        <a href="#tab-effect-exchange-cards-player">Effekt: Gebäude Tauschen - Mitspieler</a>
+        <a href="#tab-effect-exchange-cards-player">Effekt: Gebäude tauschen - Mitspieler</a>
     </li>
 
     <li class="tab action">
@@ -49,5 +49,9 @@
 
     <li class="tab action">
         <a href="#tab-effect-remove-card">Effekt: Gebäude zerstören</a>
+    </li>
+
+    <li class="tab action">
+        <a href="#tab-end">Zug beenden</a>
     </li>
 </ul>

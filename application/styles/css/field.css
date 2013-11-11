@@ -471,15 +471,24 @@
       float: left;
       margin-right: 12px; }
 
-/* line 9, ../scss/field.scss */
-.site-header header {
-  padding-top: 12px; }
+/* line 10, ../scss/field.scss */
+.site-header {
+  position: fixed;
+  width: 100%;
+  z-index: 3; }
+  /* line 15, ../scss/field.scss */
+  .site-header header {
+    padding-top: 12px; }
 
-/* line 13, ../scss/field.scss */
+/* line 20, ../scss/field.scss */
+.site-content {
+  padding-top: 120px; }
+
+/* line 24, ../scss/field.scss */
 .tabs .tab-body {
   min-width: 960px; }
 
-/* line 17, ../scss/field.scss */
+/* line 28, ../scss/field.scss */
 #action-tabs {
   margin: 40px;
   overflow: auto; }

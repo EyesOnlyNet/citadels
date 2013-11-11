@@ -42,8 +42,13 @@
                     <?php include './views/partials/tabs/actions/get-gold.php'; ?>
                     <?php include './views/partials/tabs/actions/hand.php'; ?>
                     <?php include './views/partials/tabs/actions/play-card.php'; ?>
+                    <?php include './views/partials/tabs/actions/end.php'; ?>
                 </div>
             </div>
+        </div>
+
+        <div class="site-footer">
+            <?php include './views/partials/footer.php'; ?>
         </div>
 
         <script>
@@ -72,9 +77,5 @@
                 }
             });
         </script>
-
-        <div class="site-footer">
-            <?php include './views/partials/footer.php'; ?>
-        </div>
     </body>
 </html>
