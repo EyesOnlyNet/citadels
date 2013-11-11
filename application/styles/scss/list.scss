@@ -1,7 +1,7 @@
-@import "variables/colors";
-@import "partials/boxes/create-game";
-@import "partials/boxes/games-in-progress";
-@import "partials/boxes/games-pending";
+@import "variables/_colors.scss";
+@import "partials/boxes/_create-game.scss";
+@import "partials/boxes/_games-in-progress.scss";
+@import "partials/boxes/_games-pending.scss";
 
 .content > li {
     padding: 8px 0;

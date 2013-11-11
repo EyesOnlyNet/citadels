@@ -1,0 +1,14 @@
+@import "../variables/_colors.scss";
+
+.message {
+    padding: 10px;
+
+    &.warning {
+        background-color: $colorMaroon;
+    }
+
+    &.info {
+        background-color: $colorKing;
+        color: black;
+    }
+}

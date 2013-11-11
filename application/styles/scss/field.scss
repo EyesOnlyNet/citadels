@@ -1,11 +1,20 @@
-@import "partials/actions";
-@import "partials/card";
-@import "partials/character-choice";
-@import "partials/player-compact";
-@import "partials/player";
-@import "partials/tabs";
-@import "partials/tabs/hand";
+@import "partials/_card.scss";
+@import "partials/_character-choice.scss";
+@import "partials/_message.scss";
+@import "partials/_player-compact.scss";
+@import "partials/_player.scss";
+@import "partials/_tabs.scss";
+@import "partials/tabs/_actions.scss";
 
 .site-header header {
     padding-top: 12px;
+}
+
+.tabs .tab-body {
+    min-width: 960px;
+}
+
+#action-tabs {
+    margin: 40px;
+    overflow: auto;
 }

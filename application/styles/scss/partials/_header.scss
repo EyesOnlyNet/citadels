@@ -1,18 +1,14 @@
-@import "../variables/colors";
-@import "../variables/dimensions";
+@import "../variables/_colors.scss";
+@import "../variables/_dimensions.scss";
+@import "_box.scss";
 
 .site-header {
-    background-color: $colorBrown;
-    color: white;
+    @extend %boxColorBrown;
     height: $headerHeight;
     text-align: center;
 
     header {
         padding-top: 24px;
-
-        * {
-            text-shadow: 0 0 2px black;
-        }
     }
 
     hr {

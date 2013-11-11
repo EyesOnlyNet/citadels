@@ -1,7 +1,7 @@
-@import "../variables/dimensions";
-@import "../variables/maps";
-@import "../mixins/border";
-@import "../mixins/icon";
+@import "../variables/_dimensions.scss";
+@import "../variables/_maps.scss";
+@import "../mixins/_border.scss";
+@import "../mixins/_icon.scss";
 
 .player
 {

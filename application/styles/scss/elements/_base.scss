@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Amarante);
-@import "../variables/colors";
-@import "../mixins/border";
+@import "../variables/_colors.scss";
+@import "../mixins/_border.scss";
 
 * {
     @include boxSizing(border-box);
@@ -9,5 +9,5 @@
 }
 
 html, body {
-    height: 100%;
+    min-height: 100%;
 }

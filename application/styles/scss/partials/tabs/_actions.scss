@@ -1,12 +1,1 @@
-@import "../variables/colors";
-
-.actions {
-    overflow: auto;
-
-    .action {
-        border: 1px solid $colorLightGray;
-        float: left;
-        margin-right: 2px;
-        padding: 4px 8px;
-    }
-}
+@import "actions/_hand.scss";

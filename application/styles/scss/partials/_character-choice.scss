@@ -1,9 +1,9 @@
-@import "../variables/colors";
-@import "../variables/dimensions";
-@import "../variables/maps";
-@import "../mixins/box";
-@import "../mixins/icon";
-@import "box";
+@import "../variables/_colors.scss";
+@import "../variables/_dimensions.scss";
+@import "../variables/_maps.scss";
+@import "../mixins/_box.scss";
+@import "../mixins/_icon.scss";
+@import "_box.scss";
 
 .characters {
     text-align: center;

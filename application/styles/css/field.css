@@ -1,13 +1,3 @@
-/* line 3, X:/Coding/projects/citadels/application/styles/scss/partials/_actions.scss */
-.actions {
-  overflow: auto; }
-  /* line 6, X:/Coding/projects/citadels/application/styles/scss/partials/_actions.scss */
-  .actions .action {
-    border: 1px solid #cccccc;
-    float: left;
-    margin-right: 2px;
-    padding: 4px 8px; }
-
 /* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_border.scss */
 .card, .box, .player-compact, .player .character,
 .player .calculations,
@@ -73,27 +63,28 @@
     .card.neutral .cost {
       background-color: violet; }
 
-/* line 18, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+/* line 22, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
 .characters li:hover {
   border-color: gray;
   box-shadow: 0 0 8px #cccccc inset; }
 
 /* line 26, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
-.box .header, .player-compact .name {
+.tabs .tab-body .tab-content:not(#tab-hand) {
+  background-color: sienna;
+  color: white;
+  text-shadow: 0 0 2px black; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .tabs .tab-body .tab-content:not(#tab-hand) * {
+    text-shadow: 0 0 2px black; }
+
+/* line 30, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.box .header, .player-compact .name, .tabs .tab-head .tab {
   background-color: burlywood;
   color: black;
   text-shadow: 0 0 2px white; }
-
-/* line 18, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
-.characters li:hover {
-  border-color: gray;
-  box-shadow: 0 0 8px #cccccc inset; }
-
-/* line 26, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
-.box .header, .player-compact .name {
-  background-color: burlywood;
-  color: black;
-  text-shadow: 0 0 2px white; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .box .header *, .player-compact .name *, .tabs .tab-head .tab * {
+    text-shadow: 0 0 2px white; }
 
 /* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_border.scss */
 .card, .box, .player-compact, .player .character,
@@ -105,6 +96,29 @@
   -o-border-radius: 4px;
   border-radius: 4px;
   border: 1px solid #cccccc; }
+
+/* line 22, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.characters li:hover {
+  border-color: gray;
+  box-shadow: 0 0 8px #cccccc inset; }
+
+/* line 26, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.tabs .tab-body .tab-content:not(#tab-hand) {
+  background-color: sienna;
+  color: white;
+  text-shadow: 0 0 2px black; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .tabs .tab-body .tab-content:not(#tab-hand) * {
+    text-shadow: 0 0 2px black; }
+
+/* line 30, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.box .header, .player-compact .name, .tabs .tab-head .tab {
+  background-color: burlywood;
+  color: black;
+  text-shadow: 0 0 2px white; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .box .header *, .player-compact .name *, .tabs .tab-head .tab * {
+    text-shadow: 0 0 2px white; }
 
 /* line 5, X:/Coding/projects/citadels/application/styles/scss/partials/_box.scss */
 .box {
@@ -185,16 +199,39 @@
     .characters li.out {
       color: burlywood; }
 
-/* line 18, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+/* line 3, X:/Coding/projects/citadels/application/styles/scss/partials/_message.scss */
+.message {
+  padding: 10px; }
+  /* line 6, X:/Coding/projects/citadels/application/styles/scss/partials/_message.scss */
+  .message.warning {
+    background-color: maroon; }
+  /* line 10, X:/Coding/projects/citadels/application/styles/scss/partials/_message.scss */
+  .message.info {
+    background-color: gold;
+    color: black; }
+
+/* line 22, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
 .characters li:hover {
   border-color: gray;
   box-shadow: 0 0 8px #cccccc inset; }
 
 /* line 26, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
-.box .header, .player-compact .name {
+.tabs .tab-body .tab-content:not(#tab-hand) {
+  background-color: sienna;
+  color: white;
+  text-shadow: 0 0 2px black; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .tabs .tab-body .tab-content:not(#tab-hand) * {
+    text-shadow: 0 0 2px black; }
+
+/* line 30, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.box .header, .player-compact .name, .tabs .tab-head .tab {
   background-color: burlywood;
   color: black;
   text-shadow: 0 0 2px white; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .box .header *, .player-compact .name *, .tabs .tab-head .tab * {
+    text-shadow: 0 0 2px white; }
 
 /* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_border.scss */
 .card, .box, .player-compact, .player .character,
@@ -351,22 +388,98 @@
         box-shadow: 0 0 8px 4px #cccccc;
         z-index: 2; }
 
-/* line 3, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
-.tabs .tab-body {
-  border: 1px solid #D3D3D3;
-  margin: 0;
-  overflow: auto;
-  width: 960px; }
+/* line 22, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.characters li:hover {
+  border-color: gray;
+  box-shadow: 0 0 8px #cccccc inset; }
 
-/* line 1, X:/Coding/projects/citadels/application/styles/scss/partials/tabs/_hand.scss */
-.hand {
-  margin: 40px;
+/* line 26, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.tabs .tab-body .tab-content:not(#tab-hand) {
+  background-color: sienna;
+  color: white;
+  text-shadow: 0 0 2px black; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .tabs .tab-body .tab-content:not(#tab-hand) * {
+    text-shadow: 0 0 2px black; }
+
+/* line 30, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+.box .header, .player-compact .name, .tabs .tab-head .tab {
+  background-color: burlywood;
+  color: black;
+  text-shadow: 0 0 2px white; }
+  /* line 13, X:/Coding/projects/citadels/application/styles/scss/partials/../mixins/_box.scss */
+  .box .header *, .player-compact .name *, .tabs .tab-head .tab * {
+    text-shadow: 0 0 2px white; }
+
+/* line 5, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+.tabs .tab-head {
+  margin: 0 auto -1px;
   overflow: auto; }
-  /* line 5, X:/Coding/projects/citadels/application/styles/scss/partials/tabs/_hand.scss */
-  .hand .card {
+  /* line 9, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+  .tabs .tab-head .tab {
+    border: 1px solid sienna;
     float: left;
-    margin-right: 12px; }
+    margin-right: 2px;
+    padding: 4px 8px; }
+    /* line 17, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+    .tabs .tab-head .tab.ui-state-active a {
+      color: black; }
+    /* line 22, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+    .tabs .tab-head .tab.ui-state-disabled {
+      background-color: #cccccc; }
+      /* line 25, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+      .tabs .tab-head .tab.ui-state-disabled a, .tabs .tab-head .tab.ui-state-disabled a:hover {
+        color: gray;
+        cursor: default; }
+    /* line 31, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+    .tabs .tab-head .tab a {
+      color: sienna;
+      text-decoration: none; }
+      /* line 35, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+      .tabs .tab-head .tab a:hover {
+        color: black; }
+/* line 43, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+.tabs .tab-body {
+  border: 1px solid sienna; }
+  /* line 46, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+  .tabs .tab-body .tab-content {
+    padding: 10px 20px;
+    /*text-shadow: 0 0 2px #000000;*/ }
+    /* line 53, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+    .tabs .tab-body .tab-content:not(#tab-hand) .header {
+      font-size: large;
+      font-weight: bolder;
+      margin-bottom: 20px; }
+    /* line 59, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+    .tabs .tab-body .tab-content:not(#tab-hand) .info {
+      text-shadow: none; }
+    /* line 64, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+    .tabs .tab-body .tab-content a {
+      color: sandybrown; }
+    /* line 68, X:/Coding/projects/citadels/application/styles/scss/partials/_tabs.scss */
+    .tabs .tab-body .tab-content .message {
+      margin-top: 10px; }
+
+/* line 1, X:/Coding/projects/citadels/application/styles/scss/partials/tabs/actions/_hand.scss */
+.hand {
+  overflow: auto; }
+  /* line 4, X:/Coding/projects/citadels/application/styles/scss/partials/tabs/actions/_hand.scss */
+  .hand .cards {
+    overflow: auto; }
+    /* line 7, X:/Coding/projects/citadels/application/styles/scss/partials/tabs/actions/_hand.scss */
+    .hand .cards .card {
+      float: left;
+      margin-right: 12px; }
 
 /* line 9, ../scss/field.scss */
 .site-header header {
   padding-top: 12px; }
+
+/* line 13, ../scss/field.scss */
+.tabs .tab-body {
+  min-width: 960px; }
+
+/* line 17, ../scss/field.scss */
+#action-tabs {
+  margin: 40px;
+  overflow: auto; }

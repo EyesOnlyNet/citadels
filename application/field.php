@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/styles/css/main.css" type="text/css" />
         <link rel="stylesheet" href="/styles/css/field.css" type="text/css" />
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="http://code.jquery.com/jquery-2.0.2.js"></script>
+        <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
         <title>Citadels - game field</title>
     </head>
 
@@ -31,13 +31,14 @@
                 <div class="tab-body">
                     <?php include './views/partials/tabs/actions/draw-card.php'; ?>
                     <?php include './views/partials/tabs/actions/effect-draw-cards.php'; ?>
+                    <?php include './views/partials/tabs/actions/effect-exchange-cards-stack.php'; ?>
+                    <?php include './views/partials/tabs/actions/effect-exchange-cards-player.php'; ?>
                     <?php include './views/partials/tabs/actions/effect-get-card-gold.php'; ?>
                     <?php include './views/partials/tabs/actions/effect-get-gold.php'; ?>
                     <?php include './views/partials/tabs/actions/effect-play-cards.php'; ?>
                     <?php include './views/partials/tabs/actions/effect-remove-card.php'; ?>
                     <?php include './views/partials/tabs/actions/effect-stall-character.php'; ?>
                     <?php include './views/partials/tabs/actions/effect-steal-gold.php'; ?>
-                    <?php include './views/partials/tabs/actions/exchange-cards.php'; ?>
                     <?php include './views/partials/tabs/actions/get-gold.php'; ?>
                     <?php include './views/partials/tabs/actions/hand.php'; ?>
                     <?php include './views/partials/tabs/actions/play-card.php'; ?>
@@ -47,7 +48,28 @@
 
         <script>
             $(function() {
-                $("#action-tabs").tabs();
+                $('#action-tabs').tabs({
+                    disabled: [],
+                    activate: function() {
+                        scrollTo('#action-tabs');
+                    },
+                    fx: {
+                        height: 'toggle',
+                        opacity: 'toggle'
+                    }
+                });
+
+                $('.show-tab').click(function() {
+                    $('#action-tabs').tabs('select', this.hash);
+
+                    return false;
+                });
+
+                function scrollTo(element) {
+                    $('html, body').animate({
+                        scrollTop: $(element).offset().top
+                    }, 'slow');
+                }
             });
         </script>
 

@@ -32,7 +32,11 @@
     </li>
 
     <li class="tab action">
-        <a href="#tab-effect-exchange-cards">Effekt: Gebäude Tauschen</a>
+        <a href="#tab-effect-exchange-cards-stack">Effekt: Gebäude Tauschen - Nachziehstapel</a>
+    </li>
+
+    <li class="tab action">
+        <a href="#tab-effect-exchange-cards-player">Effekt: Gebäude Tauschen - Mitspieler</a>
     </li>
 
     <li class="tab action">

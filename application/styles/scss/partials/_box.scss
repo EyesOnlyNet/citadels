@@ -1,6 +1,6 @@
-@import "../variables/colors";
-@import "../mixins/box";
-@import "../mixins/border";
+@import "../variables/_colors.scss";
+@import "../mixins/_border.scss";
+@import "../mixins/_box.scss";
 
 .box {
     @extend %borderRoundedLightGray;

@@ -1,6 +1,6 @@
-@import "../variables/colors";
-@import "../variables/maps";
-@import "../mixins/border";
+@import "../variables/_colors.scss";
+@import "../variables/_maps.scss";
+@import "../mixins/_border.scss";
 
 .card {
     @extend %borderRoundedLightGray;
@@ -35,7 +35,7 @@
 
         &.#{$char} {
             border-color: $color;
-            
+
             .cost {
                 background-color: $color;
             }

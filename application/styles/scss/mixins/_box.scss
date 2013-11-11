@@ -1,4 +1,4 @@
-@import "../variables/colors";
+@import "../variables/_colors.scss";
 
 @mixin boxInnerShadow($borderColor, $shadowColor) {
     border-color: $borderColor;
@@ -9,6 +9,10 @@
     background-color: $bgColor;
     color: $textColor;
     text-shadow: 0 0 2px $textShadowColor;
+
+    & * {
+        text-shadow: 0 0 2px $textShadowColor;
+    }
 }
 
 %boxInnerShadowBrown {
