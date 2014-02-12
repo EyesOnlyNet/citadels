@@ -1,0 +1,35 @@
+.site-footer {
+    @extend %boxColorBrown;
+    bottom: 0;
+    height: $footerHeight;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+
+    footer {
+        line-height: $footerHeight;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0 12px;
+
+        &:before,
+        &:after {
+            visibility: hidden;
+        }
+
+        &:before {
+            content: "[ ";
+        }
+
+        &:after {
+            content: " ]";
+        }
+
+        &:hover:before,
+        &:hover:after {
+            visibility: visible;
+        }
+    }
+}

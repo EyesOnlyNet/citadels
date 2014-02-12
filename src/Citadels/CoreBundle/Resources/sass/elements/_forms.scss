@@ -1,0 +1,12 @@
+input, button {
+    @extend %borderRoundedLightGray;
+    padding: 8px 16px;
+
+    &:hover, &:focus {
+        @extend %boxInnerShadowBrown;
+    }
+}
+
+button {
+    background-color: $colorLightBrown;
+}

@@ -1,7 +1,0 @@
-@import "../variables/_colors.scss";
-@import "../mixins/_compatibility.scss";
-
-%borderRoundedLightGray {
-    @include borderRadius(4px);
-    border: 1px solid $colorLightGray;
-}

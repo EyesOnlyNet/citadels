@@ -1,0 +1,5 @@
+citadels_core:
+    resource: "@CitadelsCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+

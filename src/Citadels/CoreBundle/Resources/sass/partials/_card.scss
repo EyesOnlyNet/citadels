@@ -1,0 +1,43 @@
+@import "../variables/_#.scss";
+@import "../mixins/_#.scss";
+
+.card {
+    @extend %borderRoundedLightGray;
+    background-color: white;
+    height: 172px;
+    text-align: center;
+    width: 120px;
+
+    .label {
+        border-bottom: 1px solid $colorLightGray;
+        margin: 0 8px;
+        padding: 8px 0;
+    }
+
+    .effect {
+        padding: 4px 0;
+    }
+
+    .cost {
+        border-radius: 0 4px;
+        border-right: 1px solid lightgray;
+        border-top: 1px solid lightgray;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 24px;
+    }
+
+    @each $charColor in $mapCharColor {
+        $char: nth($charColor, 1);
+        $color: nth($charColor, 2);
+
+        &.#{$char} {
+            border-color: $color;
+
+            .cost {
+                background-color: $color;
+            }
+        }
+    }
+}

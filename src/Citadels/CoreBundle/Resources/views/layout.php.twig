@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        {% block headLinks %}
+            <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="{{ asset('bundles/citadelscore/css/main.css') }}" />
+        {% endblock %}
+
+        <title>
+            {% block title %}
+                Citadels - the Webversion
+            {% endblock %}
+        </title>
+    </head>
+
+    <body>
+        {% block body %}
+            <div class="site-header">
+                {% block siteHeader %}{% endblock %}
+                <hr />
+            </div>
+
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="flash-message">
+                    <em>Notice</em>: {{ flashMessage }}
+                </div>
+            {% endfor %}
+
+            <div class="site-content">
+                {% block siteContent %}{% endblock %}
+            </div>
+
+            <div class="site-footer">
+                {% block siteFooter %}
+                    {{ include('CitadelsCoreBundle::_partials/footer.html.twig') }}
+                {% endblock %}
+            </div>
+        {% endblock %}
+
+        {% block scripts %}
+            <script src="https://code.jquery.com/jquery.js"></script>
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

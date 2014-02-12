@@ -1,0 +1,19 @@
+.box {
+    @extend %borderRoundedLightGray;
+    float: left;
+    margin: 40px;
+    overflow: auto;
+    width: 400px;
+
+    .header {
+        @extend %boxColorLightBrown;
+        border-bottom: 1px solid $colorLightGray;
+        margin: 0;
+        padding: 12px;
+
+    }
+
+    .content {
+        margin: 16px;
+    }
+}

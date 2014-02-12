@@ -1,0 +1,21 @@
+{% extends "CitadelsCoreBundle::layout.php.twig" %}
+
+{% block headLinks %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/citadelscore/css/welcome.css') }}" />
+{% endblock %}
+
+{% block siteHeader %}
+    <header>
+        <h1>Ohne Furcht und Adel</h1>
+        <h2>- Webversion -</h2>
+    </header>
+{% endblock %}
+
+{% block siteContent %}
+    <form class="welcome" action="check-name.php" method="post">
+        <label>Willkommen Besucher, wie ist dein Name:</label>
+        <input name="user-name" placeholder="Großherzog Augustus Mediacus" />
+        <button value="check">Landkarte einsehen</button>
+    </form>
+{% endblock %}

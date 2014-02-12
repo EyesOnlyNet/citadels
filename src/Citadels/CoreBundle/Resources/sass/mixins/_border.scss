@@ -1,0 +1,4 @@
+%borderRoundedLightGray {
+    @include borderRadius(4px);
+    border: 1px solid $colorLightGray;
+}

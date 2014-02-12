@@ -1,0 +1,19 @@
+{% extends "CitadelsCoreBundle::layout.php.twig" %}
+
+{% block headLinks %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/citadelscore/css/list.css') }}" />
+{% endblock %}
+
+{% block siteHeader %}
+    <header>
+        <h1>Willkommen [Spielername]</h1>
+        <h2>- Spielliste -</h2>
+    </header>
+{% endblock %}
+
+{% block siteContent %}
+    {{ include('CitadelsCoreBundle:Index:_partials/boxes/create-game.html.twig') }}
+    {{ include('CitadelsCoreBundle:Index:_partials/boxes/games-pending.html.twig') }}
+    {{ include('CitadelsCoreBundle:Index:_partials/boxes/games-in-progress.html.twig') }}
+{% endblock %}

@@ -1,0 +1,70 @@
+.tabs {
+    .tab-head {
+        margin: 0 auto -1px;
+        overflow: auto;
+
+        .tab {
+            @extend %boxColorLightBrown;
+            border: 1px solid $colorBrown;
+            float: left;
+            margin-right: 2px;
+            padding: 4px 8px;
+
+            &.ui-state-active {
+                a {
+                    color: black;
+                }
+            }
+
+            &.ui-state-disabled {
+                background-color: $colorLightGray;
+
+                a, a:hover {
+                    color: $colorGray;
+                    cursor: default;
+                }
+            }
+
+            a {
+                color: $colorBrown;
+                text-decoration: none;
+
+                &:hover {
+                    color: black;
+                }
+            }
+
+        }
+    }
+
+    .tab-body {
+        border: 1px solid $colorBrown;
+
+        .tab-content {
+            padding: 10px 20px;
+            /*text-shadow: 0 0 2px #000000;*/
+
+            &:not(#tab-hand) {
+                @extend %boxColorBrown;
+
+                .header {
+                    font-size: large;
+                    font-weight: bolder;
+                    margin-bottom: 20px;
+                }
+
+                .info {
+                    text-shadow: none;
+                }
+            }
+
+            a {
+                color: $colorSand;
+            }
+
+            .message {
+                margin-top: 10px;
+            }
+        }
+    }
+}
