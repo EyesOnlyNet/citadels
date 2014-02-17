@@ -67,3 +67,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Services
+services:
+    citadels.coreBundle.listener.beforeActions:
+        class: Citadels\CoreBundle\EventListener\BeforeActionListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }

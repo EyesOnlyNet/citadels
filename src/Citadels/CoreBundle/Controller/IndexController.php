@@ -13,7 +13,7 @@ class IndexController extends BaseController
      */
     public function welcomeAction()
     {
-        return [];
+        return $this->getViewVars();
     }
 
     /**
