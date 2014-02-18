@@ -4,6 +4,7 @@ namespace Citadels\CoreBundle\Controller;
 
 use ArrayObject;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class BaseController extends Controller implements BeforeActionHookInterface
 {
@@ -12,6 +13,9 @@ class BaseController extends Controller implements BeforeActionHookInterface
      */
     protected $view;
 
+    /**
+     * @param Request $request
+     */
     public function __construct()
     {
         $this->view = new ArrayObject([], ArrayObject::ARRAY_AS_PROPS);
@@ -19,18 +23,6 @@ class BaseController extends Controller implements BeforeActionHookInterface
 
     public function before()
     {
-        $this->addDefaultStyleSheets();
-        $this->addDefaultJavaScripts();
-    }
-
-    private function addDefaultStyleSheets()
-    {
-
-    }
-
-    private function addDefaultJavaScripts()
-    {
-
     }
 
     protected function getViewVars()
