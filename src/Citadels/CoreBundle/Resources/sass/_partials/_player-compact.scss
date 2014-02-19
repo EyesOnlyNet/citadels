@@ -5,7 +5,6 @@
 
     .name {
         @extend %boxColorLightBrown;
-
     }
 
     &.is-king .name {
@@ -13,7 +12,7 @@
     }
 
     .statistic {
-        margin-top: 12px;
+        margin: 12px 0 0;
         overflow: auto;
 
         li {
@@ -25,6 +24,10 @@
             &:first-of-type {
                 border: 0;
             }
+        }
+
+        .label {
+            padding: 0;
         }
     }
 }

@@ -1,5 +1,5 @@
-@import "../variables/_#.scss";
-@import "../mixins/_#.scss";
+@import "../_variables/_#.scss";
+@import "../_mixins/_#.scss";
 
 .card {
     @extend %borderRoundedLightGray;
