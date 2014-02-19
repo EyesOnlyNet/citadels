@@ -22,7 +22,10 @@ class IndexController extends BaseController
      */
     public function fieldAction()
     {
-        return [];
+        $twig = new \Twig_Environment();
+        $twig->addFunction(new \Twig_SimpleFunction('rand', 'rand'));
+
+        return $this->getViewVars();
     }
 
     /**
@@ -31,6 +34,6 @@ class IndexController extends BaseController
      */
     public function listAction()
     {
-        return [];
+        return $this->getViewVars();
     }
 }
