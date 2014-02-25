@@ -62,13 +62,15 @@
         .calculations {
             margin-top: 12px;
             padding: 8px;
-        }
 
-        .calculations .gold,
-        .calculations .cards,
-        .calculations .points {
-            display: inline-block;
-            width: 22px;
+            li {
+                display: inline-block;
+                width: 22px;
+
+                .label {
+                    padding: 0;
+                }
+            }
         }
     }
 
@@ -82,7 +84,6 @@
             z-index: 1;
 
             &:hover {
-                box-shadow: 0 0 8px 4px $colorLightGray;
                 z-index: 2;
             }
         }

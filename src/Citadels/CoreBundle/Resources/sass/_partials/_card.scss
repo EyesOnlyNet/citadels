@@ -39,5 +39,9 @@
                 background-color: $color;
             }
         }
+
+        &.#{$char}:hover {
+            box-shadow: 0 0 8px 4px $color;
+        }
     }
 }

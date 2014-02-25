@@ -5,19 +5,19 @@
     <div class="name">name</div>
 
     <div class="statistic">
-        <div class="character {{ char }}">#CharName#</div>
+        <div class="character {{ char }}">{{ char }}</div>
 
         <ul class="calculations">
             <li class="gold">
-                <div>gld</div>
+                <div class="label">gld</div>
                 <div>{{ random(10) }}</div>
             </li>
             <li class="cards">
-                <div>crd</div>
+                <div class="label">crd</div>
                 <div>{{ random(8) }}</div>
             </li>
             <li class="points">
-                <div>pts</div>
+                <div class="label">pts</div>
                 <div>{{ random(16) }}</div>
             </li>
         </ul>
