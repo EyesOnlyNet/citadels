@@ -3,12 +3,12 @@
 namespace Citadels\CoreBundle\DependencyInjection;
 
 use Citadels\CoreBundle\Models\Card\CharacterCard;
-use Citadels\CoreBundle\Models\Card\CharacterCardCollection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class CharacterCardService
 {
     /**
-     * @var CharacterCardCollection
+     * @var ArrayCollection
      */
     private $cards;
 
@@ -17,10 +17,10 @@ class CharacterCardService
      */
     public function __construct(array $cards)
     {
-        $this->cards = new CharacterCardCollection();
+        $this->cards = new ArrayCollection();
 
         foreach ($cards as $cardData) {
-            $this->cards->add($this->createCardFromArray($cardData));
+            $this->cards->set($cardData['type'], $this->createCardFromArray($cardData));
         }
     }
 
@@ -30,11 +30,11 @@ class CharacterCardService
      */
     public function createCardFromArray(array $cardData)
     {
-        return new CharacterCard($cardData['name'], $cardData['type']);
+        return new CharacterCard($cardData['name'], $cardData['type'], $cardData['shortcut']);
     }
 
     /**
-     * @return CharacterCardCollection
+     * @return ArrayCollection
      */
     public function getCards()
     {
@@ -42,21 +42,11 @@ class CharacterCardService
     }
 
     /**
-     * @param string[] $sorting
-     * @return CharacterCardCollection
+     * @param string $type
+     * @return CharacterCard
      */
-    public function getCardsSortedByCharacterTypes(array $sorting)
+    public function getCard($type)
     {
-        $cards = $this->cards->toArray();
-        $callback = function(CharacterCard $a, CharacterCard $b) use ($sorting) {
-            $keyA = array_search($a->type, $sorting);
-            $keyB = array_search($b->type, $sorting);
-
-            return $keyA - $keyB;
-        };
-
-        usort($cards, $callback);
-
-        return new CharacterCardCollection($cards);
+        return $this->cards->get($type);
     }
 }

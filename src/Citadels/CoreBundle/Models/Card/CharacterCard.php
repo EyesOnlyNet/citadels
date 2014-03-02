@@ -19,7 +19,7 @@ class CharacterCard
     /**
      * @var string
      */
-    public $color;
+    public $shortcut;
 
     /**
      * @var EffectCollection
@@ -31,10 +31,11 @@ class CharacterCard
      * @param string $type
      * @param string $color
      */
-    public function __construct($name, $type)
+    public function __construct($name, $type, $shortcut)
     {
         $this->name = $name;
         $this->type = $type;
+        $this->shortcut = $shortcut;
     }
 
     /**

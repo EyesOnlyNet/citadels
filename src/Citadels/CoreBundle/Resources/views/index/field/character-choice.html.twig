@@ -1,13 +1,8 @@
 <div class="box characters">
     <h5 class="header">Wähle deine Gesinnung</h5>
     <ul class="content character-list">
-        <li class="ass {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">Meuchler</li>
-        <li class="thf {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">Dieb</li>
-        <li class="mgc {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">Magier</li>
-        <li class="kng {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">König</li>
-        <li class="prs {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">Prediger</li>
-        <li class="chn {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">Händler</li>
-        <li class="bld {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">Baumeister</li>
-        <li class="mrc {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">Söldner</li>
+        {% for character in characterCards %}
+            <li class="{{ character.type }} {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">{{ character.name }}</li>
+        {% endfor %}
     </ul>
 </div>

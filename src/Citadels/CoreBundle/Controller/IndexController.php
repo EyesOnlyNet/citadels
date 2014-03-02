@@ -4,6 +4,7 @@ namespace Citadels\CoreBundle\Controller;
 
 use Citadels\CoreBundle\Models\CharacterList;
 use Citadels\CoreBundle\Traits\Service\CharacterCardServiceResource;
+use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -26,8 +27,12 @@ class IndexController extends BaseController
      */
     public function fieldAction()
     {
-        $characterCardsService = $this->getCharacterCardService();
-        $characterCards = $characterCardsService->getCardsSortedByCharacterTypes(CharacterList::$order);
+        $characterCardService = $this->getCharacterCardService();
+        $characterCards = new ArrayCollection();
+
+        foreach (CharacterList::$order as $characterType) {
+            $characterCards->set($characterType, $characterCardService->getCard($characterType));
+        }
 
         $this->view->characterCards = $characterCards;
 
