@@ -31,11 +31,10 @@ class CharacterCard
      * @param string $type
      * @param string $color
      */
-    public function __construct($name, $type, $color)
+    public function __construct($name, $type)
     {
         $this->name = $name;
         $this->type = $type;
-        $this->color = $color;
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Citadels\CoreBundle\Controller;
+namespace Citadels\CoreBundle\Controller\Hooks;
 
 interface BeforeActionHookInterface
 {

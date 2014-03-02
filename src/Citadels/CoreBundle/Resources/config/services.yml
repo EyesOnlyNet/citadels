@@ -1,0 +1,7 @@
+imports:
+    - { resource: characters.yml }
+
+services:
+    citadels_core.character_card_service:
+        class: Citadels\CoreBundle\DependencyInjection\CharacterCardService
+        arguments: ['%citadels_core.character_cards%']

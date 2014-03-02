@@ -2,11 +2,15 @@
 
 namespace Citadels\CoreBundle\Controller;
 
+use Citadels\CoreBundle\Models\CharacterList;
+use Citadels\CoreBundle\Traits\Service\CharacterCardServiceResource;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class IndexController extends BaseController
 {
+    use CharacterCardServiceResource;
+
     /**
      * @Route("/index", name="_index")
      * @Template()
@@ -22,8 +26,10 @@ class IndexController extends BaseController
      */
     public function fieldAction()
     {
-        $twig = new \Twig_Environment();
-        $twig->addFunction(new \Twig_SimpleFunction('rand', 'rand'));
+        $characterCardsService = $this->getCharacterCardService();
+        $characterCards = $characterCardsService->getCardsSortedByCharacterTypes(CharacterList::$order);
+
+        $this->view->characterCards = $characterCards;
 
         return $this->getViewVars();
     }

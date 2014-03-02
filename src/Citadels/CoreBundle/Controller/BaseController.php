@@ -3,6 +3,7 @@
 namespace Citadels\CoreBundle\Controller;
 
 use ArrayObject;
+use Citadels\CoreBundle\Controller\Hooks\BeforeActionHookInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
