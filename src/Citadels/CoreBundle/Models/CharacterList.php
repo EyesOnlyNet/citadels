@@ -17,9 +17,9 @@ class CharacterList extends ArrayCollection
     public static $order = [
         CharacterType::ASSASSIN,
         CharacterType::THIEF,
-        CharacterType::PRIEST,
-        CharacterType::KING,
         CharacterType::MAGICIAN,
+        CharacterType::KING,
+        CharacterType::PRIEST,
         CharacterType::CHANDLER,
         CharacterType::BUILDER,
         CharacterType::MERCENARY,

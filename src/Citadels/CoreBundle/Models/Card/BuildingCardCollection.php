@@ -12,7 +12,7 @@ class BuildingCardCollection extends ArrayCollection
     public function getPoints()
     {
         $callback = function($current, BuildingCard $card) {
-            return $current + $card->getPoints();
+            return $current + $card->points;
         };
 
         return array_reduce($this->toArray(), $callback, 0);

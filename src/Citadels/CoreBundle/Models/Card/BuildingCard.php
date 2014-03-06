@@ -14,7 +14,7 @@ class BuildingCard
     /**
      * @var string
      */
-    public $color;
+    public $type;
 
     /**
      * @var int
@@ -33,14 +33,14 @@ class BuildingCard
 
     /**
      * @param string $name
-     * @param string $color
+     * @param string $type
      * @param int $cost
      * @param int $points
      */
-    public function __construct($name, $color, $cost, $points)
+    public function __construct($name, $type, $cost, $points)
     {
         $this->name = $name;
-        $this->color = $color;
+        $this->type = $type;
         $this->cost = $cost;
         $this->points = $points;
     }

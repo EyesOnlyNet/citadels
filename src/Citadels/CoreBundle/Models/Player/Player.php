@@ -41,11 +41,11 @@ class Player
     /**
      * @param int $userId
      */
-    function __construct($userId)
+    function __construct($userId = null)
     {
         $this->userId = $userId;
-        $this->buildings = new BuildingCardCollection();
         $this->gold = 0;
+        $this->buildings = new BuildingCardCollection();
         $this->handCards = new BuildingCardCollection();
     }
 
@@ -62,7 +62,7 @@ class Player
      */
     public function isKing()
     {
-        return $this->character->getType() === CharacterType::KING;
+        return $this->character->type === CharacterType::KING;
     }
 
     /**

@@ -1,24 +1,21 @@
-{% set isKing = random(['', 'is-king']) %}
-{% set char = random(['assassin', 'thief', 'magician', 'king', 'priest', 'chandler', 'builder', 'mercenary']) %}
-
-<div class="player {{ isKing }}">
-    <div class="name">name</div>
+<div class="player {{ player.isKing() ? 'is-king' : '' }}">
+    <div class="name">{{ player.name }}</div>
 
     <div class="statistic">
-        <div class="character {{ char }}">{{ char }}</div>
+        <div class="character {{ player.getCharacter().type }}">{{ player.getCharacter().name }}</div>
 
         <ul class="calculations">
             <li class="gold">
                 <div class="label">gld</div>
-                <div>{{ random(10) }}</div>
+                <div>{{ player.gold }}</div>
             </li>
             <li class="cards">
                 <div class="label">crd</div>
-                <div>{{ random(8) }}</div>
+                <div>{{ player.getBuildings().count() }}</div>
             </li>
             <li class="points">
                 <div class="label">pts</div>
-                <div>{{ random(16) }}</div>
+                <div>{{ player.getBuildings().getPoints() }}</div>
             </li>
         </ul>
     </div>
