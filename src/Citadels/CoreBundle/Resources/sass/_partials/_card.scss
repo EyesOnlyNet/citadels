@@ -35,6 +35,17 @@
         &.#{$char} {
             border-color: $color;
 
+            .image {
+                background: url("/bundles/citadelscore/images/spheres/#{$char}002.png")
+                            no-repeat
+                            center center
+                            #fff;
+                height: 140px;
+                opacity: 0.25;
+                position: absolute;
+                width: 100%;
+            }
+
             .cost {
                 background-color: $color;
             }
