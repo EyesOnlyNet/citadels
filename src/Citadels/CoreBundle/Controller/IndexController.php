@@ -4,8 +4,8 @@ namespace Citadels\CoreBundle\Controller;
 
 use Citadels\CoreBundle\Controller\Traits\Service\BuildingCardServiceResource;
 use Citadels\CoreBundle\Controller\Traits\Service\CharacterCardServiceResource;
+use Citadels\CoreBundle\Document\Player;
 use Citadels\CoreBundle\Models\CharacterList;
-use Citadels\CoreBundle\Models\Player\Player;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;

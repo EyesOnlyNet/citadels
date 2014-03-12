@@ -60,6 +60,15 @@ doctrine:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://root:root@ds031349.mongolab.com:31349/citadels
+            options: {}
+    document_managers:
+        default:
+            auto_mapping: true
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"

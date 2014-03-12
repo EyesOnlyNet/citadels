@@ -2,7 +2,7 @@
 
 namespace Citadels\CoreBundle\Controller\Traits\Service;
 
-use Citadels\CoreBundle\DependencyInjection\CharacterCardService;
+use Citadels\CoreBundle\DependencyInjection\Service\CharacterCardService;
 
 trait CharacterCardServiceResource
 {

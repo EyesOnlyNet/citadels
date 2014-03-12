@@ -4,9 +4,9 @@ imports:
 
 services:
     citadels_core.character_card_service:
-        class: Citadels\CoreBundle\DependencyInjection\CharacterCardService
+        class: Citadels\CoreBundle\DependencyInjection\Service\CharacterCardService
         arguments: ['%citadels_core.character_cards%']
 
     citadels_core.building_card_service:
-        class: Citadels\CoreBundle\DependencyInjection\BuildingCardService
+        class: Citadels\CoreBundle\DependencyInjection\Service\BuildingCardService
         arguments: ['%citadels_core.building_cards%']

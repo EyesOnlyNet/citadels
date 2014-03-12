@@ -1,6 +1,6 @@
 <?php
 
-namespace Citadels\CoreBundle\DependencyInjection;
+namespace Citadels\CoreBundle\DependencyInjection\Service;
 
 use Citadels\CoreBundle\Models\Card\BuildingCard;
 use Citadels\CoreBundle\Models\Card\BuildingCardCollection;
