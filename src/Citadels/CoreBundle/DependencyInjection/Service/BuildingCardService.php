@@ -28,7 +28,7 @@ class BuildingCardService
      * @param mixed[] $cardData
      * @return BuildingCard
      */
-    public function createCardFromArray(array $cardData)
+    private function createCardFromArray(array $cardData)
     {
         $points = key_exists('points', $cardData) ? $cardData['points'] : $cardData['cost'];
 

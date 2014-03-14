@@ -1,6 +1,6 @@
 <?php
 
-namespace Citadels\CoreBundle\Models\Enum;
+namespace Citadels\CoreBundle\Enum;
 
 interface CharacterType
 {

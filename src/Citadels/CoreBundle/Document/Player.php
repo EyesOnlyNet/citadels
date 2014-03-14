@@ -2,21 +2,24 @@
 
 namespace Citadels\CoreBundle\Document;
 
+use Citadels\CoreBundle\Document\CharacterCard;
 use Citadels\CoreBundle\Models\Card\BuildingCardCollection;
-use Citadels\CoreBundle\Models\Card\CharacterCard;
-use Citadels\CoreBundle\Models\Enum\CharacterType;
+use Citadels\CoreBundle\Enum\CharacterType;
+use Citadels\CoreBundle\Traits\UuidTrait;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document
+ * @MongoDB\EmbeddedDocument
  */
 class Player
 {
+    use UuidTrait;
+
     /**
-     * @MongoDB\String
+     * @MongoDB\Id(strategy="UUID")
      * @var string
      */
-    public $userId;
+    public $id;
 
     /**
      * @MongoDB\String
@@ -31,6 +34,7 @@ class Player
     public $gold;
 
     /**
+     * @MongoDb\EmbedOne(targetDocument="CharacterCard")
      * @var CharacterCard
      */
     private $character;
@@ -45,12 +49,9 @@ class Player
      */
     private $handCards;
 
-    /**
-     * @param int $userId
-     */
-    function __construct($userId = null)
+    function __construct()
     {
-        $this->userId = $userId;
+        $this->id = $this->getUuidV4(4);
         $this->gold = 0;
         $this->buildings = new BuildingCardCollection();
         $this->handCards = new BuildingCardCollection();
@@ -118,5 +119,29 @@ class Player
     public function getHandCards()
     {
         return $this->handCards;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGold()
+    {
+        return $this->gold;
     }
 }

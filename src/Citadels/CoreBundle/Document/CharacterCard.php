@@ -1,22 +1,29 @@
 <?php
 
-namespace Citadels\CoreBundle\Models\Card;
+namespace Citadels\CoreBundle\Document;
 
 use Citadels\CoreBundle\Models\Effect\EffectCollection;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
+/**
+ * @MongoDB\EmbeddedDocument
+ */
 class CharacterCard
 {
     /**
+     * @MongoDB\String
      * @var string
      */
     public $name;
 
     /**
+     * @MongoDB\String
      * @var string
      */
     public $type;
 
     /**
+     * @MongoDB\String
      * @var string
      */
     public $shortcut;

@@ -2,8 +2,8 @@
 
 namespace Citadels\CoreBundle\Models;
 
-use Citadels\CoreBundle\Models\Card\CharacterCard;
-use Citadels\CoreBundle\Models\Enum\CharacterType;
+use Citadels\CoreBundle\Document\CharacterCard;
+use Citadels\CoreBundle\Enum\CharacterType;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class CharacterList extends ArrayCollection

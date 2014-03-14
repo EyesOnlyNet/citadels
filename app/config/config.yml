@@ -65,6 +65,7 @@ doctrine_mongodb:
         default:
             server: mongodb://root:root@ds031349.mongolab.com:31349/citadels
             options: {}
+    default_database: citadels
     document_managers:
         default:
             auto_mapping: true
