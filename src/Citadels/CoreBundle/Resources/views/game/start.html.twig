@@ -1,4 +1,57 @@
-Game created:
+{% extends "CitadelsCoreBundle::layout.php.twig" %}
 
-ID: {{ game.getId() }} <br />
-Player-ID: {{ game.getActivePlayer().getId() }} <br />
+{% block debug %}
+    <div id="debug">
+        {% if game is defined %}
+            <p>
+                Game-ID: {{ game.getId() }} <br />
+                Active-Player-ID: {{ game.getActivePlayer().getId() }} <br />
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block headLinks %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/citadelscore/css/index/field.css') }}" />
+{% endblock %}
+
+{% block siteHeader %}
+    <header>
+        {% for player in game.getPlayers() %}
+            {% include 'CitadelsCoreBundle:Game:start/player-compact.html.twig' with {'player': player} %}
+        {% endfor %}
+    </header>
+{% endblock %}
+
+{% block siteContent %}
+    {% include 'CitadelsCoreBundle:Game:start/character-choice.html.twig' %}
+    {% include 'CitadelsCoreBundle:Game:start/player.html.twig' with {'player': game.getActivePlayer()} %}
+
+    <div id="action-tabs" class="tabs">
+        {% include 'CitadelsCoreBundle:Game:start/tabs/actions.html.twig' %}
+
+        <div class="tab-body">
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/draw-card.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-draw-cards.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-exchange-cards-stack.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-exchange-cards-player.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-get-card-gold.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-get-gold.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-play-cards.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-remove-card.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-stall-character.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/effect-steal-gold.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/get-gold.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/hand.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/play-card.html.twig' %}
+            {% include 'CitadelsCoreBundle:Game:start/tabs/actions/end.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="{{ asset('bundles/citadelscore/js/index/field.js') }}" />
+{% endblock %}

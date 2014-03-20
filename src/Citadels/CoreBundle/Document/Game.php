@@ -102,6 +102,6 @@ class Game
             $this->activePlayer = $player;
         }
 
-        $this->players->set($player->getId(), $player);
+        $this->players->add($player);
     }
 }

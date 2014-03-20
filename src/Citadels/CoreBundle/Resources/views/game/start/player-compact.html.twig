@@ -1,0 +1,28 @@
+{% set isKing = player.isKing() ? 'is-king' : '' %}
+
+<div class="player-compact {{ isKing }}">
+    <div class="name">{{ player.getName() }}</div>
+
+    <ul class="statistic">
+        <li class="points">
+            <div class="label">pts</div>
+            <div class="value">{{ player.getPoints() }}</div>
+        </li>
+        <li class="buildings">
+            <div class="label">bdg</div>
+            <div class="value">{{ player.getBuildings().count() }}</div>
+        </li>
+        <li class="gold">
+            <div class="label">gld</div>
+            <div class="value">{{ player.getGold() }}</div>
+        </li>
+        <li class="cards">
+            <div class="label">crd</div>
+            <div class="value">{{ player.getHandCards().count() }}</div>
+        </li>
+        <li class="character">
+            <div class="label">chr</div>
+            <div class="value">{{ player.getCharacter().getShortcut() }}</div>
+        </li>
+    </ul>
+</div>

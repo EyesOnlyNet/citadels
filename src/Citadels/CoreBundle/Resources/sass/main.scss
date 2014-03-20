@@ -2,3 +2,12 @@
 @import "_mixins/_#.scss";
 @import "_elements/_#.scss";
 @import "_partials/_#.scss";
+
+#debug {
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 10px;
+    position: fixed;
+    width: auto;
+    z-index: 10;
+}

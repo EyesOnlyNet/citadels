@@ -66,6 +66,7 @@ doctrine_mongodb:
             server: mongodb://root:root@ds031349.mongolab.com:31349/citadels
             options: {}
     default_database: citadels
+    auto_generate_hydrator_classes: true
     document_managers:
         default:
             auto_mapping: true

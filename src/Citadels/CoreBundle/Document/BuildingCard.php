@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\EmbeddedDocument
  */
-class CharacterCard
+class BuildingCard
 {
     /**
      * @MongoDB\String
@@ -23,12 +23,19 @@ class CharacterCard
     private $type;
 
     /**
-     * @MongoDB\String
-     * @var string
+     * @MongoDB\Int
+     * @var int
      */
-    private $shortcut;
+    private $cost;
 
     /**
+     * @MongoDB\Int
+     * @var int
+     */
+    private $points;
+
+    /**
+     * @MongoDb\EmbedMany(targetDocument="Effect")
      * @var ArrayCollection
      */
     private $effects;
@@ -36,13 +43,15 @@ class CharacterCard
     /**
      * @param string $name
      * @param string $type
-     * @param string $color
+     * @param int $cost
+     * @param int $points
      */
-    public function __construct($name, $type, $shortcut)
+    public function __construct($name, $type, $cost, $points)
     {
         $this->name = $name;
         $this->type = $type;
-        $this->shortcut = $shortcut;
+        $this->cost = $cost;
+        $this->points = $points;
         $this->effects = new ArrayCollection();
     }
 
@@ -79,11 +88,19 @@ class CharacterCard
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getShortcut()
+    public function getCost()
     {
-        return $this->shortcut;
+        return $this->cost;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPoints()
+    {
+        return $this->points;
     }
 
     /**

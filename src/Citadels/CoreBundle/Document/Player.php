@@ -3,13 +3,14 @@
 namespace Citadels\CoreBundle\Document;
 
 use Citadels\CoreBundle\Document\CharacterCard;
-use Citadels\CoreBundle\Models\Card\BuildingCardCollection;
 use Citadels\CoreBundle\Enum\CharacterType;
 use Citadels\CoreBundle\Traits\UuidTrait;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * @MongoDB\EmbeddedDocument
+ * @MongoDB\HasLifecycleCallbacks
  */
 class Player
 {
@@ -40,12 +41,14 @@ class Player
     private $character;
 
     /**
-     * @var BuildingCardCollection
+     * @MongoDb\EmbedMany(targetDocument="BuildingCard")
+     * @var ArrayCollection
      */
     private $buildings;
 
     /**
-     * @var BuildingCardCollection
+     * @MongoDb\EmbedMany(targetDocument="BuildingCard")
+     * @var ArrayCollection
      */
     private $handCards;
 
@@ -53,8 +56,8 @@ class Player
     {
         $this->id = $this->getUuidV4(4);
         $this->gold = 0;
-        $this->buildings = new BuildingCardCollection();
-        $this->handCards = new BuildingCardCollection();
+        $this->buildings = new ArrayCollection();
+        $this->handCards = new ArrayCollection();
     }
 
     /**
@@ -62,7 +65,14 @@ class Player
      */
     public function getPoints()
     {
-        return $this->buildings->getPoints();
+        $points = 0;
+        
+        /* @var $building BuildingCard */
+        foreach ($this->buildings as $building) {
+            $points += $building->getPoints();
+        }
+
+        return $points;
     }
 
     /**
@@ -70,7 +80,7 @@ class Player
      */
     public function isKing()
     {
-        return $this->character->type === CharacterType::KING;
+        return $this->character->getType() === CharacterType::KING;
     }
 
     /**
@@ -82,17 +92,17 @@ class Player
     }
 
     /**
-     * @param BuildingCardCollection $buildings
+     * @param ArrayCollection $buildings
      */
-    public function setBuildings(BuildingCardCollection $buildings)
+    public function setBuildings(ArrayCollection $buildings)
     {
         $this->buildings = $buildings;
     }
 
     /**
-     * @param BuildingCardCollection $handCards
+     * @param ArrayCollection $handCards
      */
-    public function setHandCards(BuildingCardCollection $handCards)
+    public function setHandCards(ArrayCollection $handCards)
     {
         $this->handCards = $handCards;
     }
@@ -106,7 +116,7 @@ class Player
     }
 
     /**
-     * @return BuildingCardCollection
+     * @return ArrayCollection
      */
     public function getBuildings()
     {
@@ -114,7 +124,7 @@ class Player
     }
 
     /**
-     * @return BuildingCardCollection
+     * @return ArrayCollection
      */
     public function getHandCards()
     {
