@@ -10,5 +10,6 @@
 /bin/
 /composer.phar
 /nbproject/
-/src/Citadels/CoreBundle/Resources/public/*
+/src/Citadels/CoreBundle/Resources/public/css/*
 /src/Acme
+/#/*
