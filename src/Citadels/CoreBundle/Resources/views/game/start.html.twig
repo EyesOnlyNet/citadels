@@ -1,11 +1,14 @@
 {% extends "CitadelsCoreBundle::layout.php.twig" %}
 
 {% block debug %}
+    {{ parent() }}
     <div id="debug">
         {% if game is defined %}
             <p>
                 Game-ID: {{ game.getId() }} <br />
-                Active-Player-ID: {{ game.getActivePlayer().getId() }} <br />
+                {% if game.getActivePlayer() is defined %}
+                    Active-Player-ID: {{ game.getActivePlayer().getId() }}
+                {% endif %}
             </p>
         {% endif %}
     </div>
@@ -13,7 +16,7 @@
 
 {% block headLinks %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/citadelscore/css/index/field.css') }}" />
+    <link rel="stylesheet" href="/bundles/citadelscore/css/game/start.css" />
 {% endblock %}
 
 {% block siteHeader %}
@@ -26,7 +29,6 @@
 
 {% block siteContent %}
     {% include 'CitadelsCoreBundle:Game:start/character-choice.html.twig' %}
-    {% include 'CitadelsCoreBundle:Game:start/player.html.twig' with {'player': game.getActivePlayer()} %}
 
     <div id="action-tabs" class="tabs">
         {% include 'CitadelsCoreBundle:Game:start/tabs/actions.html.twig' %}
@@ -52,6 +54,5 @@
 
 {% block scripts %}
     {{ parent() }}
-    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script src="{{ asset('bundles/citadelscore/js/index/field.js') }}" />
+    <script src="/bundles/citadelscore/js/game/start.js"></script>
 {% endblock %}

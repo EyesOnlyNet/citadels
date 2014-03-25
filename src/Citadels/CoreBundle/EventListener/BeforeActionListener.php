@@ -2,7 +2,7 @@
 
 namespace Citadels\CoreBundle\EventListener;
 
-use Citadels\CoreBundle\Controller\BeforeActionHookInterface;
+use Citadels\CoreBundle\Controller\Hooks\BeforeActionHookInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 

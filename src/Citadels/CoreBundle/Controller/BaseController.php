@@ -7,7 +7,7 @@ use Citadels\CoreBundle\Controller\Hooks\BeforeActionHookInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class BaseController extends Controller implements BeforeActionHookInterface
+abstract class BaseController extends Controller implements BeforeActionHookInterface
 {
     /**
      * @var ArrayObject
@@ -24,10 +24,20 @@ class BaseController extends Controller implements BeforeActionHookInterface
 
     public function before()
     {
+        $this->setControllerRequestToView();
     }
 
     protected function getViewVars()
     {
         return $this->view->getArrayCopy();
+    }
+
+    private function setControllerRequestToView()
+    {
+        $matches = [];
+        $current = $this->getRequest()->attributes->get('_controller');
+        preg_match('#(.*)\\\(.*)Bundle\\\Controller\\\(.*)Controller::(.*)Action#', $current, $matches);
+
+        list(, $this->view->project, $this->view->bundle, $this->view->controller, $this->view->action) = $matches;
     }
 }

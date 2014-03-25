@@ -10,3 +10,7 @@ services:
     citadels_core.building_card_service:
         class: Citadels\CoreBundle\DependencyInjection\Service\BuildingCardService
         arguments: ['%citadels_core.building_cards%']
+
+    citadels_core.character_list_service:
+        class: Citadels\CoreBundle\DependencyInjection\Service\CharacterListService
+        arguments: [@citadels_core.character_card_service]

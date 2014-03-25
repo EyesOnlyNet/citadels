@@ -4,9 +4,6 @@ namespace Citadels\CoreBundle\Controller;
 
 use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
 use Citadels\CoreBundle\Controller\Traits\Service\CharacterCardServiceResource;
-use Citadels\CoreBundle\Document\Game;
-use Citadels\CoreBundle\Document\Player;
-use Citadels\CoreBundle\Enum\CharacterType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -17,22 +14,14 @@ class DirtyController extends BaseController
 
     /**
      * @Route("/dirty/test")
+     * @Route("/dirty/test/{data}")
      * @Template()
      */
     public function testAction()
     {
-        $characterCardService = $this->getCharacterCardService();
+        $data = $this->getRequest()->attributes->get('data');
 
-        $player = new Player();
-        $player->name = 'Steve';
-        $player->setCharacter($characterCardService->getCard(CharacterType::ASSASSIN));
-
-        $game = new Game();
-        $game->addPlayer($player);
-
-        $dm = $this->getMongoDocumentManager();
-        $dm->persist($game);
-        $dm->flush();
+        $this->view->data = $data;
 
         return $this->getViewVars();
     }
