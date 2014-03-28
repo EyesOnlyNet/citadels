@@ -25,7 +25,10 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
     public function before()
     {
         $this->setControllerRequestToView();
+        $this->init();
     }
+
+    protected function init() {}
 
     protected function getViewVars()
     {

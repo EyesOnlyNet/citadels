@@ -1,6 +1,6 @@
-{% set isKing = player.isKing() ? 'is-king' : '' %}
+{% set isKingClass = player.isKing() ? 'is-king' : '' %}
 
-<div class="player-compact {{ isKing }}">
+<div class="player-compact {{ isKingClass }}">
     <div class="name">{{ player.getName() }}</div>
 
     <ul class="statistic">
@@ -22,7 +22,7 @@
         </li>
         <li class="character">
             <div class="label">chr</div>
-            <div class="value">{{ player.getCharacter().getShortcut() }}</div>
+            <div class="value">{{ player.getCharacter() ? player.getCharacter().getShortcut() : '-' }}</div>
         </li>
     </ul>
 </div>

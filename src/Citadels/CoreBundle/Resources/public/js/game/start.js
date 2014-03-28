@@ -1,16 +1,19 @@
 $(function() {
-    var identifyGuest = function() {
-        var fingerprint = new Fingerprint().get();
+    var identifyMe = function() {
+        var fingerprint = new Fingerprint().get(),
+            gameId = $('#my-game').data('id');
 
         $.ajax({
-            url: '/app_dev.php/dirty/test/' + fingerprint
+            url: '/app_dev.php/game/' + gameId + '/player/' + fingerprint
         })
-        .done(function() { alert("success"); })
-        .fail(function() { alert("error"); })
-        .always(function() { alert("complete"); });
+        .done(function(response) {
+            $('#my-player-section').append(response);
+        })
+        .fail(function() { console.log("error"); })
+        .always(function() { console.log("complete"); });
     };
 
-    identifyGuest();
+    identifyMe();
 
     $('#action-tabs').tabs({
         disabled: [],

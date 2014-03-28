@@ -1,7 +1,9 @@
 <div id="tab-hand" class="tab-content hand">
     <ul class="cards">
-        {% for handCard in game.getActivePlayer().getHandCards() %}
-            {% include 'CitadelsCoreBundle:Index:field/card.html.twig' with {'card': handCard} %}
-        {% endfor %}
+        {% if game.getActivePlayer() is not null %}
+            {% for handCard in game.getActivePlayer().getHandCards() %}
+                {% include 'CitadelsCoreBundle:Index:field/card.html.twig' with {'card': handCard} %}
+            {% endfor %}
+        {% endif %}
     </ul>
 </div>

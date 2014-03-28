@@ -3,14 +3,9 @@
 {% block debug %}
     {{ parent() }}
     <div id="debug">
-        {% if game is defined %}
-            <p>
-                Game-ID: {{ game.getId() }} <br />
-                {% if game.getActivePlayer() is defined %}
-                    Active-Player-ID: {{ game.getActivePlayer().getId() }}
-                {% endif %}
-            </p>
-        {% endif %}
+        <p>
+            Game-ID: {{ game.getId() }}
+        </p>
     </div>
 {% endblock %}
 
@@ -20,6 +15,7 @@
 {% endblock %}
 
 {% block siteHeader %}
+    <span id="my-game" data-id="{{ game.getId() }}"></span>
     <header>
         {% for player in game.getPlayers() %}
             {% include 'CitadelsCoreBundle:Game:start/player-compact.html.twig' with {'player': player} %}
@@ -29,6 +25,8 @@
 
 {% block siteContent %}
     {% include 'CitadelsCoreBundle:Game:start/character-choice.html.twig' %}
+
+    <div id="my-player-section"></div>
 
     <div id="action-tabs" class="tabs">
         {% include 'CitadelsCoreBundle:Game:start/tabs/actions.html.twig' %}

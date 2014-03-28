@@ -20,19 +20,19 @@ class Player
      * @MongoDB\Id(strategy="UUID")
      * @var string
      */
-    public $id;
+    private $id;
 
     /**
      * @MongoDB\String
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @MongoDB\Int
      * @var int
      */
-    public $gold;
+    private $gold;
 
     /**
      * @MongoDb\EmbedOne(targetDocument="CharacterCard")
@@ -52,9 +52,9 @@ class Player
      */
     private $handCards;
 
-    function __construct()
+    function __construct($id = null)
     {
-        $this->id = $this->getUuidV4(4);
+        $this->id = $id ?: $this->getUuidV4(4);
         $this->gold = 0;
         $this->buildings = new ArrayCollection();
         $this->handCards = new ArrayCollection();
@@ -66,7 +66,7 @@ class Player
     public function getPoints()
     {
         $points = 0;
-        
+
         /* @var $building BuildingCard */
         foreach ($this->buildings as $building) {
             $points += $building->getPoints();
@@ -80,7 +80,7 @@ class Player
      */
     public function isKing()
     {
-        return $this->character->getType() === CharacterType::KING;
+        return isset($this->character) && $this->character->getType() === CharacterType::KING;
     }
 
     /**
@@ -154,4 +154,30 @@ class Player
     {
         return $this->gold;
     }
+
+    /**
+     * @param int $value
+     */
+    public function addGold($value)
+    {
+        $this->gold += $value;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @param int $gold
+     */
+    public function setGold($gold)
+    {
+        $this->gold = $gold;
+    }
+
+
 }

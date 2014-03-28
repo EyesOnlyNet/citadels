@@ -104,4 +104,20 @@ class Game
 
         $this->players->add($player);
     }
+
+    /**
+     * @param string $id
+     * @return Player
+     */
+    public function getPlayerById($id)
+    {
+        /* @var $player \Citadels\CoreBundle\Document\Player */
+        foreach ($this->getPlayers() as $player) {
+            if ($player->getId() === $id) {
+                return $player;
+            }
+        }
+
+        return;
+    }
 }
