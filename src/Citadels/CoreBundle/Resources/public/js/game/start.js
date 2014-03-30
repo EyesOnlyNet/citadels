@@ -7,7 +7,7 @@ $(function() {
             url: '/app_dev.php/game/' + gameId + '/player/' + fingerprint
         })
         .done(function(response) {
-            $('#my-player-section').append(response);
+            $('[data-section="my-player"]').append(response);
         })
         .fail(function() { console.log("error"); })
         .always(function() { console.log("complete"); });

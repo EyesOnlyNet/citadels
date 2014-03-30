@@ -4,14 +4,13 @@ namespace Citadels\CoreBundle\Document;
 
 use Citadels\CoreBundle\Document\Player;
 use Citadels\CoreBundle\Traits\UuidTrait;
-use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * @MongoDB\Document
  */
-class Game
+class Game extends Base
 {
     use UuidTrait;
 
@@ -33,24 +32,12 @@ class Game
      */
     private $activePlayer;
 
-    /**
-     * @MongoDB\Date
-     * @var DateTime
-     */
-    private $updatedAt;
-
-    /**
-     * @MongoDB\Date
-     * @var DateTime
-     */
-    private $createdAt;
-
     function __construct()
     {
+        parent::__construct();
+
         $this->id = $this->getUuidV4(4);
         $this->players = new ArrayCollection();
-        $this->updatedAt = new DateTime();
-        $this->createdAt = new DateTime();
     }
 
     /**
@@ -78,22 +65,6 @@ class Game
     }
 
     /**
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updatedAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
      * @param Player $player
      */
     public function addPlayer(Player $player)
@@ -111,7 +82,7 @@ class Game
      */
     public function getPlayerById($id)
     {
-        /* @var $player \Citadels\CoreBundle\Document\Player */
+        /* @var $player Player */
         foreach ($this->getPlayers() as $player) {
             if ($player->getId() === $id) {
                 return $player;

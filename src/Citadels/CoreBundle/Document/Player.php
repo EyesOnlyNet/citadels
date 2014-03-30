@@ -10,11 +10,104 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * @MongoDB\EmbeddedDocument
- * @MongoDB\HasLifecycleCallbacks
  */
-class Player
+class Player extends Base
 {
     use UuidTrait;
+
+    /**
+     * @var string[]
+     */
+    private static $randomNames = [
+        'Aladdin',
+        'Alice',
+        'Anna',
+        'Arielle',
+        'Aristocat',
+        'Aurora',
+        'Avenger',
+        'Bambi',
+        'Belle',
+        'Biest',
+        'Brave',
+        'Buzz Lightyear',
+        'Captain America',
+        'Cinderella',
+        'Daisy Duck',
+        'Dalmatiner',
+        'Monster',
+        'Muppet',
+        'Fairy',
+        'Doc McStuffin',
+        'Donald Duck',
+        'Dornröschen',
+        'Dory',
+        'Duffy',
+        'Dumbo',
+        'Elsa',
+        'Ferkel',
+        'Nemo',
+        'Finn McMissile',
+        'Francesco',
+        'Frankenweenie',
+        'Goofy',
+        'Holley Shiftwell',
+        'Hook',
+        'Hulk',
+        'I-Aah',
+        'Iron Man',
+        'Jack Skellington',
+        'Jack Sparrow',
+        'Jake',
+        'Pirat',
+        'Jasmin',
+        'Jessie',
+        'Klopfer',
+        'Löwe',
+        'Frosch',
+        'Lightning McQueen',
+        'Lilo',
+        'Stitch',
+        'Lotso',
+        'Mack',
+        'Marie',
+        'Merida',
+        'Micky Maus',
+        'Minnie Maus',
+        'Mulan',
+        'Olaf',
+        'Periwinkle',
+        'Peter Pan',
+        'Phineas',
+        'Ferb',
+        'Pinocchio',
+        'Pluto',
+        'Pocahontas',
+        'Jasmin',
+        'Ralph',
+        'Rapunzel',
+        'Rex',
+        'Rosetta',
+        'Schneewittchen',
+        'Silberhauch',
+        'Sofia die Erste',
+        'Spider-Man',
+        'Squirt',
+        'Susi',
+        'Strolch',
+        'Thor',
+        'Tiana',
+        'Tigger',
+        'Tinkerbell',
+        'Tron',
+        'Vidia',
+        'Violetta',
+        'WALL-E',
+        'Winnie Puuh',
+        'Woody',
+        'X-Men',
+        'Zwerg',
+    ];
 
     /**
      * @MongoDB\Id(strategy="UUID")
@@ -54,7 +147,10 @@ class Player
 
     function __construct($id = null)
     {
+        parent::__construct();
+
         $this->id = $id ?: $this->getUuidV4(4);
+        $this->name = self::$randomNames[array_rand(self::$randomNames)];
         $this->gold = 0;
         $this->buildings = new ArrayCollection();
         $this->handCards = new ArrayCollection();
@@ -178,6 +274,4 @@ class Player
     {
         $this->gold = $gold;
     }
-
-
 }

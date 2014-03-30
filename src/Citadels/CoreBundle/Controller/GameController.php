@@ -93,7 +93,6 @@ class GameController extends BaseController
     private function createNewPlayer($playerId, $gameId)
     {
         $player = new Player($playerId);
-        $player->setName('Peter Pan');
         $this->getMongoDocumentManager()->persist($player);
 
         $game = $this->findGame($gameId);
