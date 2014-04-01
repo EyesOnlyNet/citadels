@@ -45,8 +45,8 @@ abstract class Base
     }
 
     /**
-     * @MongoDB/PrePersist
-     * @MongoDB/PreUpdate
+     * @MongoDB\PrePersist
+     * @MongoDB\PreUpdate
      */
     public function refreshModifiedAt()
     {

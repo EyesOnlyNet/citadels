@@ -4,10 +4,14 @@ $(function() {
             gameId = $('#my-game').data('id');
 
         $.ajax({
-            url: '/app_dev.php/game/' + gameId + '/player/' + fingerprint
+            url: '/app_dev.php/player/' + fingerprint + '/game/' + gameId
         })
         .done(function(response) {
-            $('[data-section="my-player"]').append(response);
+            console.log("success");
+
+            var data = { myPlayer: $.parseJSON(response) };
+
+            updateViewModel(data, viewModel);
         })
         .fail(function() { console.log("error"); })
         .always(function() { console.log("complete"); });

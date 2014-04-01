@@ -1,30 +1,25 @@
-{% set player = game.getActivePlayer() %}
-
-<div class="player {{ player.isKing() ? 'is-king' : '' }}">
-    <div class="name">{{ player.name }}</div>
+<div class="player" data-bind="css: { 'is-king': myPlayer.isKing }">
+    <div class="name" data-bind="text: myPlayer.name"></div>
 
     <div class="statistic">
-        <div class="character {{ player.getCharacter().type }}">{{ player.getCharacter().name }}</div>
+        <div class="character" data-bind="css: myPlayer.character.type, text: myPlayer.character.name"></div>
 
         <ul class="calculations">
-            <li class="gold">
-                <div class="label">gld</div>
-                <div>{{ player.gold }}</div>
-            </li>
-            <li class="cards">
-                <div class="label">crd</div>
-                <div>{{ player.getBuildings().count() }}</div>
-            </li>
             <li class="points">
                 <div class="label">pts</div>
-                <div>{{ player.getPoints() }}</div>
+                <div data-bind="text: myPlayer.points"></div>
+            </li>
+            <li class="buildings">
+                <div class="label">bdg</div>
+                <div data-bind="text: myPlayer.buildings"></div>
+            </li>
+            <li class="gold">
+                <div class="label">gld</div>
+                <div data-bind="text: myPlayer.gold"></div>
             </li>
         </ul>
     </div>
 
-    <ul class="buildings">
-        {% for building in player.getBuildings() %}
-            {% include 'CitadelsCoreBundle:Index:field/card.html.twig' with {'card': building} %}
-        {% endfor %}
+    <ul class="hand-cards">
     </ul>
 </div>

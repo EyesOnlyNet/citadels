@@ -27,6 +27,7 @@
     {% include 'CitadelsCoreBundle:Game:start/character-choice.html.twig' %}
 
     <div data-section="my-player"></div>
+    {% include 'CitadelsCoreBundle:Game:start/player.html.twig' %}
 
     <div id="action-tabs" class="tabs">
         {% include 'CitadelsCoreBundle:Game:start/tabs/actions.html.twig' %}
@@ -52,5 +53,6 @@
 
 {% block scripts %}
     {{ parent() }}
+    <script src="/bundles/citadelscore/js/game/start/view-model.js"></script>
     <script src="/bundles/citadelscore/js/game/start.js"></script>
 {% endblock %}
