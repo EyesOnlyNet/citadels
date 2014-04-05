@@ -9,7 +9,7 @@ $(function() {
         .done(function(response) {
             console.log("success");
 
-            var data = { myPlayer: $.parseJSON(response) };
+            var data = { myPlayer: $.parseJSON(response).player };
 
             updateViewModel(data, viewModel);
         })

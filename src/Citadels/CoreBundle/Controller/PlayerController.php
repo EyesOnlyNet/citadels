@@ -6,9 +6,8 @@ use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
 use Citadels\CoreBundle\Document\Game;
 use Citadels\CoreBundle\Document\Player;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
-class PlayerController extends BaseController
+class PlayerController extends AjaxController
 {
     use MongoDocumentManagerResource;
 
@@ -19,14 +18,9 @@ class PlayerController extends BaseController
     {
         $playerId = $this->getRequest()->attributes->get('playerId');
         $gameId = $this->getRequest()->attributes->get('gameId');
-        $serializer = $this->get('serializer');
+        $this->view->player = $this->findPlayerOrCreateNew($playerId, $gameId);
 
-        $response = new JsonResponse();
-        $response->setData(
-            $serializer->serialize($this->findPlayerOrCreateNew($playerId, $gameId), 'json')
-        );
-
-        return $response;
+        return $this->getAjaxResponse($this->getViewVars());
     }
 
     /**

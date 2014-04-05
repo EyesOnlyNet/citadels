@@ -11,7 +11,7 @@
             </li>
             <li class="buildings">
                 <div class="label">bdg</div>
-                <div data-bind="text: myPlayer.buildings"></div>
+                <div data-bind="text: myPlayer.buildings.length"></div>
             </li>
             <li class="gold">
                 <div class="label">gld</div>
@@ -20,6 +20,6 @@
         </ul>
     </div>
 
-    <ul class="hand-cards">
+    <ul class="hand-cards" data-bind="text: myPlayer.handCards.length">
     </ul>
 </div>
