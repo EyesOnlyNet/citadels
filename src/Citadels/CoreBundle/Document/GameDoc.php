@@ -2,15 +2,15 @@
 
 namespace Citadels\CoreBundle\Document;
 
-use Citadels\CoreBundle\Document\Player;
+use Citadels\CoreBundle\Document\PlayerDoc;
 use Citadels\CoreBundle\Traits\UuidTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
- * @MongoDB\Document
+ * @MongoDB\Document(collection="game")
  */
-class Game extends Base
+class GameDoc extends BaseDoc
 {
     use UuidTrait;
 
@@ -21,14 +21,14 @@ class Game extends Base
     private $id;
 
     /**
-     * @MongoDb\EmbedMany(targetDocument="Player")
+     * @MongoDb\EmbedMany(targetDocument="PlayerDoc")
      * @var ArrayCollection
      */
     private $players;
 
     /**
-     * @MongoDb\EmbedOne(targetDocument="Player")
-     * @var Player
+     * @MongoDb\EmbedOne(targetDocument="PlayerDoc")
+     * @var PlayerDoc
      */
     private $activePlayer;
 
@@ -57,7 +57,7 @@ class Game extends Base
     }
 
     /**
-     * @return Player
+     * @return PlayerDoc
      */
     public function getActivePlayer()
     {
@@ -65,9 +65,9 @@ class Game extends Base
     }
 
     /**
-     * @param Player $player
+     * @param PlayerDoc $player
      */
-    public function addPlayer(Player $player)
+    public function addPlayer(PlayerDoc $player)
     {
         if ($this->players->count() == 0) {
             $this->activePlayer = $player;
@@ -78,11 +78,11 @@ class Game extends Base
 
     /**
      * @param string $id
-     * @return Player
+     * @return PlayerDoc
      */
     public function getPlayerById($id)
     {
-        /* @var $player Player */
+        /* @var $player PlayerDoc */
         foreach ($this->getPlayers() as $player) {
             if ($player->getId() === $id) {
                 return $player;

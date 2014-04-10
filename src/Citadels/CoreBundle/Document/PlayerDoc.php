@@ -2,7 +2,7 @@
 
 namespace Citadels\CoreBundle\Document;
 
-use Citadels\CoreBundle\Document\CharacterCard;
+use Citadels\CoreBundle\Document\CharacterCardDoc;
 use Citadels\CoreBundle\Enum\CharacterType;
 use Citadels\CoreBundle\Traits\UuidTrait;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -11,7 +11,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\EmbeddedDocument
  */
-class Player extends Base
+class PlayerDoc extends BaseDoc
 {
     use UuidTrait;
 
@@ -128,19 +128,19 @@ class Player extends Base
     private $gold;
 
     /**
-     * @MongoDb\EmbedOne(targetDocument="CharacterCard")
-     * @var CharacterCard
+     * @MongoDb\EmbedOne(targetDocument="CharacterCardDoc")
+     * @var CharacterCardDoc
      */
     private $character;
 
     /**
-     * @MongoDb\EmbedMany(targetDocument="BuildingCard")
+     * @MongoDb\EmbedMany(targetDocument="BuildingCardDoc")
      * @var ArrayCollection
      */
     private $buildings;
 
     /**
-     * @MongoDb\EmbedMany(targetDocument="BuildingCard")
+     * @MongoDb\EmbedMany(targetDocument="BuildingCardDoc")
      * @var ArrayCollection
      */
     private $handCards;
@@ -163,7 +163,7 @@ class Player extends Base
     {
         $points = 0;
 
-        /* @var $building BuildingCard */
+        /* @var $building BuildingCardDoc */
         foreach ($this->buildings as $building) {
             $points += $building->getPoints();
         }
@@ -180,9 +180,9 @@ class Player extends Base
     }
 
     /**
-     * @param CharacterCard $character
+     * @param CharacterCardDoc $character
      */
-    public function setCharacter(CharacterCard $character)
+    public function setCharacter(CharacterCardDoc $character)
     {
         $this->character = $character;
     }
@@ -204,7 +204,7 @@ class Player extends Base
     }
 
     /**
-     * @return CharacterCard
+     * @return CharacterCardDoc
      */
     public function getCharacter()
     {

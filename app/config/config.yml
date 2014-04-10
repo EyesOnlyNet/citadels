@@ -85,3 +85,8 @@ services:
         class: Citadels\CoreBundle\EventListener\BeforeActionListener
         tags:
             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+# JMS
+jms_serializer:
+    property_naming:
+        separator:

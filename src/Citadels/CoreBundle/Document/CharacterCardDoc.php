@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\EmbeddedDocument
  */
-class CharacterCard
+class CharacterCardDoc
 {
     /**
      * @MongoDB\String

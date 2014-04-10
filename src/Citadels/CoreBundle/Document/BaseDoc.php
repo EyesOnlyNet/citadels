@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\HasLifecycleCallbacks
  */
-abstract class Base
+abstract class BaseDoc
 {
     /**
      * @MongoDB\Date

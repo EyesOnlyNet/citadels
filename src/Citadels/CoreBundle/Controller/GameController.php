@@ -4,7 +4,7 @@ namespace Citadels\CoreBundle\Controller;
 
 use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
 use Citadels\CoreBundle\Controller\Traits\Service\CharacterListServiceResource;
-use Citadels\CoreBundle\Document\Game;
+use Citadels\CoreBundle\Document\GameDoc;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -30,7 +30,7 @@ class GameController extends BaseController
 
     /**
      * @param string $gameId
-     * @return Game
+     * @return GameDoc
      */
     private function findGame($gameId)
     {
@@ -38,15 +38,15 @@ class GameController extends BaseController
             return;
         }
 
-        return $this->getMongoDocumentManager()->find('\Citadels\CoreBundle\Document\Game', $gameId);
+        return $this->getMongoDocumentManager()->find(GameDoc::class, $gameId);
     }
 
     /**
-     * @return Game
+     * @return GameDoc
      */
     private function createNewGame()
     {
-        $game = new Game();
+        $game = new GameDoc();
 
         $this->getMongoDocumentManager()->persist($game);
         $this->getMongoDocumentManager()->flush();

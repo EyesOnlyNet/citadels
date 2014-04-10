@@ -17,9 +17,7 @@
 {% block siteHeader %}
     <span id="my-game" data-id="{{ game.getId() }}"></span>
     <header>
-        {% for player in game.getPlayers() %}
-            {% include 'CitadelsCoreBundle:Game:start/player-compact.html.twig' with {'player': player} %}
-        {% endfor %}
+        {% include 'CitadelsCoreBundle:Game:start/players-compact.html.twig' %}
     </header>
 {% endblock %}
 

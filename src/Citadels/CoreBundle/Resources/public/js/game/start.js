@@ -1,23 +1,43 @@
 $(function() {
-    var identifyMe = function() {
+    var updateMyPlayer = function() {
         var fingerprint = new Fingerprint().get(),
             gameId = $('#my-game').data('id');
 
         $.ajax({
-            url: '/app_dev.php/player/' + fingerprint + '/game/' + gameId
+            url: '/app_dev.php/players/' + fingerprint + '/game/' + gameId
         })
         .done(function(response) {
-            console.log("success");
+            console.log("updateMyPlayer success");
+            console.log($.parseJSON(response));
 
-            var data = { myPlayer: $.parseJSON(response).player };
+            var data = { myPlayer: $.parseJSON(response).myPlayer };
 
             updateViewModel(data, viewModel);
         })
-        .fail(function() { console.log("error"); })
-        .always(function() { console.log("complete"); });
+        .fail(function() { console.log("updateMyPlayer error"); })
+        .always(function() { console.log("updateMyPlayer complete"); });
     };
 
-    identifyMe();
+    var updatePlayers = function() {
+        var gameId = $('#my-game').data('id');
+
+        $.ajax({
+            url: '/app_dev.php/players/game/' + gameId
+        })
+        .done(function(response) {
+            console.log("updatePlayers success");
+            console.log($.parseJSON(response));
+
+            var data = { players: $.parseJSON(response).players };
+
+            updateViewModel(data, viewModel);
+        })
+        .fail(function() { console.log("updatePlayers error"); })
+        .always(function() { console.log("updatePlayers complete"); });
+    };
+
+    updateMyPlayer();
+    updatePlayers();
 
     $('#action-tabs').tabs({
         disabled: [],

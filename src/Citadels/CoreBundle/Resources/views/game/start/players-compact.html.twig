@@ -1,0 +1,28 @@
+<div class="players-compact" data-bind="foreach: players">
+    <div class="player-compact" data-bind="css: { 'is-king': isKing }">
+        <div class="name" data-bind="text: name"></div>
+
+        <ul class="statistic">
+            <li class="points">
+                <div class="label">pts</div>
+                <div class="value" data-bind="text: points"></div>
+            </li>
+            <li class="buildings">
+                <div class="label">bdg</div>
+                <div class="value" data-bind="text: buildings.length"></div>
+            </li>
+            <li class="gold">
+                <div class="label">gld</div>
+                <div class="value" data-bind="text: gold"></div>
+            </li>
+            <li class="cards">
+                <div class="label">crd</div>
+                <div class="value" data-bind="text: handCards.length"></div>
+            </li>
+            <li class="character">
+                <div class="label">chr</div>
+                <div class="value" data-bind="text: character.shortcut">-</div>
+            </li>
+        </ul>
+    </div>
+</div>

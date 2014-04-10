@@ -7,6 +7,6 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\EmbeddedDocument
  */
-class Effect
+class EffectDoc
 {
 }

@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\EmbeddedDocument
  */
-class BuildingCard
+class BuildingCardDoc
 {
     /**
      * @MongoDB\String
@@ -35,7 +35,7 @@ class BuildingCard
     private $points;
 
     /**
-     * @MongoDb\EmbedMany(targetDocument="Effect")
+     * @MongoDb\EmbedMany(targetDocument="EffectDoc")
      * @var ArrayCollection
      */
     private $effects;

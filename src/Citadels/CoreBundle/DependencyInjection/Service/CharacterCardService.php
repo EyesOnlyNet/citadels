@@ -2,7 +2,7 @@
 
 namespace Citadels\CoreBundle\DependencyInjection\Service;
 
-use Citadels\CoreBundle\Document\CharacterCard;
+use Citadels\CoreBundle\Document\CharacterCardDoc;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class CharacterCardService
@@ -26,11 +26,11 @@ class CharacterCardService
 
     /**
      * @param mixed[] $cardData
-     * @return CharacterCard
+     * @return CharacterCardDoc
      */
     private function createCardFromArray(array $cardData)
     {
-        return new CharacterCard($cardData['name'], $cardData['type'], $cardData['shortcut']);
+        return new CharacterCardDoc($cardData['name'], $cardData['type'], $cardData['shortcut']);
     }
 
     /**
@@ -43,7 +43,7 @@ class CharacterCardService
 
     /**
      * @param string $type
-     * @return CharacterCard
+     * @return CharacterCardDoc
      */
     public function getCard($type)
     {
