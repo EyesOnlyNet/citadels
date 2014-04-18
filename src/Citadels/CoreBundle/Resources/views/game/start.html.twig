@@ -17,12 +17,12 @@
 {% block siteHeader %}
     <span id="my-game" data-id="{{ game.getId() }}"></span>
     <header>
-        {% include 'CitadelsCoreBundle:Game:start/players-compact.html.twig' %}
+        {% include 'CitadelsCoreBundle:Game:start/player-list-compact.html.twig' %}
     </header>
 {% endblock %}
 
 {% block siteContent %}
-    {% include 'CitadelsCoreBundle:Game:start/character-choice.html.twig' %}
+    {% include 'CitadelsCoreBundle:Game:start/character-list.html.twig' %}
 
     <div data-section="my-player"></div>
     {% include 'CitadelsCoreBundle:Game:start/my-player.html.twig' %}

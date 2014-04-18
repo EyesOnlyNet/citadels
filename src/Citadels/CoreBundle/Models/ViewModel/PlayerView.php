@@ -10,7 +10,6 @@ class PlayerView
     public $points = 0;
 
     /**
-     * @Jms\Type("string")
      * @Jms\SerializedName("isKing")
      */
     public $isKing = false;
@@ -21,5 +20,9 @@ class PlayerView
      * @Jms\SerializedName("handCards")
      */
     public $handCards = [];
+
+    /**
+     * @Jms\Type("Citadels\CoreBundle\Models\ViewModel\CharacterView")
+     */
     public $character;
 }

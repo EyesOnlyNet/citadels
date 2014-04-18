@@ -22,18 +22,18 @@ class PlayerController extends AjaxController
         $gameId = $this->getRequest()->attributes->get('gameId');
         $this->view->myPlayer = PlayerMapper::createFromPlayerDoc($this->findPlayerOrCreateNew($playerId, $gameId));
 
-        return $this->getAjaxResponse($this->getViewVars());
+        return $this->getViewVars();
     }
 
     /**
      * @Route("/players/game/{gameId}")
      */
-    public function playersAction()
+    public function playerListAction()
     {
         $gameId = $this->getRequest()->attributes->get('gameId');
-        $this->view->players = PlayerMapper::createFromPlayerDocCollection($this->findPlayers($gameId));
+        $this->view->playerList = PlayerMapper::createFromPlayerDocCollection($this->findPlayers($gameId));
 
-        return $this->getAjaxResponse($this->getViewVars());
+        return $this->getViewVars();
     }
 
     /**

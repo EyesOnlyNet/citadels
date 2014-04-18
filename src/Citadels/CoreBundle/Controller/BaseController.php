@@ -23,7 +23,7 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
         $this->setControllerRequestToView();
     }
 
-    final protected function getViewVars()
+    protected function getViewVars()
     {
         return $this->view->getArrayCopy();
     }

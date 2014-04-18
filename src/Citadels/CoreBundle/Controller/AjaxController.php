@@ -13,7 +13,7 @@ abstract class AjaxController extends BaseController
      * @param mixed $data
      * @return JsonResponse
      */
-    final protected function getAjaxResponse($data)
+    final private function getAjaxResponse($data)
     {
         $response = new JsonResponse();
         $response->setData(
@@ -21,5 +21,14 @@ abstract class AjaxController extends BaseController
         );
 
         return $response;
+    }
+
+    protected function getViewVars()
+    {
+        $viewVars = parent::getViewVars();
+
+        return ($this->getRequest()->isXmlHttpRequest())
+            ? $this->getAjaxResponse($viewVars)
+            : $viewVars;
     }
 }

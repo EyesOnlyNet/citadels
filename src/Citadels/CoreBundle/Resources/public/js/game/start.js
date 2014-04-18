@@ -18,26 +18,26 @@ $(function() {
         .always(function() { console.log("updateMyPlayer complete"); });
     };
 
-    var updatePlayers = function() {
+    var updatePlayerList = function() {
         var gameId = $('#my-game').data('id');
 
         $.ajax({
             url: '/app_dev.php/players/game/' + gameId
         })
         .done(function(response) {
-            console.log("updatePlayers success");
+            console.log("updatePlayerList success");
             console.log($.parseJSON(response));
 
-            var data = { players: $.parseJSON(response).players };
+            var data = { players: $.parseJSON(response).playerList };
 
             updateViewModel(data, viewModel);
         })
-        .fail(function() { console.log("updatePlayers error"); })
-        .always(function() { console.log("updatePlayers complete"); });
+        .fail(function() { console.log("updatePlayerList error"); })
+        .always(function() { console.log("updatePlayerList complete"); });
     };
 
     updateMyPlayer();
-    updatePlayers();
+    updatePlayerList();
 
     $('#action-tabs').tabs({
         disabled: [],

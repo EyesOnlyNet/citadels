@@ -145,15 +145,24 @@ class PlayerDoc extends BaseDoc
      */
     private $handCards;
 
-    function __construct($id = null)
+    public function __construct($id = null)
     {
         parent::__construct();
 
         $this->id = $id ?: $this->getUuidV4(4);
-        $this->name = self::$randomNames[array_rand(self::$randomNames)];
+        $this->name = '';
         $this->gold = 0;
         $this->buildings = new ArrayCollection();
         $this->handCards = new ArrayCollection();
+
+        $this->setupDummyData();
+    }
+
+    private function setupDummyData()
+    {
+        $this->name = self::$randomNames[array_rand(self::$randomNames)];
+        $this->gold = rand(0,  10);
+        $this->character = new CharacterCardDoc('king', CharacterType::KING, 'kng');
     }
 
     /**
