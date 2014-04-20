@@ -1,15 +1,14 @@
 <?php
-
 namespace Citadels\CoreBundle\Enum;
 
 interface CharacterType
 {
     const ASSASSIN = 'assassin';
-    const THIEF = 'thief';
-    const PRIEST = 'priest';
+    const BUILDER = 'builder';
+    const CHANDLER = 'chandler';
     const KING = 'king';
     const MAGICIAN = 'magician';
-    const CHANDLER = 'chandler';
-    const BUILDER = 'builder';
     const MERCENARY = 'mercenary';
+    const PRIEST = 'priest';
+    const THIEF = 'thief';
 }

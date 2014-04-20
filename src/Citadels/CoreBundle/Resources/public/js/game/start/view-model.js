@@ -5,6 +5,7 @@ var viewModel = ko.mapping.fromJS({
         buildings: [],
         handCards: [],
         points: 0,
+        isActive: false,
         isKing: false,
         character: {
             type: 'neutral',
@@ -19,6 +20,7 @@ var viewModel = ko.mapping.fromJS({
             buildings: [],
             handCards: [],
             points: 0,
+            isActive: false,
             isKing: false,
             character: {
                 type: 'neutral',

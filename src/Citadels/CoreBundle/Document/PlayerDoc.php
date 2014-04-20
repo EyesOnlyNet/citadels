@@ -110,6 +110,19 @@ class PlayerDoc extends BaseDoc
     ];
 
     /**
+     * @var string[]
+     */
+    private static $characterTypes = [
+        CharacterType::ASSASSIN,
+        CharacterType::BUILDER,
+        CharacterType::KING,
+        CharacterType::MAGICIAN,
+        CharacterType::MERCENARY,
+        CharacterType::PRIEST,
+        CharacterType::THIEF,
+    ];
+
+    /**
      * @MongoDB\Id(strategy="UUID")
      * @var string
      */
@@ -131,7 +144,7 @@ class PlayerDoc extends BaseDoc
      * @MongoDb\EmbedOne(targetDocument="CharacterCardDoc")
      * @var CharacterCardDoc
      */
-    private $character;
+    private $characterCard;
 
     /**
      * @MongoDb\EmbedMany(targetDocument="BuildingCardDoc")
@@ -160,9 +173,10 @@ class PlayerDoc extends BaseDoc
 
     private function setupDummyData()
     {
+        $character = self::$characterTypes[array_rand(self::$characterTypes)];
         $this->name = self::$randomNames[array_rand(self::$randomNames)];
         $this->gold = rand(0,  10);
-        $this->character = new CharacterCardDoc('king', CharacterType::KING, 'kng');
+        $this->characterCard = new CharacterCardDoc($character, $character, substr($character, 0, 3));
     }
 
     /**
@@ -185,15 +199,15 @@ class PlayerDoc extends BaseDoc
      */
     public function isKing()
     {
-        return isset($this->character) && $this->character->getType() === CharacterType::KING;
+        return isset($this->characterCard) && $this->characterCard->getType() === CharacterType::KING;;
     }
 
     /**
-     * @param CharacterCardDoc $character
+     * @param CharacterCardDoc $characterCard
      */
-    public function setCharacter(CharacterCardDoc $character)
+    public function setCharacterCard(CharacterCardDoc $characterCard)
     {
-        $this->character = $character;
+        $this->characterCard = $characterCard;
     }
 
     /**
@@ -215,9 +229,9 @@ class PlayerDoc extends BaseDoc
     /**
      * @return CharacterCardDoc
      */
-    public function getCharacter()
+    public function getCharacterCard()
     {
-        return $this->character;
+        return $this->characterCard;
     }
 
     /**

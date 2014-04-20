@@ -8,7 +8,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * @MongoDB\EmbeddedDocument
  */
-class CharacterCardDoc
+class CharacterCardDoc extends BaseDoc
 {
     /**
      * @MongoDB\String
@@ -40,6 +40,8 @@ class CharacterCardDoc
      */
     public function __construct($name, $type, $shortcut)
     {
+        parent::__construct();
+
         $this->name = $name;
         $this->type = $type;
         $this->shortcut = $shortcut;

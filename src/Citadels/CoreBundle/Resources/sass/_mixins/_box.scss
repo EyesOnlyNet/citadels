@@ -3,14 +3,9 @@
     box-shadow: 0 0 8px $shadowColor inset;
 }
 
-@mixin boxColor($textColor, $bgColor, $textShadowColor) {
+@mixin boxColor($textColor, $bgColor) {
     background-color: $bgColor;
     color: $textColor;
-    text-shadow: 0 0 2px $textShadowColor;
-
-    & * {
-        text-shadow: 0 0 2px $textShadowColor;
-    }
 }
 
 %boxInnerShadowBrown {
@@ -22,9 +17,9 @@
 }
 
 %boxColorBrown {
-    @include boxColor(white, $colorBrown, black);
+    @include boxColor(white, $colorBrown);
 }
 
 %boxColorLightBrown {
-    @include boxColor(black, $colorLightBrown, white);
+    @include boxColor(black, $colorLightBrown);
 }

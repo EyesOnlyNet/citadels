@@ -19,8 +19,8 @@ class PlayerMapper
         $playerView->name = $player->getName();
         $playerView->points = $player->getPoints();
 
-        if (!is_null($player->getCharacter())) {
-            $playerView->character = CharacterMapper::createFromCharacterCardDoc($player->getCharacter());
+        if (!is_null($player->getCharacterCard())) {
+            $playerView->character = CharacterMapper::createFromCharacterCardDoc($player->getCharacterCard());
         }
 
         return $playerView;

@@ -32,12 +32,19 @@ class GameDoc extends BaseDoc
      */
     private $activePlayer;
 
-    function __construct()
+    /**
+     * @MongoDb\EmbedMany(targetDocument="CharacterStateDoc")
+     * @var ArrayCollection
+     */
+    private $characterStates;
+
+    public function __construct()
     {
         parent::__construct();
 
         $this->id = $this->getUuidV4(4);
         $this->players = new ArrayCollection();
+        $this->characterStates = new ArrayCollection();
     }
 
     /**

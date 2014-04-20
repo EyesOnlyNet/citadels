@@ -10,6 +10,13 @@ class PlayerView
     public $points = 0;
 
     /**
+     * @Jms\Type("boolean")
+     * @Jms\SerializedName("isActive")
+     */
+    public $isActive = false;
+
+    /**
+     * @Jms\Type("boolean")
      * @Jms\SerializedName("isKing")
      */
     public $isKing = false;
@@ -23,6 +30,7 @@ class PlayerView
 
     /**
      * @Jms\Type("Citadels\CoreBundle\Models\ViewModel\CharacterView")
+     * @var CharacterView
      */
     public $character;
 }

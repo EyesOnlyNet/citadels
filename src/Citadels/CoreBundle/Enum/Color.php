@@ -1,5 +1,4 @@
 <?php
-
 namespace Citadels\CoreBundle\Enum;
 
 interface Color

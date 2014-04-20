@@ -6,6 +6,7 @@ use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
 use Citadels\CoreBundle\Document\GameDoc;
 use Citadels\CoreBundle\Document\PlayerDoc;
 use Citadels\CoreBundle\Models\ViewModel\Mapper\PlayerMapper;
+use Citadels\CoreBundle\Models\ViewModel\PlayerView;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
@@ -14,13 +15,24 @@ class PlayerController extends AjaxController
     use MongoDocumentManagerResource;
 
     /**
+     * @var GameDoc
+     */
+    private $game;
+
+    /**
      * @Route("/players/{playerId}/game/{gameId}")
      */
     public function myPlayerAction()
     {
+        $this->initGame();
+
         $playerId = $this->getRequest()->attributes->get('playerId');
-        $gameId = $this->getRequest()->attributes->get('gameId');
-        $this->view->myPlayer = PlayerMapper::createFromPlayerDoc($this->findPlayerOrCreateNew($playerId, $gameId));
+        $player = $this->findPlayerOrCreateNew($playerId);
+
+        $myPlayer = PlayerMapper::createFromPlayerDoc($player);
+        $myPlayer->isActive = $this->isPlayerActive($player);
+
+        $this->view->myPlayer = $myPlayer;
 
         return $this->getViewVars();
     }
@@ -30,10 +42,25 @@ class PlayerController extends AjaxController
      */
     public function playerListAction()
     {
-        $gameId = $this->getRequest()->attributes->get('gameId');
-        $this->view->playerList = PlayerMapper::createFromPlayerDocCollection($this->findPlayers($gameId));
+        $this->initGame();
+
+        $players = $this->findPlayers();
+        $playerList = PlayerMapper::createFromPlayerDocCollection($players);
+
+        /* @var $player PlayerView */
+        foreach ($playerList as $key => $player) {
+            $player->isActive = $this->isPlayerActive($players->get($key));
+        }
+
+        $this->view->playerList = $playerList;
 
         return $this->getViewVars();
+    }
+
+    private function initGame()
+    {
+        $gameId = $this->getRequest()->attributes->get('gameId');
+        $this->game = $this->findGame($gameId);
     }
 
     /**
@@ -50,55 +77,54 @@ class PlayerController extends AjaxController
     }
 
     /**
-     * @param string $gameId
      * @return ArrayCollection
      */
-    private function findPlayers($gameId)
+    private function findPlayers()
     {
-        if (is_null($gameId)) {
+        if (is_null($this->game)) {
             return;
         }
 
-        $game = $this->findGame($gameId);
-
-        if (is_null($game)) {
-            return;
-        }
-
-        return $game->getPlayers();
+        return $this->game->getPlayers();
     }
 
     /**
      * @param string $playerId
-     * @param string $gameId
      * @return PlayerDoc
      */
-    private function findPlayerOrCreateNew($playerId, $gameId)
+    private function findPlayerOrCreateNew($playerId)
     {
-        $game = $this->findGame($gameId);
-
-        if (is_null($game)) {
+        if (is_null($this->game)) {
             return;
         }
 
-        return $game->getPlayerById($playerId) ?: $this->createNewPlayer($playerId, $gameId);
+        return $this->game->getPlayerById($playerId) ?: $this->createNewPlayer($playerId);
     }
 
     /**
      * @param string $playerId
-     * @param string $gameId
      * @return PlayerDoc
      */
-    private function createNewPlayer($playerId, $gameId)
+    private function createNewPlayer($playerId)
     {
         $player = new PlayerDoc($playerId);
         $this->getMongoDocumentManager()->persist($player);
-
-        $game = $this->findGame($gameId);
-        $game->addPlayer($player);
-
+        $this->game->addPlayer($player);
         $this->getMongoDocumentManager()->flush();
 
         return $player;
+    }
+
+    /**
+     * @param PlayerDoc $player
+     * @return bool
+     */
+    private function isPlayerActive(PlayerDoc $player)
+    {
+        if (is_null($this->game->getActivePlayer()->getCharacterCard())) {
+            return $this->game->getActivePlayer()->getCharacterCard()->getType() === $player->getCharacterCard();
+        }
+
+        return false;
     }
 }
