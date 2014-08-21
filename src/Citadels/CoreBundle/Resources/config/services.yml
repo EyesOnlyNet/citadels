@@ -1,16 +1,22 @@
 imports:
-    - { resource: characters.yml }
     - { resource: buildings.yml }
 
 services:
     citadels_core.character_card_service:
         class: Citadels\CoreBundle\DependencyInjection\Service\CharacterCardService
-        arguments: ['%citadels_core.character_cards%']
 
     citadels_core.building_card_service:
         class: Citadels\CoreBundle\DependencyInjection\Service\BuildingCardService
         arguments: ['%citadels_core.building_cards%']
 
-    citadels_core.character_list_service:
-        class: Citadels\CoreBundle\DependencyInjection\Service\CharacterListService
+    citadels_core.player_service:
+        class: Citadels\CoreBundle\DependencyInjection\Service\PlayerService
         arguments: [@citadels_core.character_card_service]
+
+    citadels_core.character_card_mapper:
+        class: Citadels\CoreBundle\Models\ViewModel\Mapper\CharacterCardMapper
+        arguments: [@citadels_core.character_card_service]
+
+    citadels_core.player_mapper:
+        class: Citadels\CoreBundle\Models\ViewModel\Mapper\PlayerMapper
+        arguments: [@citadels_core.player_service, @citadels_core.character_card_mapper]

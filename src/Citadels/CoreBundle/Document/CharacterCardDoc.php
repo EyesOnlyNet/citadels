@@ -1,75 +1,43 @@
 <?php
-
 namespace Citadels\CoreBundle\Document;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Citadels\CoreBundle\Traits\UuidTrait;
+use Citadels\CoreBundle\Document\Traits\UniquePropertiesTrait;
+use Citadels\CoreBundle\Enum\CharacterCardProperty;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\Id;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\EmbeddedDocument;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\String;
 
 /**
- * @MongoDB\EmbeddedDocument
+ * @EmbeddedDocument
  */
 class CharacterCardDoc extends BaseDoc
 {
-    /**
-     * @MongoDB\String
-     * @var string
-     */
-    private $name;
+    use UuidTrait;
+    use UniquePropertiesTrait;
 
     /**
-     * @MongoDB\String
+     * @Id(strategy="UUID")
+     * @var string
+     */
+    private $id;
+
+    /**
+     * @String
      * @var string
      */
     private $type;
 
     /**
-     * @MongoDB\String
-     * @var string
-     */
-    private $shortcut;
-
-    /**
-     * @var ArrayCollection
-     */
-    private $effects;
-
-    /**
-     * @param string $name
      * @param string $type
-     * @param string $color
      */
-    public function __construct($name, $type, $shortcut)
+    public function __construct($type)
     {
         parent::__construct();
 
-        $this->name = $name;
-        $this->type = $type;
-        $this->shortcut = $shortcut;
-        $this->effects = new ArrayCollection();
-    }
-
-    /**
-     * @param ArrayCollection $effects
-     */
-    public function setEffects(ArrayCollection $effects)
-    {
-        $this->effects = $effects;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getEffects()
-    {
-        return $this->effects;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
+        $this->id = $this->getUuidV4(4);
+        $this->setType($type);
+        $this->setProperties([]);
     }
 
     /**
@@ -81,20 +49,18 @@ class CharacterCardDoc extends BaseDoc
     }
 
     /**
-     * @return string
+     * @param string $type
      */
-    public function getShortcut()
+    public function setType($type)
     {
-        return $this->shortcut;
+        $this->type = (string) $type;
     }
 
     /**
-     * @MongoDB\PostPersist
-     * @MongoDB\PostLoad
-     * @MongoDB\PostUpdate
+     * @return bool
      */
-    public function after()
+    public function isActive()
     {
-        $this->effects = new ArrayCollection($this->effects ? $this->effects->toArray() : []);
+        return in_array(CharacterCardProperty::ACTIVE, $this->getProperties());
     }
-}
+ }

@@ -3,9 +3,9 @@
 namespace Citadels\CoreBundle\Controller;
 
 use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
+use Citadels\CoreBundle\Controller\Traits\Service\PlayerMapperResource;
 use Citadels\CoreBundle\Document\GameDoc;
 use Citadels\CoreBundle\Document\PlayerDoc;
-use Citadels\CoreBundle\Models\ViewModel\Mapper\PlayerMapper;
 use Citadels\CoreBundle\Models\ViewModel\PlayerView;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,6 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class PlayerController extends AjaxController
 {
     use MongoDocumentManagerResource;
+    use PlayerMapperResource;
 
     /**
      * @var GameDoc
@@ -29,7 +30,7 @@ class PlayerController extends AjaxController
         $playerId = $this->getRequest()->attributes->get('playerId');
         $player = $this->findPlayerOrCreateNew($playerId);
 
-        $myPlayer = PlayerMapper::createFromPlayerDoc($player);
+        $myPlayer = $this->getPlayerMapper()->map($player);
         $myPlayer->isActive = $this->isPlayerActive($player);
 
         $this->view->myPlayer = $myPlayer;
@@ -45,7 +46,7 @@ class PlayerController extends AjaxController
         $this->initGame();
 
         $players = $this->findPlayers();
-        $playerList = PlayerMapper::createFromPlayerDocCollection($players);
+        $playerList = $this->getPlayerMapper()->mapCollection($players);
 
         /* @var $player PlayerView */
         foreach ($playerList as $key => $player) {
@@ -85,7 +86,7 @@ class PlayerController extends AjaxController
             return;
         }
 
-        return $this->game->getPlayers();
+        return $this->game->getPlayerList();
     }
 
     /**

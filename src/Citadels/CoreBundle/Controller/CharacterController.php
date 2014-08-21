@@ -3,6 +3,7 @@
 namespace Citadels\CoreBundle\Controller;
 
 use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
+use Citadels\CoreBundle\Controller\Traits\Service\CharacterCardServiceResource;
 use Citadels\CoreBundle\Document\GameDoc;
 use Citadels\CoreBundle\Models\ViewModel\Mapper\CharacterListMapper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -10,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class CharacterController extends AjaxController
 {
     use MongoDocumentManagerResource;
+    use CharacterCardServiceResource;
 
     /**
      * @Route("/character-list/game/{gameId}")

@@ -2,43 +2,38 @@
 
 namespace Citadels\CoreBundle\Document;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\EmbeddedDocument;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\Int;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\String;
 
 /**
- * @MongoDB\EmbeddedDocument
+ * @EmbeddedDocument
  */
 class BuildingCardDoc
 {
     /**
-     * @MongoDB\String
+     * @String
      * @var string
      */
     private $name;
 
     /**
-     * @MongoDB\String
+     * @String
      * @var string
      */
     private $type;
 
     /**
-     * @MongoDB\Int
+     * @Int
      * @var int
      */
     private $cost;
 
     /**
-     * @MongoDB\Int
+     * @Int
      * @var int
      */
     private $points;
-
-    /**
-     * @MongoDb\EmbedMany(targetDocument="EffectDoc")
-     * @var ArrayCollection
-     */
-    private $effects;
 
     /**
      * @param string $name
@@ -52,23 +47,6 @@ class BuildingCardDoc
         $this->type = $type;
         $this->cost = $cost;
         $this->points = $points;
-        $this->effects = new ArrayCollection();
-    }
-
-    /**
-     * @param ArrayCollection $effects
-     */
-    public function setEffects(ArrayCollection $effects)
-    {
-        $this->effects = $effects;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getEffects()
-    {
-        return $this->effects;
     }
 
     /**
@@ -101,15 +79,5 @@ class BuildingCardDoc
     public function getPoints()
     {
         return $this->points;
-    }
-
-    /**
-     * @MongoDB\PostPersist
-     * @MongoDB\PostLoad
-     * @MongoDB\PostUpdate
-     */
-    public function after()
-    {
-        $this->effects = new ArrayCollection($this->effects ? $this->effects->toArray() : []);
     }
 }

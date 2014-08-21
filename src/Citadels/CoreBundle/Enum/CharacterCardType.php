@@ -1,7 +1,7 @@
 <?php
 namespace Citadels\CoreBundle\Enum;
 
-interface CharacterType
+interface CharacterCardType
 {
     const ASSASSIN = 'assassin';
     const BUILDER = 'builder';

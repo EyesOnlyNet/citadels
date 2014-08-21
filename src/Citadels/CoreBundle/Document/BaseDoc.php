@@ -1,23 +1,25 @@
 <?php
-
 namespace Citadels\CoreBundle\Document;
 
 use DateTime;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\Date;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\HasLifecycleCallbacks;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\PrePersist;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\PreUpdate;
 
 /**
- * @MongoDB\HasLifecycleCallbacks
+ * @HasLifecycleCallbacks
  */
 abstract class BaseDoc
 {
     /**
-     * @MongoDB\Date
+     * @Date
      * @var DateTime
      */
     private $modifiedAt;
 
     /**
-     * @MongoDB\Date
+     * @Date
      * @var DateTime
      */
     private $createdAt;
@@ -45,8 +47,8 @@ abstract class BaseDoc
     }
 
     /**
-     * @MongoDB\PrePersist
-     * @MongoDB\PreUpdate
+     * @PrePersist
+     * @PreUpdate
      */
     public function refreshModifiedAt()
     {

@@ -3,11 +3,11 @@ namespace Citadels\CoreBundle\Models\ViewModel;
 
 use JMS\SerializerBundle\Annotation as Jms;
 
-class PlayerView
+class GameView
 {
-    public $name = '-';
-    public $gold = 0;
-    public $points = 0;
+    private $id;
+    private $playerList;
+    private $characterCardList;
 
     /**
      * @Jms\Type("boolean")

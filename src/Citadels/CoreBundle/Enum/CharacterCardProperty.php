@@ -1,11 +1,12 @@
 <?php
 namespace Citadels\CoreBundle\Enum;
 
-interface CharacterState
+interface CharacterCardProperty
 {
     const ACTIVE = 'active';
-    const DEATH = 'death';
-    const POOR = 'poor';
+    const DEAD = 'dead';
     const OFF = 'off';
+    const ON = 'on';
     const OUT = 'out';
+    const POOR = 'poor';
 }

@@ -37,14 +37,14 @@ class IndexController extends BaseController
 
         $characterCards = new ArrayCollection();
         foreach (CharacterList::$order as $characterType) {
-            $characterCards->set($characterType, $characterCardService->getCard($characterType));
+            $characterCards->set($characterType, $characterCardService->createCardByType($characterType));
         }
 
         $characterType = CharacterList::$order[rand(0, count(CharacterList::$order) - 1)];
 
         $player->name = 'Peter Pan';
         $player->gold = 12;
-        $player->setCharacter($characterCardService->getCard($characterType));
+        $player->setCharacter($characterCardService->createCardByType($characterType));
         $player->setBuildings($buildingCards);
 
         $this->view->player = $player;

@@ -3,17 +3,25 @@
 namespace Citadels\CoreBundle\Document;
 
 use Citadels\CoreBundle\Document\CharacterCardDoc;
-use Citadels\CoreBundle\Enum\CharacterType;
+use Citadels\CoreBundle\Document\Traits\UniquePropertiesTrait;
+use Citadels\CoreBundle\Enum\CharacterCardType;
+use Citadels\CoreBundle\Enum\PlayerProperty;
 use Citadels\CoreBundle\Traits\UuidTrait;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\EmbeddedDocument;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\EmbedMany;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\Id;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\Int;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\ReferenceOne;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\String;
 
 /**
- * @MongoDB\EmbeddedDocument
+ * @EmbeddedDocument
  */
 class PlayerDoc extends BaseDoc
 {
     use UuidTrait;
+    use UniquePropertiesTrait;
 
     /**
      * @var string[]
@@ -113,60 +121,62 @@ class PlayerDoc extends BaseDoc
      * @var string[]
      */
     private static $characterTypes = [
-        CharacterType::ASSASSIN,
-        CharacterType::BUILDER,
-        CharacterType::KING,
-        CharacterType::MAGICIAN,
-        CharacterType::MERCENARY,
-        CharacterType::PRIEST,
-        CharacterType::THIEF,
+        CharacterCardType::ASSASSIN,
+        CharacterCardType::BUILDER,
+        CharacterCardType::KING,
+        CharacterCardType::MAGICIAN,
+        CharacterCardType::MERCENARY,
+        CharacterCardType::PRIEST,
+        CharacterCardType::THIEF,
     ];
 
     /**
-     * @MongoDB\Id(strategy="UUID")
+     * @Id(strategy="UUID")
      * @var string
      */
     private $id;
 
     /**
-     * @MongoDB\String
+     * @String
      * @var string
      */
     private $name;
 
     /**
-     * @MongoDB\Int
+     * @Int
      * @var int
      */
     private $gold;
 
     /**
-     * @MongoDb\EmbedOne(targetDocument="CharacterCardDoc")
+     * @ReferenceOne(targetDocument="CharacterCardDoc", simple=true)
      * @var CharacterCardDoc
      */
     private $characterCard;
 
     /**
-     * @MongoDb\EmbedMany(targetDocument="BuildingCardDoc")
+     * @EmbedMany(targetDocument="BuildingCardDoc")
      * @var ArrayCollection
      */
     private $buildings;
 
     /**
-     * @MongoDb\EmbedMany(targetDocument="BuildingCardDoc")
+     * @EmbedMany(targetDocument="BuildingCardDoc")
      * @var ArrayCollection
      */
     private $handCards;
 
+    /**
+     * @param string $id
+     */
     public function __construct($id = null)
     {
         parent::__construct();
 
         $this->id = $id ?: $this->getUuidV4(4);
-        $this->name = '';
-        $this->gold = 0;
-        $this->buildings = new ArrayCollection();
-        $this->handCards = new ArrayCollection();
+        $this->setProperties([]);
+        $this->setBuildings(new ArrayCollection());
+        $this->setHandCards(new ArrayCollection());
 
         $this->setupDummyData();
     }
@@ -174,32 +184,9 @@ class PlayerDoc extends BaseDoc
     private function setupDummyData()
     {
         $character = self::$characterTypes[array_rand(self::$characterTypes)];
-        $this->name = self::$randomNames[array_rand(self::$randomNames)];
-        $this->gold = rand(0,  10);
-        $this->characterCard = new CharacterCardDoc($character, $character, substr($character, 0, 3));
-    }
-
-    /**
-     * @return int
-     */
-    public function getPoints()
-    {
-        $points = 0;
-
-        /* @var $building BuildingCardDoc */
-        foreach ($this->buildings as $building) {
-            $points += $building->getPoints();
-        }
-
-        return $points;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isKing()
-    {
-        return isset($this->characterCard) && $this->characterCard->getType() === CharacterType::KING;;
+        $this->setName(self::$randomNames[array_rand(self::$randomNames)]);
+        $this->setGold(rand(0,  10));
+        $this->setCharacterCard(new CharacterCardDoc($character));
     }
 
     /**
@@ -279,7 +266,8 @@ class PlayerDoc extends BaseDoc
      */
     public function addGold($value)
     {
-        $this->gold += $value;
+        $this->gold += (int) $value;
+        $this->setGold($gold);
     }
 
     /**
@@ -287,7 +275,7 @@ class PlayerDoc extends BaseDoc
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = (string) $name;
     }
 
     /**
@@ -295,6 +283,6 @@ class PlayerDoc extends BaseDoc
      */
     public function setGold($gold)
     {
-        $this->gold = $gold;
+        $this->gold = (int) $gold;
     }
 }

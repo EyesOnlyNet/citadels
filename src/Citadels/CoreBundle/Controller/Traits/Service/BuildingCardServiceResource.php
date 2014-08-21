@@ -9,17 +9,17 @@ trait BuildingCardServiceResource
     /**
      * @var BuildingCardService
      */
-    private $bcs;
+    private $buildingCardService;
 
     /**
      * @return BuildingCardService
      */
     protected function getBuildingCardService()
     {
-        if (is_null($this->bcs)) {
-            $this->bcs = $this->get('citadels_core.building_card_service');
+        if (is_null($this->buildingCardService)) {
+            $this->buildingCardService = $this->get('citadels_core.building_card_service');
         }
 
-        return $this->bcs;
+        return $this->buildingCardService;
     }
 }

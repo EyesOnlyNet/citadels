@@ -1,7 +1,7 @@
 <?php
 namespace Citadels\CoreBundle\Models\ViewModel;
 
-class CharacterView
+class CharacterCardView
 {
     public $name;
     public $type;

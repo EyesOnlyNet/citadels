@@ -3,48 +3,46 @@
 namespace Citadels\CoreBundle\Document;
 
 use Citadels\CoreBundle\Document\PlayerDoc;
+use Citadels\CoreBundle\Enum\PlayerProperty;
 use Citadels\CoreBundle\Traits\UuidTrait;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\Document;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\EmbedMany;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\Id;
+use Doctrine\ODM\MongoDB\Mapping\Annotations\ReferenceMany;
 
 /**
- * @MongoDB\Document(collection="game")
+ * @Document(collection="game")
  */
 class GameDoc extends BaseDoc
 {
     use UuidTrait;
 
     /**
-     * @MongoDB\Id(strategy="UUID")
+     * @Id(strategy="UUID")
      * @var string
      */
     private $id;
 
     /**
-     * @MongoDb\EmbedMany(targetDocument="PlayerDoc")
+     * @EmbedMany(targetDocument="PlayerDoc")
      * @var ArrayCollection
      */
-    private $players;
+    private $playerList;
 
     /**
-     * @MongoDb\EmbedOne(targetDocument="PlayerDoc")
-     * @var PlayerDoc
-     */
-    private $activePlayer;
-
-    /**
-     * @MongoDb\EmbedMany(targetDocument="CharacterStateDoc")
+     * @ReferenceMany(targetDocument="CharacterCardDoc", simple=true)
      * @var ArrayCollection
      */
-    private $characterStates;
+    private $characterCardList;
 
     public function __construct()
     {
         parent::__construct();
 
         $this->id = $this->getUuidV4(4);
-        $this->players = new ArrayCollection();
-        $this->characterStates = new ArrayCollection();
+        $this->setPlayerList(new ArrayCollection());
+        $this->setCharacterCardList(new ArrayCollection());
     }
 
     /**
@@ -58,17 +56,9 @@ class GameDoc extends BaseDoc
     /**
      * @return ArrayCollection
      */
-    public function getPlayers()
+    public function getPlayerList()
     {
-        return $this->players;
-    }
-
-    /**
-     * @return PlayerDoc
-     */
-    public function getActivePlayer()
-    {
-        return $this->activePlayer;
+        return $this->playerList;
     }
 
     /**
@@ -76,26 +66,34 @@ class GameDoc extends BaseDoc
      */
     public function addPlayer(PlayerDoc $player)
     {
-        if ($this->players->count() == 0) {
-            $this->activePlayer = $player;
+        if ($this->getPlayerList()->count() == 0) {
+            $player->addProperty(PlayerProperty::ACTIVE);
         }
 
-        $this->players->add($player);
+        $this->getPlayerList()->add($player);
     }
 
     /**
-     * @param string $id
-     * @return PlayerDoc
+     * @param ArrayCollection $players
      */
-    public function getPlayerById($id)
+    public function setPlayerList(ArrayCollection $players)
     {
-        /* @var $player PlayerDoc */
-        foreach ($this->getPlayers() as $player) {
-            if ($player->getId() === $id) {
-                return $player;
-            }
-        }
+        $this->playerList = $players;
+    }
 
-        return;
+    /**
+     * @return ArrayCollection
+     */
+    public function getCharacterCardList()
+    {
+        return $this->characterCardList;
+    }
+
+    /**
+     * @param ArrayCollection $characterCardList
+     */
+    public function setCharacterCardList(ArrayCollection $characterCardList)
+    {
+        $this->characterCardList = $characterCardList;
     }
 }

@@ -12,7 +12,7 @@ trait UuidTrait
      */
     protected function getUuidV4($length = null)
     {
-        $length = intval($length);
+        $length = (int) $length;
         $uuid = (new UuidGenerator)->generateV4();
 
         if ($length > 0) {
