@@ -8,14 +8,32 @@
 {% block siteHeader %}
     <header>
         <h1>Ohne Furcht und Adel</h1>
-        <h2>- Webversion -</h2>
+        <h2>- Webversion [alpha] -</h2>
     </header>
 {% endblock %}
 
 {% block siteContent %}
-    <form class="welcome" action="check-name.php" method="post">
-        <label for="user-name">Willkommen Besucher, wie ist dein Name:</label>
-        <input name="user-name" id="user-name" placeholder="Großherzog Augustus Mediacus" />
-        <button value="check">Landkarte einsehen</button>
-    </form>
+    <div class="row">
+        <form class="create-game col-xs-4 col-xs-offset-1" action="{{ path('game.create') }}" method="post">
+            <label for="user-name">Spielername eingeben:</label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="userName" id="user-name">
+                <span class="input-group-btn">
+                    <button class="btn" type="button">Spiel erstellen</button>
+                </span>
+            </div>
+        </form>
+
+        <div class="or col-xs-2">oder</div>
+
+        <form class="start-game col-xs-4" action="{{ path('game.start') }}" method="post">
+            <label for="game-id">Spiel-Id eingeben:</label>
+            <div class="input-group">
+                <input type="text" class="form-control" name="gameId" id="game-id">
+                <span class="input-group-btn">
+                    <button class="btn" type="button">weiterspielen</button>
+                </span>
+            </div>
+        </form>
+    </div>
 {% endblock %}

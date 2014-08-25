@@ -21,8 +21,15 @@
         "sensio/framework-extra-bundle": "~3.0",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "jms/serializer-bundle": "0.9"
+        "jms/serializer-bundle": "0.9",
+        "twbs/bootstrap-sass": "3.2.*@dev"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/twbs/bootstrap-sass"
+        }
+    ],
     "scripts": {
         "post-install-cmd": [
             "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",

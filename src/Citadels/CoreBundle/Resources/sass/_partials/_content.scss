@@ -1,4 +1,5 @@
 .site-content {
+    @extend .container;
     margin-bottom: $footerHeight;
     overflow: auto;
 }
