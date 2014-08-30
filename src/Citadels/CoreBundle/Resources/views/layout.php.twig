@@ -23,13 +23,13 @@
                 <hr />
             </div>
 
-            {% for flashMessage in app.session.flashbag.get('notice') %}
-                <div class="flash-message">
-                    <em>Notice</em>: {{ flashMessage }}
-                </div>
-            {% endfor %}
-
             <div class="site-content">
+                 <div class="flash-messages">
+                    {% block flashMessages %}
+                        {{ include('CitadelsCoreBundle::_partial/flash-messages.html.twig') }}
+                    {% endblock %}
+                </div>
+                
                 {% block siteContent %}{% endblock %}
             </div>
 
