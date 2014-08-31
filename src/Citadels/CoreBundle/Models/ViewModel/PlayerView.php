@@ -33,4 +33,9 @@ class PlayerView
      * @var CharacterView
      */
     public $character;
+
+    public function __construct()
+    {
+        $this->character = new CharacterView();
+    }
 }

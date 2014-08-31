@@ -111,10 +111,6 @@ class PlayerController extends BaseController
      */
     private function isPlayerActive(PlayerDoc $player)
     {
-        if (is_null($this->game->getActivePlayer()->getCharacterCard())) {
-            return $this->game->getActivePlayer()->getCharacterCard()->getType() === $player->getCharacterCard();
-        }
-
-        return false;
+        return $this->game->getActivePlayer()->getId() == $player->getId();
     }
 }
