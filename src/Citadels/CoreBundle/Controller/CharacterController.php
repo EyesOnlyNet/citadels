@@ -7,7 +7,7 @@ use Citadels\CoreBundle\Document\GameDoc;
 use Citadels\CoreBundle\Models\ViewModel\Mapper\CharacterListMapper;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class CharacterController extends AjaxController
+class CharacterController extends BaseController
 {
     use MongoDocumentManagerResource;
 

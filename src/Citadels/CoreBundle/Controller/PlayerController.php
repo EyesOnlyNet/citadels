@@ -10,7 +10,7 @@ use Citadels\CoreBundle\Models\ViewModel\PlayerView;
 use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class PlayerController extends AjaxController
+class PlayerController extends BaseController
 {
     use MongoDocumentManagerResource;
 

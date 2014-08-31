@@ -4,10 +4,15 @@ namespace Citadels\CoreBundle\Controller;
 
 use ArrayObject;
 use Citadels\CoreBundle\Controller\Hooks\BeforeActionHookInterface;
+use Citadels\CoreBundle\Controller\Traits\SerializerResource;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 abstract class BaseController extends Controller implements BeforeActionHookInterface
 {
+    use SerializerResource;
+
     /**
      * @var ArrayObject
      */
@@ -41,7 +46,23 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
      */
     protected function getViewVars()
     {
-        return $this->view->getArrayCopy();
+        return ($this->getRequest()->isXmlHttpRequest())
+            ? $this->getAjaxResponse($this->view)
+            : $this->view->getArrayCopy();
+    }
+
+    /**
+     * @param mixed $data
+     * @return JsonResponse
+     */
+    final private function getAjaxResponse($data)
+    {
+        $response = new JsonResponse();
+        $response->setData(
+            $this->getSerializer()->serialize($data, 'json')
+        );
+
+        return $response;
     }
 
     final private function setControllerRequestToView()
