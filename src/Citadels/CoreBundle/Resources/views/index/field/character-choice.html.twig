@@ -1,8 +1,0 @@
-<div class="box characters">
-    <h5 class="header">Wähle deine Gesinnung</h5>
-    <ul class="content character-list">
-        {% for character in characterCards %}
-            <li class="{{ character.type }} {{ random(['', 'not-available']) ~ ' ' ~ random(['', 'out']) }}">{{ character.name }}</li>
-        {% endfor %}
-    </ul>
-</div>
