@@ -27,7 +27,11 @@ class PlayerController extends AjaxController
         $this->initGame();
 
         $playerId = $this->getRequest()->attributes->get('playerId');
-        $player = $this->findPlayerOrCreateNew($playerId);
+        $player = $this->findPlayer($playerId);
+
+        if ($player == null) {
+            return $this->getViewVars();
+        }
 
         $myPlayer = PlayerMapper::createFromPlayerDoc($player);
         $myPlayer->isActive = $this->isPlayerActive($player);
@@ -92,27 +96,13 @@ class PlayerController extends AjaxController
      * @param string $playerId
      * @return PlayerDoc
      */
-    private function findPlayerOrCreateNew($playerId)
+    private function findPlayer($playerId)
     {
         if (is_null($this->game)) {
             return;
         }
 
-        return $this->game->getPlayerById($playerId) ?: $this->createNewPlayer($playerId);
-    }
-
-    /**
-     * @param string $playerId
-     * @return PlayerDoc
-     */
-    private function createNewPlayer($playerId)
-    {
-        $player = new PlayerDoc($playerId);
-        $this->getMongoDocumentManager()->persist($player);
-        $this->game->addPlayer($player);
-        $this->getMongoDocumentManager()->flush();
-
-        return $player;
+        return $this->game->getPlayerById($playerId) ?: null;
     }
 
     /**

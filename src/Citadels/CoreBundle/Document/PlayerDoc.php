@@ -167,16 +167,6 @@ class PlayerDoc extends BaseDoc
         $this->gold = 0;
         $this->buildings = new ArrayCollection();
         $this->handCards = new ArrayCollection();
-
-        $this->setupDummyData();
-    }
-
-    private function setupDummyData()
-    {
-        $character = self::$characterTypes[array_rand(self::$characterTypes)];
-        $this->name = self::$randomNames[array_rand(self::$randomNames)];
-        $this->gold = rand(0,  10);
-        $this->characterCard = new CharacterCardDoc($character, $character, substr($character, 0, 3));
     }
 
     /**

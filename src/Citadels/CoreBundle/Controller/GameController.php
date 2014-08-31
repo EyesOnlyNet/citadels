@@ -52,6 +52,7 @@ class GameController extends BaseController
      */
     public function createAction()
     {
+        $fingerprint = $this->getRequestParam('fingerprint');
         $userName = $this->getRequestParam('userName');
 
         if ($userName === null) {
@@ -61,7 +62,7 @@ class GameController extends BaseController
         }
 
         $game = $this->createGame();
-        $player = $this->createPlayer($userName);
+        $player = $this->createPlayer($userName, $fingerprint);
 
         $game->addPlayer($player);
 
@@ -101,11 +102,12 @@ class GameController extends BaseController
 
     /**
      * @param string $name
-     * @return \Citadels\CoreBundle\Document\PlayerDoc
+     * @param string $id
+     * @return PlayerDoc
      */
-    private function createPlayer($name)
+    private function createPlayer($name, $id = null)
     {
-        $player = new PlayerDoc();
+        $player = new PlayerDoc($id);
         $player->setName($name);
 
         $this->getMongoDocumentManager()->persist($player);
