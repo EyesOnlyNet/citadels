@@ -2,9 +2,9 @@ parameters:
     citadels_core.character_cards:
         - { name: Meuchler, type: assassin, shortcut: ass }
         - { name: Dieb, type: thief, shortcut: thf }
-        - { name: Priester, type: priest, shortcut: prs }
+        - { name: Priester, type: bishop, shortcut: bsh }
         - { name: King, type: king, shortcut: kng }
         - { name: Magier, type: magician, shortcut: mgc }
-        - { name: Händler, type: chandler, shortcut: chn }
-        - { name: Baumeister, type: builder, shortcut: bld }
-        - { name: Söldner, type: mercenary, shortcut: mrc }
+        - { name: Händler, type: merchant, shortcut: mrc }
+        - { name: Baumeister, type: architect, shortcut: arc }
+        - { name: Söldner, type: warlord, shortcut: wrl }

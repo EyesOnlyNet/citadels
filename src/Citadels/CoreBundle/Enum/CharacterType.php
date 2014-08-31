@@ -4,11 +4,11 @@ namespace Citadels\CoreBundle\Enum;
 interface CharacterType
 {
     const ASSASSIN = 'assassin';
-    const BUILDER = 'builder';
-    const CHANDLER = 'chandler';
+    const ARCHITECT = 'architect';
+    const MERCHANT = 'merchant';
     const KING = 'king';
     const MAGICIAN = 'magician';
-    const MERCENARY = 'mercenary';
-    const PRIEST = 'priest';
+    const WARLORD = 'warlord';
+    const BISHOP = 'bishop';
     const THIEF = 'thief';
 }

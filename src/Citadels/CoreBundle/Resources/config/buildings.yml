@@ -1,7 +1,7 @@
 parameters:
     citadels_core.building_cards:
         - { name: Zitadelle, type: king, cost: 2, points: 4}
-        - { name: Markt, type: chandler, cost: 1}
+        - { name: Markt, type: merchant, cost: 1}
         - { name: Wachturm, type: neutral, cost: 3}
-        - { name: Kerker, type: mercenary, cost: 2}
-        - { name: Hexenschule, type: priest, cost: 2}
+        - { name: Kerker, type: warlord, cost: 2}
+        - { name: Hexenschule, type: bishop, cost: 2}

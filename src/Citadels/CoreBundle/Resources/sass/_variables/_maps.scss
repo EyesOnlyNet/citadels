@@ -1,8 +1,8 @@
 $mapCharColor:
     ($charKing, $colorKing)
-    ($charPriest, $colorPriest)
-    ($charChandler, $colorChandler)
-    ($charMercenary, $colorMercenary)
+    ($charBishop, $colorBishop)
+    ($charMerchant, $colorMerchant)
+    ($charWarlord, $colorWarlord)
     ($charNeutral, $colorNeutral);
 
-$listChar: $charAssassin $charThief $charPriest $charChandler $charMagician $charBuilder $charMercenary $charKing;
+$listChar: $charAssassin $charThief $charBishop $charMerchant $charMagician $charArchitect $charWarlord $charKing;

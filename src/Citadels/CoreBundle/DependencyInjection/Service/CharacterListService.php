@@ -15,10 +15,10 @@ class CharacterListService
         CharacterType::THIEF,
         CharacterType::MAGICIAN,
         CharacterType::KING,
-        CharacterType::PRIEST,
-        CharacterType::CHANDLER,
-        CharacterType::BUILDER,
-        CharacterType::MERCENARY,
+        CharacterType::BISHOP,
+        CharacterType::MERCHANT,
+        CharacterType::ARCHITECT,
+        CharacterType::WARLORD,
     ];
 
     /**
