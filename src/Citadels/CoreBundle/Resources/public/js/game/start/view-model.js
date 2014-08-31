@@ -1,6 +1,6 @@
 var viewModel = ko.mapping.fromJS({
     myPlayer: {
-        name: '-',
+        name: '',
         gold: 0,
         buildings: [],
         handCards: [],
@@ -8,27 +8,12 @@ var viewModel = ko.mapping.fromJS({
         isActive: false,
         isKing: false,
         character: {
-            type: 'neutral',
-            name: '-',
-            shortcut: 'ntr'
+            type: '',
+            name: '',
+            shortcut: ''
         }
     },
-    players: [
-        {
-            name: '-',
-            gold: 0,
-            buildings: [],
-            handCards: [],
-            points: 0,
-            isActive: false,
-            isKing: false,
-            character: {
-                type: 'neutral',
-                name: '-',
-                shortcut: 'ntr'
-            }
-        }
-    ]
+    players: []
 });
 
 $(function() {
