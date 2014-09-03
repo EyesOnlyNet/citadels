@@ -76,6 +76,66 @@ class GameController extends BaseController
     }
 
     /**
+     * @Route("/game/end-turn")
+     * @Route("/game/end-turn/", name="game.endTurn")
+     * @Route("/game/end-turn/{gameId}")
+     * @Template()
+     */
+    public function endTurnAction()
+    {
+        $gameId = $this->getRequestParam('gameId');
+
+        if ($gameId === null) {
+            $this->view->error = true;
+
+            return $this->getViewVars();
+        }
+
+        $game = $this->findGame($gameId);
+
+        if ($game === null) {
+            $this->view->error = true;
+
+            return $this->getViewVars();
+        }
+
+        $game->nextTurn();
+
+        $this->view->gameState = $game->getState();
+
+        return $this->getViewVars();
+    }
+
+    /**
+     * @Route("/game/results")
+     * @Route("/game/results/", name="game.results")
+     * @Route("/game/results/{gameId}")
+     * @Template()
+     */
+    public function resultsAction()
+    {
+        $gameId = $this->getRequestParam('gameId');
+
+        if ($gameId === null) {
+            $this->get('session')->getFlashBag()->add('warning', 'Es gibt ein Problem - bitte starten Sie das Spiel erneut.');
+
+            return $this->redirect($this->generateUrl('welcome'));
+        }
+
+        $game = $this->findGame($gameId);
+
+        if ($game === null) {
+            $this->get('session')->getFlashBag()->add('warning', 'Zu der Spiel-Id wurde kein Spiel gefunden.');
+
+            return $this->redirect($this->generateUrl('welcome'));
+        }
+
+        $this->view->game = $game;
+
+        return $this->getViewVars();
+    }
+
+    /**
      * @param string $gameId
      * @return GameDoc
      */

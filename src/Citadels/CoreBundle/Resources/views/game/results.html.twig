@@ -1,0 +1,48 @@
+{% extends "CitadelsCoreBundle::layout.php.twig" %}
+
+{% block debug %}
+    {{ parent() }}
+    <div id="debug">
+        <p>
+            Game-ID: {{ game.getId() }}
+        </p>
+    </div>
+{% endblock %}
+
+{% block headLinks %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/bundles/citadelscore/css/game/results.css" />
+{% endblock %}
+
+{% block siteHeader %}
+    <h2>Ergebnisse</h2>
+{% endblock %}
+
+{% block siteContent %}
+    <table class="players table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Gold</th>
+                <th>Punkte</th>
+                <th>Gebäude</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: players">
+            <tr>
+                <td data-bind="text: $index + 1"></td>
+                <td data-bind="text: name"></td>
+                <td data-bind="text: gold"></td>
+                <td data-bind="text: points"></td>
+                <td data-bind="text: buildings.length"></td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="/bundles/citadelscore/js/game/results.js"></script>
+    <script src="/bundles/citadelscore/js/view-model/players.js"></script>
+{% endblock %}
