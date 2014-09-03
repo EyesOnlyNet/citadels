@@ -15,7 +15,10 @@
 {% endblock %}
 
 {% block siteHeader %}
-    <h2>Ergebnisse</h2>
+    <span id="my-game" data-id="{{ game.getId() }}"></span>
+    <header>
+        <h2>Ergebnisse</h2>
+    </header>
 {% endblock %}
 
 {% block siteContent %}
@@ -31,7 +34,7 @@
         </thead>
         <tbody data-bind="foreach: players">
             <tr>
-                <td data-bind="text: $index + 1"></td>
+                <td data-bind="text: $index() + 1"></td>
                 <td data-bind="text: name"></td>
                 <td data-bind="text: gold"></td>
                 <td data-bind="text: points"></td>
@@ -44,5 +47,5 @@
 {% block scripts %}
     {{ parent() }}
     <script src="/bundles/citadelscore/js/game/results.js"></script>
-    <script src="/bundles/citadelscore/js/view-model/players.js"></script>
+    <script src="/bundles/citadelscore/js/view-model/game.js"></script>
 {% endblock %}
