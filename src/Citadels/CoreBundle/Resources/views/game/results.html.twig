@@ -22,7 +22,7 @@
 {% endblock %}
 
 {% block siteContent %}
-    <table class="players table table-striped">
+    <table id="player-list" class="table table-striped">
         <thead>
             <tr>
                 <th>#</th>
@@ -32,7 +32,7 @@
                 <th>Gebäude</th>
             </tr>
         </thead>
-        <tbody data-bind="foreach: players">
+        <tbody data-bind="foreach: playerList">
             <tr>
                 <td data-bind="text: $index() + 1"></td>
                 <td data-bind="text: name"></td>
@@ -46,6 +46,6 @@
 
 {% block scripts %}
     {{ parent() }}
+    <script src="/bundles/citadelscore/js/view-model/playerList.js"></script>
     <script src="/bundles/citadelscore/js/game/results.js"></script>
-    <script src="/bundles/citadelscore/js/view-model/game.js"></script>
 {% endblock %}
