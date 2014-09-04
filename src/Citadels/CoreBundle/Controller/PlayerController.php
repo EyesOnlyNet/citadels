@@ -26,7 +26,7 @@ class PlayerController extends BaseController
     {
         $this->initGame();
 
-        $playerId = $this->getRequest()->attributes->get('playerId');
+        $playerId = $this->getRequestParam('playerId');
         $player = $this->findPlayer($playerId);
 
         if ($player == null) {
@@ -63,7 +63,7 @@ class PlayerController extends BaseController
 
     private function initGame()
     {
-        $gameId = $this->getRequest()->attributes->get('gameId');
+        $gameId = $this->getRequestParam('gameId');
         $this->game = $this->findGame($gameId);
     }
 

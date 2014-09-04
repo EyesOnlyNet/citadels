@@ -1,9 +1,11 @@
 $(function() {
-    ko.applyBindings(playerListModel, document.getElementById('player-list'));
     ko.applyBindings(myPlayerModel, document.getElementById('my-player'));
+    ko.applyBindings(characterListModel, document.getElementById('character-list'));
+    ko.applyBindings(playerListModel, document.getElementById('player-list'));
 
-    playerListModel.update();
     myPlayerModel.update();
+    characterListModel.update();
+    playerListModel.update();
 
     $('#action-tabs').tabs({
         disabled: [],

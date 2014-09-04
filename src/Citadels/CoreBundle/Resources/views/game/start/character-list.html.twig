@@ -1,8 +1,6 @@
-<div class="box characters">
+<div id="character-list" class="box characters">
     <h5 class="header">agierender Character</h5>
-    <ul class="content character-list">
-        {% for character in characterList %}
-            <li class="{{ character.type }}">{{ character.name }}</li>
-        {% endfor %}
+    <ul class="content character-list" data-bind="foreach: characterList">
+        <li data-bind="css: type, text: name"></li>
     </ul>
 </div>

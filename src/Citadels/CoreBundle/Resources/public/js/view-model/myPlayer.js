@@ -24,10 +24,7 @@ var myPlayerModel = ko.mapping.fromJS({
             console.log("updateMyPlayer success");
             console.log($.parseJSON(response));
 
-            ko.mapping.fromJS(
-                { myPlayer: $.parseJSON(response).myPlayer },
-                myPlayerModel
-            );
+            ko.mapping.fromJS($.parseJSON(response), myPlayerModel);
         })
         .fail(function() { console.log("updateMyPlayer error"); })
         .always(function() { console.log("updateMyPlayer complete"); });

@@ -10,10 +10,7 @@ var playerListModel = ko.mapping.fromJS({
             console.log("updatePlayerList success");
             console.log($.parseJSON(response));
 
-            ko.mapping.fromJS(
-                { playerList: $.parseJSON(response).playerList },
-                playerListModel
-            );
+            ko.mapping.fromJS($.parseJSON(response), playerListModel);
         })
         .fail(function() { console.log("updatePlayerList error"); })
         .always(function() { console.log("updatePlayerList complete"); });
