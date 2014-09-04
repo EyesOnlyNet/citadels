@@ -1,7 +1,7 @@
 @import "_variables/_dimensions.scss";
 @import "_partials/tabs/_actions.scss";
-@import "start/_character-list.scss";
-@import "start/_player-list-compact.scss";
+@import "board/_character-list.scss";
+@import "board/_player-list-compact.scss";
 
 .site-header {
     min-height: 104px;

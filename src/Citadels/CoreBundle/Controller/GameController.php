@@ -15,12 +15,12 @@ class GameController extends BaseController
     use MongoDocumentManagerResource;
 
     /**
-     * @Route("/game/start")
-     * @Route("/game/start/", name="game.start")
-     * @Route("/game/start/{gameId}")
+     * @Route("/game/board")
+     * @Route("/game/board/", name="game.start")
+     * @Route("/game/board/{gameId}")
      * @Template()
      */
-    public function startAction()
+    public function boardAction()
     {
         $gameId = $this->getRequestParam('gameId');
 
