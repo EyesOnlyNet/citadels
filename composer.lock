@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c46b1cd769e7ceb670091ff7b5ddda93",
+    "hash": "1cba18e415d7731e3a0ff72047b76c02",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -623,12 +623,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/mongodb-odm.git",
-                "reference": "66b78196b53d2984d6ed389806224823cd6b9b12"
+                "reference": "10e7e22a200b6d1e1565651486534b12267dd9f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/66b78196b53d2984d6ed389806224823cd6b9b12",
-                "reference": "66b78196b53d2984d6ed389806224823cd6b9b12",
+                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/10e7e22a200b6d1e1565651486534b12267dd9f0",
+                "reference": "10e7e22a200b6d1e1565651486534b12267dd9f0",
                 "shasum": ""
             },
             "require": {
@@ -688,7 +688,7 @@
                 "odm",
                 "persistence"
             ],
-            "time": "2014-08-05 15:33:21"
+            "time": "2014-09-04 19:16:50"
         },
         {
             "name": "doctrine/mongodb-odm-bundle",
@@ -832,6 +832,54 @@
                 "orm"
             ],
             "time": "2014-07-11 03:05:53"
+        },
+        {
+            "name": "fortawesome/font-awesome",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "a65bd93d81e9e6bd5ebfa41757a4474960b973b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/a65bd93d81e9e6bd5ebfa41757a4474960b973b4",
+                "reference": "a65bd93d81e9e6bd5ebfa41757a4474960b973b4",
+                "shasum": ""
+            },
+            "require-dev": {
+                "jekyll": "1.0.2",
+                "lessc": "1.4.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Gandy",
+                    "email": "dave@fontawesome.io",
+                    "homepage": "http://twitter.com/davegandy",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The iconic font and CSS framework",
+            "homepage": "http://fontawesome.io/",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon"
+            ],
+            "time": "2014-08-26 16:36:44"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1219,17 +1267,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v2.3.4",
+            "version": "v2.3.5",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "66df91b4bd637a83299d8072aed3658bfd3b3021"
+                "reference": "715fcb65f9a4841ffaf40c0bf050329d74c84cad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/66df91b4bd637a83299d8072aed3658bfd3b3021",
-                "reference": "66df91b4bd637a83299d8072aed3658bfd3b3021",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/715fcb65f9a4841ffaf40c0bf050329d74c84cad",
+                "reference": "715fcb65f9a4841ffaf40c0bf050329d74c84cad",
                 "shasum": ""
             },
             "require": {
@@ -1261,26 +1309,26 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2013-08-22 05:04:53"
+            "time": "2014-09-03 12:25:05"
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.1",
+            "version": "v3.0.2",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "dbc1e5aa830f3bf8063b29102add3c1e476d616e"
+                "reference": "9b22aaee517e80aad3238ea0328458b6f964066f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/dbc1e5aa830f3bf8063b29102add3c1e476d616e",
-                "reference": "dbc1e5aa830f3bf8063b29102add3c1e476d616e",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/9b22aaee517e80aad3238ea0328458b6f964066f",
+                "reference": "9b22aaee517e80aad3238ea0328458b6f964066f",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.2",
-                "symfony/framework-bundle": "~2.5"
+                "symfony/framework-bundle": "~2.3"
             },
             "require-dev": {
                 "symfony/expression-language": "~2.4",
@@ -1308,9 +1356,7 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "This bundle provides a way to configure your controllers with annotations",
@@ -1318,7 +1364,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2014-05-22 23:27:44"
+            "time": "2014-09-02 07:11:30"
         },
         {
             "name": "sensio/generator-bundle",
@@ -1652,16 +1698,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.3",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "f077a238c781f845487a7c81fea8033ccd0e6a02"
+                "reference": "3a369dddea56596df91977d8c2083e70784852f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/f077a238c781f845487a7c81fea8033ccd0e6a02",
-                "reference": "f077a238c781f845487a7c81fea8033ccd0e6a02",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/3a369dddea56596df91977d8c2083e70784852f2",
+                "reference": "3a369dddea56596df91977d8c2083e70784852f2",
                 "shasum": ""
             },
             "require": {
@@ -1719,7 +1765,7 @@
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.2",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "egulias/email-validator": "1.1.0",
+                "egulias/email-validator": "~1.2",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "~1.3",
                 "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
@@ -1762,7 +1808,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-08-06 07:03:01"
+            "time": "2014-09-03 09:51:48"
         },
         {
             "name": "twbs/bootstrap-sass",
@@ -1770,12 +1816,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twbs/bootstrap-sass.git",
-                "reference": "54317e5c02a4915e7a5def3a3e94cc2738a51ed3"
+                "reference": "c062283837c63ed8e7b77b52c513db30ecb6cdb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap-sass/zipball/54317e5c02a4915e7a5def3a3e94cc2738a51ed3",
-                "reference": "54317e5c02a4915e7a5def3a3e94cc2738a51ed3",
+                "url": "https://api.github.com/repos/twbs/bootstrap-sass/zipball/c062283837c63ed8e7b77b52c513db30ecb6cdb5",
+                "reference": "c062283837c63ed8e7b77b52c513db30ecb6cdb5",
                 "shasum": ""
             },
             "type": "library",
@@ -1818,7 +1864,7 @@
                 "issues": "https://github.com/twbs/bootstrap-sass/issues",
                 "source": "https://github.com/twbs/bootstrap-sass/tree/master"
             },
-            "time": "2014-08-04 06:27:58"
+            "time": "2014-09-03 22:08:14"
         },
         {
             "name": "twig/extensions",
@@ -1932,7 +1978,8 @@
     "stability-flags": {
         "doctrine/mongodb-odm": 20,
         "doctrine/mongodb-odm-bundle": 20,
-        "twbs/bootstrap-sass": 20
+        "twbs/bootstrap-sass": 20,
+        "fortawesome/font-awesome": 20
     },
     "platform": {
         "php": ">=5.3.3"

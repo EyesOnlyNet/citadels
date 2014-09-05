@@ -11,7 +11,7 @@
 
 {% block headLinks %}
     {{ parent() }}
-    <link rel="stylesheet" href="/bundles/citadelscore/css/game/start.css" />
+    <link rel="stylesheet" href="/bundles/citadelscore/css/game/board.css" />
 {% endblock %}
 
 {% block siteHeader %}
@@ -23,9 +23,8 @@
 
 {% block siteContent %}
     {% include 'CitadelsCoreBundle:Game:board/character-list.html.twig' %}
-
-    <div data-section="my-player"></div>
     {% include 'CitadelsCoreBundle:Game:board/my-player.html.twig' %}
+    {% include 'CitadelsCoreBundle:Game:board/action-buttons.html.twig' %}
 
     <div id="action-tabs" class="tabs">
         {% include 'CitadelsCoreBundle:Game:board/tabs/actions.html.twig' %}

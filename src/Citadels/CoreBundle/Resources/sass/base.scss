@@ -1,4 +1,7 @@
-@import "../../../../../vendor/twbs/bootstrap-sass/assets/stylesheets/bootstrap/bootstrap.scss";
+$fa-font-path: "../fonts/fa";
+
+@import "twbs/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "fortawesome/font-awesome/scss/font-awesome.scss";
 
 @import "_variables/_#.scss";
 @import "_mixins/_#.scss";
