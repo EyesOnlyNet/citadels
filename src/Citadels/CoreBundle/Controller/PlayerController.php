@@ -5,6 +5,7 @@ namespace Citadels\CoreBundle\Controller;
 use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
 use Citadels\CoreBundle\Document\GameDoc;
 use Citadels\CoreBundle\Document\PlayerDoc;
+use Citadels\CoreBundle\Enum\Game;
 use Citadels\CoreBundle\Models\ViewModel\Mapper\PlayerMapper;
 use Citadels\CoreBundle\Models\ViewModel\PlayerView;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -19,13 +20,18 @@ class PlayerController extends BaseController
      */
     private $game;
 
+    public function before()
+    {
+        parent::before();
+
+        $this->initGame();
+    }
+
     /**
      * @Route("/players/{playerId}/game/{gameId}")
      */
     public function myPlayerAction()
     {
-        $this->initGame();
-
         $playerId = $this->getRequestParam('playerId');
         $player = $this->findPlayer($playerId);
 
@@ -46,8 +52,6 @@ class PlayerController extends BaseController
      */
     public function playerListAction()
     {
-        $this->initGame();
-
         $players = $this->findPlayers();
         $playerList = PlayerMapper::createFromPlayerDocCollection($players);
 
@@ -57,6 +61,21 @@ class PlayerController extends BaseController
         }
 
         $this->view->playerList = $playerList;
+
+        return $this->getViewVars();
+    }
+
+    /**
+     * @Route("/players/{playerId}/game/{gameId}/get-gold")
+     */
+    public function getGoldAction()
+    {
+//        $player = $this->game->getActivePlayer();
+        $playerId = $this->getRequestParam('playerId');
+        $player = $this->findPlayer($playerId);
+        $player->addGold(Game::GOLD_PER_ROUND);
+
+        $this->getMongoDocumentManager()->flush();
 
         return $this->getViewVars();
     }

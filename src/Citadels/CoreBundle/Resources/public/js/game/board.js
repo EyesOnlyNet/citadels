@@ -13,6 +13,11 @@ $(function() {
         game.endTurn();
     });
 
+    $('.action-get-gold').click(function() {
+        myPlayerModel.getGold();
+        myPlayerModel.update();
+    });
+
     $('#action-tabs').tabs({
         disabled: [],
         activate: function() {

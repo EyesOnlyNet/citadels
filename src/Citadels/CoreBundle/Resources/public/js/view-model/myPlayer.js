@@ -28,5 +28,19 @@ var myPlayerModel = ko.mapping.fromJS({
         })
         .fail(function() { console.log("updateMyPlayer error"); })
         .always(function() { console.log("updateMyPlayer complete"); });
+    },
+    getGold: function() {
+        var fingerprint = new Fingerprint().get(),
+            gameId = $('#app').data('game.id');
+
+        $.ajax({
+            url: '/app_dev.php/players/' + fingerprint + '/game/' + gameId + '/get-gold'
+        })
+        .done(function(response) {
+            console.log("getGold success");
+            console.log($.parseJSON(response));
+        })
+        .fail(function() { console.log("getGold error"); })
+        .always(function() { console.log("getGold complete"); });
     }
 });

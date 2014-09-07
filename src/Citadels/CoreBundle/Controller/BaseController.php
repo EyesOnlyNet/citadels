@@ -23,7 +23,7 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
         $this->view = new ArrayObject([], ArrayObject::ARRAY_AS_PROPS);
     }
 
-    final public function before()
+    public function before()
     {
         $this->setControllerRequestToView();
     }
