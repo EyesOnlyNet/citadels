@@ -14,7 +14,7 @@ class IndexController extends BaseController
 
     /**
      * @Route("")
-     * @Route("/", name="welcome")
+     * @Route("/", name="root")
      * @Route("/start")
      * @Route("/start/")
      * @Route("/index")

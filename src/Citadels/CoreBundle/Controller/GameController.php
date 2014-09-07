@@ -27,7 +27,7 @@ class GameController extends BaseController
         if ($gameId === null) {
             $this->get('session')->getFlashBag()->add('warning', 'Um ein Spiel zu starten, muss eine Spiel-Id angegeben werden.');
 
-            return $this->redirect($this->generateUrl('welcome'));
+            return $this->redirect($this->generateUrl('root'));
         }
 
         $game = $this->findGame($gameId);
@@ -35,7 +35,7 @@ class GameController extends BaseController
         if ($game === null) {
             $this->get('session')->getFlashBag()->add('warning', 'Zu der Spiel-Id wurde kein Spiel gefunden.');
 
-            return $this->redirect($this->generateUrl('welcome'));
+            return $this->redirect($this->generateUrl('root'));
         }
 
         $this->view->game = $game;
@@ -58,7 +58,7 @@ class GameController extends BaseController
         if ($userName === null) {
             $this->get('session')->getFlashBag()->add('warning', 'Zum Spielen ist ein Spielername notwendig.');
 
-            return $this->redirect($this->generateUrl('welcome'));
+            return $this->redirect($this->generateUrl('root'));
         }
 
         $game = $this->createGame();
@@ -119,7 +119,7 @@ class GameController extends BaseController
         if ($gameId === null) {
             $this->get('session')->getFlashBag()->add('warning', 'Es gibt ein Problem - bitte starten Sie das Spiel erneut.');
 
-            return $this->redirect($this->generateUrl('welcome'));
+            return $this->redirect($this->generateUrl('root'));
         }
 
         $game = $this->findGame($gameId);
@@ -127,7 +127,7 @@ class GameController extends BaseController
         if ($game === null) {
             $this->get('session')->getFlashBag()->add('warning', 'Zu der Spiel-Id wurde kein Spiel gefunden.');
 
-            return $this->redirect($this->generateUrl('welcome'));
+            return $this->redirect($this->generateUrl('root'));
         }
 
         $this->view->game = $game;

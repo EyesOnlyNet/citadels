@@ -15,7 +15,8 @@
 {% endblock %}
 
 {% block siteHeader %}
-    <span id="my-game" data-id="{{ game.getId() }}"></span>
+    {% include 'CitadelsCoreBundle:Game:board/app-data.html.twig' %}
+
     <header>
         {% include 'CitadelsCoreBundle:Game:board/player-list-compact.html.twig' %}
     </header>
@@ -53,5 +54,6 @@
     <script src="/bundles/citadelscore/js/view-model/myPlayer.js"></script>
     <script src="/bundles/citadelscore/js/view-model/characterList.js"></script>
     <script src="/bundles/citadelscore/js/view-model/playerList.js"></script>
+    <script src="/bundles/citadelscore/js/view-model/game.js"></script>
     <script src="/bundles/citadelscore/js/game/board.js"></script>
 {% endblock %}

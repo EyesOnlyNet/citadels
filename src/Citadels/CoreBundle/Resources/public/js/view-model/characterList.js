@@ -1,10 +1,11 @@
 var characterListModel = ko.mapping.fromJS({
     characterList: [],
     update: function() {
-        var gameId = $('#my-game').data('id');
+        var gameId = $('#app').data('game.id'),
+            rootUrl = $('#app').data('url.root');
 
         $.ajax({
-            url: '/app_dev.php/characters/game/' + gameId
+            url: rootUrl + 'characters/game/' + gameId
         })
         .done(function(response) {
             console.log("updateCharacterList success");

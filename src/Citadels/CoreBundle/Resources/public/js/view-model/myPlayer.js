@@ -15,7 +15,7 @@ var myPlayerModel = ko.mapping.fromJS({
     },
     update: function() {
         var fingerprint = new Fingerprint().get(),
-            gameId = $('#my-game').data('id');
+            gameId = $('#app').data('game.id');
 
         $.ajax({
             url: '/app_dev.php/players/' + fingerprint + '/game/' + gameId

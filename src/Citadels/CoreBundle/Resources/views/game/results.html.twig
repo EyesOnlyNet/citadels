@@ -15,7 +15,8 @@
 {% endblock %}
 
 {% block siteHeader %}
-    <span id="my-game" data-id="{{ game.getId() }}"></span>
+    {% include 'CitadelsCoreBundle:Game:board/app-data.html.twig' %}
+
     <header>
         <h2>Ergebnisse</h2>
     </header>
