@@ -15,7 +15,7 @@ $(function() {
 
     $('.action-get-gold').click(function() {
         myPlayerModel.getGold();
-        myPlayerModel.update();
+        game.refreshBoard();
     });
 
     $('#action-tabs').tabs({

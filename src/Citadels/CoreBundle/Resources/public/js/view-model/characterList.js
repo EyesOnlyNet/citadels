@@ -11,6 +11,7 @@ var characterListModel = ko.mapping.fromJS({
             console.log("updateCharacterList success");
             console.log($.parseJSON(response));
 
+            ko.mapping.fromJS({}, characterListModel);
             ko.mapping.fromJS($.parseJSON(response), characterListModel);
         })
         .fail(function() { console.log("updateCharacterList error"); })
