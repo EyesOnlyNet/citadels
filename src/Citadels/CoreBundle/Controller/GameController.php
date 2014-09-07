@@ -76,9 +76,7 @@ class GameController extends BaseController
     }
 
     /**
-     * @Route("/game/end-turn")
-     * @Route("/game/end-turn/", name="game.endTurn")
-     * @Route("/game/end-turn/{gameId}")
+     * @Route("/game/{gameId}/end-turn/")
      * @Template()
      */
     public function endTurnAction()
@@ -107,9 +105,7 @@ class GameController extends BaseController
     }
 
     /**
-     * @Route("/game/results")
-     * @Route("/game/results/", name="game.results")
-     * @Route("/game/results/{gameId}")
+     * @Route("/game/{gameId}/results/")
      * @Template()
      */
     public function resultsAction()
