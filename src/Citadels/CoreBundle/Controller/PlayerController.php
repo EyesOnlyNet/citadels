@@ -70,8 +70,7 @@ class PlayerController extends BaseController
      */
     public function getGoldAction()
     {
-        $playerId = $this->getRequestParam('playerId');
-        $player = $this->findPlayer($playerId);
+        $player = $this->game->getActivePlayer();
         $player->addGold(Game::GOLD_PER_ROUND);
 
         $this->getMongoDocumentManager()->flush();

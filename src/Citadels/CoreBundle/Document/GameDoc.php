@@ -31,10 +31,10 @@ class GameDoc extends BaseDoc
     private $players;
 
     /**
-     * @MongoDb\EmbedOne(targetDocument="PlayerDoc")
-     * @var PlayerDoc
+     * @MongoDB\String
+     * @var string
      */
-    private $activePlayer;
+    private $activePlayerId;
 
     /**
      * @MongoDb\EmbedMany(targetDocument="CharacterStateDoc")
@@ -79,7 +79,7 @@ class GameDoc extends BaseDoc
      */
     public function getActivePlayer()
     {
-        return $this->activePlayer;
+        return $this->getPlayerById($this->activePlayerId);
     }
 
     /**
@@ -96,7 +96,7 @@ class GameDoc extends BaseDoc
     public function addPlayer(PlayerDoc $player)
     {
         if ($this->players->count() == 0) {
-            $this->activePlayer = $player;
+            $this->activePlayerId = $player->getId();
             $this->state = self::STATE_START;
         }
 
@@ -130,11 +130,13 @@ class GameDoc extends BaseDoc
 
     private function nextPlayer()
     {
-        $nextIndex = $this->players->indexOf($this->activePlayer) + 1;
+        $nextIndex = $this->players->indexOf($this->getActivePlayer()) + 1;
 
-        $this->activePlayer = $this->players->containsKey($nextIndex)
+        $newPlayer = $this->players->containsKey($nextIndex)
             ? $this->players->get($nextIndex)
             : $this->players->first();
+
+        $this->activePlayerId = $newPlayer->getId();
     }
 
     /**
@@ -149,6 +151,6 @@ class GameDoc extends BaseDoc
     private function endGame()
     {
         $this->state = self::STATE_END;
-        $this->activePlayer = null;
+        $this->activePlayerId = null;
     }
 }
