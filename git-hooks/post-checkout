@@ -1,0 +1,68 @@
+#!/bin/bash
+
+PROJECT_DIR=$PWD
+
+echo ""
+echo "### removing odm-hydrators"
+echo "# - rm -rf ./app/cache/dev/doctrine/odm/mongodb/Hydrators/*"
+    rm -rf ./app/cache/dev/doctrine/odm/mongodb/Hydrators/*
+echo "# - done"
+echo ""
+
+echo ""
+echo "### removing odm-proxies"
+echo "# - rm -rf ./app/cache/dev/doctrine/odm/mongodb/Proxies/*"
+    rm -rf ./app/cache/dev/doctrine/odm/mongodb/Proxies/*
+echo "# - done"
+echo ""
+
+
+echo ""
+echo "### compile sass"
+echo "# - cd ./src/Citadels/CoreBundle/Resources/sass"
+echo "# - sass --update .:..\public\css --force --line-numbers --no-cache --unix-newlines --load-path $PROJECT_DIR/vendor"
+echo "# - cd $PROJECT_DIR"
+    cd "./src/Citadels/CoreBundle/Resources/sass"
+    sass --update ".:..\public\css" --force --line-numbers --no-cache --unix-newlines --load-path $PROJECT_DIR"\vendor"
+    cd $PROJECT_DIR
+echo "# - done"
+echo ""
+
+echo ""
+echo "### install assets"
+echo "# - php ./app/console assets:install"
+    php "./app/console" assets:install
+echo "# - done"
+echo ""
+
+echo ""
+echo "### copy fonts"
+echo "# - mkdir $PROJECT_DIR/web/bundles/citadelscore/fonts"
+    mkdir $PROJECT_DIR"/web/bundles/citadelscore/fonts"
+echo "# - done"
+
+echo "# - cp $PROJECT_DIR/vendor/fortawesome/font-awesome/fonts/ $PROJECT_DIR/web/bundles/citadelscore/fonts/fa -R"
+echo "# - cd $PROJECT_DIR"
+    cp $PROJECT_DIR"/vendor/fortawesome/font-awesome/fonts/" $PROJECT_DIR"/web/bundles/citadelscore/fonts/fa" -R
+    cd $PROJECT_DIR
+echo "# - done"
+
+echo "# - cp $PROJECT_DIR/vendor/twbs/bootstrap-sass/assets/fonts/bootstrap/ $PROJECT_DIR/web/bundles/citadelscore/fonts/bs -R"
+echo "# - cd $PROJECT_DIR"
+    cp $PROJECT_DIR"/vendor/twbs/bootstrap-sass/assets/fonts/bootstrap/" $PROJECT_DIR"/web/bundles/citadelscore/fonts/bs" -R
+    cd $PROJECT_DIR
+echo "# - done"
+echo ""
+
+echo ""
+echo "### copy javascripts"
+echo "# - mkdir $PROJECT_DIR/web/bundles/citadelscore/js/vendor"
+    mkdir $PROJECT_DIR"/web/bundles/citadelscore/js/vendor"
+echo "# - done"
+
+echo "# - cp $PROJECT_DIR/vendor/twbs/bootstrap-sass/assets/javascripts/bootstrap.js $PROJECT_DIR/web/bundles/citadelscore/js/vendor/bootstrap.js -R"
+echo "# - cd $PROJECT_DIR"
+    cp $PROJECT_DIR"/vendor/twbs/bootstrap-sass/assets/javascripts/bootstrap.js" $PROJECT_DIR"/web/bundles/citadelscore/js/vendor/bootstrap.js" -R
+    cd $PROJECT_DIR
+echo "# - done"
+echo ""
