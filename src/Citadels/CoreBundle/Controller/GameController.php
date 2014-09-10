@@ -97,9 +97,12 @@ class GameController extends BaseController
             return $this->getViewVars();
         }
 
-        $game->nextTurn();
+        $game->setNextActivePlayer();
 
-        $this->view->gameState = $game->getState();
+        if ($this->get('validator')->validate($game->getActivePlayer(), [PlayerDoc::VALIDATION_GROUP_IS_WINNER])->count() == 0) {
+            $game->endGame();
+            $this->getMongoDocumentManager()->flush();
+        }
 
         return $this->getViewVars();
     }

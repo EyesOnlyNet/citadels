@@ -7,6 +7,7 @@ use Citadels\CoreBundle\Enum\CharacterType;
 use Citadels\CoreBundle\Traits\UuidTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @MongoDB\EmbeddedDocument
@@ -14,6 +15,8 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 class PlayerDoc extends BaseDoc
 {
     use UuidTrait;
+
+    const VALIDATION_GROUP_IS_WINNER = 'isWinner';
 
     /**
      * @MongoDB\Id(strategy="UUID")
@@ -30,6 +33,7 @@ class PlayerDoc extends BaseDoc
     /**
      * @MongoDB\Int
      * @var int
+     * @Assert\GreaterThan ( value=6, groups={"isWinner"} )
      */
     private $gold;
 
