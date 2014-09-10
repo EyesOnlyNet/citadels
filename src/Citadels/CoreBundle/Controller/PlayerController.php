@@ -66,9 +66,9 @@ class PlayerController extends BaseController
     }
 
     /**
-     * @Route("/players/{playerId}/game/{gameId}/get-gold")
+     * @Route("/players/{playerId}/game/{gameId}/add-gold")
      */
-    public function getGoldAction()
+    public function addGoldAction()
     {
         $player = $this->game->getActivePlayer();
         $player->addGold(Game::GOLD_PER_ROUND);
@@ -111,7 +111,7 @@ class PlayerController extends BaseController
 
     /**
      * @param string $playerId
-     * @return PlayerDoc
+     * @return PlayerDoc|null
      */
     private function findPlayer($playerId)
     {
@@ -128,6 +128,8 @@ class PlayerController extends BaseController
      */
     private function isPlayerActive(PlayerDoc $player)
     {
-        return $this->game->getActivePlayer()->getId() == $player->getId();
+        $activePlayer = $this->game->getActivePlayer();
+
+        return !is_null($activePlayer) && $activePlayer->getId() == $player->getId();
     }
 }
