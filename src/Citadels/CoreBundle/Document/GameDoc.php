@@ -12,10 +12,6 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
  */
 class GameDoc extends BaseDoc
 {
-    const STATE_NEW = 0;
-    const STATE_START = 1;
-    const STATE_END = 2;
-
     use UuidTrait;
 
     /**
@@ -55,7 +51,6 @@ class GameDoc extends BaseDoc
         $this->id = $this->getUuidV4(4);
         $this->players = new ArrayCollection();
         $this->characterStates = new ArrayCollection();
-        $this->state = self::STATE_NEW;
     }
 
     /**
@@ -97,7 +92,6 @@ class GameDoc extends BaseDoc
     {
         if ($this->players->count() == 0) {
             $this->activePlayerId = $player->getId();
-            $this->state = self::STATE_START;
         }
 
         $this->players->add($player);
@@ -105,7 +99,7 @@ class GameDoc extends BaseDoc
 
     /**
      * @param string $id
-     * @return PlayerDoc
+     * @return PlayerDoc|null
      */
     public function getPlayerById($id)
     {
@@ -119,16 +113,7 @@ class GameDoc extends BaseDoc
         return;
     }
 
-    public function nextTurn()
-    {
-        $this->nextPlayer();
-
-        if ($this->activePlayerIsWinner()) {
-            $this->endGame();
-        }
-    }
-
-    private function nextPlayer()
+    public function setNextActivePlayer()
     {
         $nextIndex = $this->players->indexOf($this->getActivePlayer()) + 1;
 
@@ -139,18 +124,8 @@ class GameDoc extends BaseDoc
         $this->activePlayerId = $newPlayer->getId();
     }
 
-    /**
-     * @return bool
-     */
-    private function activePlayerIsWinner()
+    public function endGame()
     {
-        return true;
-//        return $this->winnerCriteriaChain->checkPlayer($this->activePlayer);
-    }
-
-    private function endGame()
-    {
-        $this->state = self::STATE_END;
         $this->activePlayerId = null;
     }
 }

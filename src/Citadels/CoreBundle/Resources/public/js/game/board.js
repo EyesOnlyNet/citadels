@@ -10,11 +10,26 @@ $(function() {
     });
 
     $('.action-end-turn').click(function() {
-        game.endTurn();
+        game.endTurn(function() {
+            playerListModel.update(function() {
+                var activePlayerExist = false,
+                    rootUrl = $('#app').data('url.root'),
+                    gameId = $('#app').data('game.id');
+
+                $(playerListModel.playerList()).each(function() {
+                    console.log(this.isActive());
+                    activePlayerExist = activePlayerExist || this.isActive();
+                });
+
+                if (!activePlayerExist) {
+                    window.location.href = rootUrl + 'game/' + gameId + '/results';
+                }
+            });
+        });
     });
 
-    $('.action-get-gold').click(function() {
-        myPlayerModel.getGold();
+    $('.action-add-gold').click(function() {
+        myPlayerModel.addGold();
         game.refreshBoard();
     });
 
