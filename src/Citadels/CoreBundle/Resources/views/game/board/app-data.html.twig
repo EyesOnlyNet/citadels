@@ -1,4 +1,4 @@
 <span id="app"
       data-url.root="{{ path('root') }}"
-      data-game.id="{{ game.getId() }}">
+      data-game.id="{{ game is defined ? game.getId() : 0 }}">
 </span>

@@ -6,6 +6,8 @@ use Citadels\CoreBundle\Controller\Traits\MongoDocumentManagerResource;
 use Citadels\CoreBundle\Controller\Traits\Service\CharacterListServiceResource;
 use Citadels\CoreBundle\Document\GameDoc;
 use Citadels\CoreBundle\Document\PlayerDoc;
+use Citadels\CoreBundle\Models\ViewModel\Mapper\GameMapper;
+use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
@@ -15,8 +17,25 @@ class GameController extends BaseController
     use MongoDocumentManagerResource;
 
     /**
+     * @Route("/game/player")
+     * @Route("/game/player/")
+     * @Route("/game/player/{fingerprint}")
+     * @Route("/game/player/{fingerprint}/")
+     * @Template()
+     */
+    public function gameListAction()
+    {
+        $playerId = $this->getRequestParam('fingerprint');
+        $games = new ArrayCollection($this->getMongoDocumentManager()->getRepository(GameDoc::class)->findBy(['players.id' => $playerId]));
+
+        $this->view->gameList = GameMapper::createFromGameDocCollection($games);
+
+        return $this->getViewVars();
+    }
+
+    /**
      * @Route("/game/board")
-     * @Route("/game/board/", name="game.start")
+     * @Route("/game/board/", name="game.board")
      * @Route("/game/board/{gameId}")
      * @Template()
      */
@@ -47,28 +66,22 @@ class GameController extends BaseController
     /**
      * @Route("/game/create")
      * @Route("/game/create/", name="game.create")
-     * @Route("/game/create/{userName}")
      * @Template()
      */
     public function createAction()
     {
         $fingerprint = $this->getRequestParam('fingerprint');
-        $userName = $this->getRequestParam('userName');
+        $game = new GameDoc();
+        $player = new PlayerDoc($fingerprint);
 
-        if ($userName === null) {
-            $this->get('session')->getFlashBag()->add('warning', 'Zum Spielen ist ein Spielername notwendig.');
-
-            return $this->redirect($this->generateUrl('root'));
-        }
-
-        $game = $this->createGame();
-        $player = $this->createPlayer($userName, $fingerprint);
+        $this->getMongoDocumentManager()->persist($game);
+        $this->getMongoDocumentManager()->persist($player);
 
         $game->addPlayer($player);
 
         $this->getMongoDocumentManager()->flush();
 
-        $url = sprintf('%s%s', $this->generateUrl('game.start'), $game->getId());
+        $url = sprintf('%s%s', $this->generateUrl('game.board'), $game->getId());
 
         $this->get('session')->getFlashBag()->add('success', 'Ein neues Spiel wurde erstellt.');
 
@@ -145,32 +158,5 @@ class GameController extends BaseController
         }
 
         return $this->getMongoDocumentManager()->find(GameDoc::class, $gameId);
-    }
-
-    /**
-     * @return GameDoc
-     */
-    private function createGame()
-    {
-        $game = new GameDoc();
-
-        $this->getMongoDocumentManager()->persist($game);
-
-        return $game;
-    }
-
-    /**
-     * @param string $name
-     * @param string $id
-     * @return PlayerDoc
-     */
-    private function createPlayer($name, $id = null)
-    {
-        $player = new PlayerDoc($id);
-        $player->setName($name);
-
-        $this->getMongoDocumentManager()->persist($player);
-
-        return $player;
     }
 }

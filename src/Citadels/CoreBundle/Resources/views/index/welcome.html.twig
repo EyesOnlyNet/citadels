@@ -6,15 +6,16 @@
 {% endblock %}
 
 {% block siteHeader %}
-    <header>
-        <h1>Ohne Furcht und Adel</h1>
-        <h2>- Webversion [alpha] -</h2>
-    </header>
+    {% include 'CitadelsCoreBundle:Game:board/app-data.html.twig' %}
 {% endblock %}
 
 {% block siteContent %}
     <div>
         <div class="jumbotron">
+            <h1>Ohne Furcht und Adel</h1>
+            <h2>- Webversion [alpha] -</h2>
+
+            <br />
             <form action="{{ path('game.create') }}" method="post">
                 <input type="hidden" name="fingerprint" />
                 <button class="btn">ein neues Spiel starten</button>
@@ -23,16 +24,14 @@
 
         <div class="panel panel-default">
             <div class="panel-heading">deine laufenden Spiele</div>
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#">
-                        <h4>
-                            Spiel ####
-                            <small>[ ##:## ##.##.## ]</small>
-                        </h4>
-                    </a>
-                </li>
-            </ul>
+            <div id="game-list" class="list-group" data-bind="foreach: gameList">
+                <a class="list-group-item" data-bind="attr: { href: '{{ path('game.board') }}' + id()}">
+                    <h4>
+                        <span data-bind="text: 'Spiel ' + id()"></span>
+{#                            <small><span data-bind="text: '[ ' + updatedAt + ' ]'"></small>#}
+                    </h4>
+                </a>
+            </div>
       </div>
 
     </div>
@@ -40,5 +39,6 @@
 
 {% block scripts %}
     {{ parent() }}
+    <script src="/bundles/citadelscore/js/view-model/gameList.js"></script>
     <script src="/bundles/citadelscore/js/index/welcome.js"></script>
 {% endblock %}
