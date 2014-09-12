@@ -38,6 +38,9 @@
                     {{ include('CitadelsCoreBundle::_partial/footer.html.twig') }}
                 {% endblock %}
             </div>
+
+            {% include 'CitadelsCoreBundle::_partial/modal.html.twig' %}
+            {% include 'CitadelsCoreBundle::_partial/app-data.html.twig' %}
         {% endblock %}
 
         {% block scripts %}
