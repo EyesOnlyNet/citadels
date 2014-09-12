@@ -13,7 +13,7 @@ var myPlayerModel = ko.mapping.fromJS({
             shortcut: ''
         }
     },
-    update: function() {
+    update: function(callback) {
         var fingerprint = new Fingerprint().get(),
             gameId = $('#app').data('game.id');
 
@@ -25,6 +25,8 @@ var myPlayerModel = ko.mapping.fromJS({
             console.log($.parseJSON(response));
 
             ko.mapping.fromJS($.parseJSON(response), myPlayerModel);
+
+            if (typeof callback === 'function') callback();
         })
         .fail(function() { console.log("updateMyPlayer error"); })
         .always(function() { console.log("updateMyPlayer complete"); });
