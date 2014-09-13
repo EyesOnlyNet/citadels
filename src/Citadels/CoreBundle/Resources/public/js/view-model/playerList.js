@@ -4,19 +4,17 @@ var playerListModel = ko.mapping.fromJS({
         var gameId = $('#app').data('game.id'),
             rootUrl = $('#app').data('url.root');
 
-        $.ajax({
-            url: rootUrl + 'players/game/' + gameId
-        })
-        .done(function(response) {
-            console.log("updatePlayerList success");
-            console.log($.parseJSON(response));
+        $.getJSON(
+            rootUrl + 'players/game/' + gameId,
+            function(response) {
+                console.log("updatePlayerList success");
+                console.log(response);
 
-            ko.mapping.fromJS({ playerlist: [] }, playerListModel);
-            ko.mapping.fromJS($.parseJSON(response), playerListModel);
+                ko.mapping.fromJS({ playerlist: [] }, playerListModel);
+                ko.mapping.fromJS(response, playerListModel);
 
-            if (typeof callback === 'function') callback();
-        })
-        .fail(function() { console.log("updatePlayerList error"); })
-        .always(function() { console.log("updatePlayerList complete"); });
+                if (typeof callback === 'function') callback(response);
+            }
+        );
     }
 });

@@ -4,17 +4,15 @@ var characterListModel = ko.mapping.fromJS({
         var gameId = $('#app').data('game.id'),
             rootUrl = $('#app').data('url.root');
 
-        $.ajax({
-            url: rootUrl + 'characters/game/' + gameId
-        })
-        .done(function(response) {
-            console.log("updateCharacterList success");
-            console.log($.parseJSON(response));
+        $.getJSON(
+            rootUrl + 'characters/game/' + gameId,
+            function(response) {
+                console.log("updateCharacterList success");
+                console.log(response);
 
-            ko.mapping.fromJS({}, characterListModel);
-            ko.mapping.fromJS($.parseJSON(response), characterListModel);
-        })
-        .fail(function() { console.log("updateCharacterList error"); })
-        .always(function() { console.log("updateCharacterList complete"); });
+                ko.mapping.fromJS({}, characterListModel);
+                ko.mapping.fromJS(response, characterListModel);
+            }
+        );
     }
 });

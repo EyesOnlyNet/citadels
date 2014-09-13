@@ -4,17 +4,15 @@ var gameListModel = ko.mapping.fromJS({
         var rootUrl = $('#app').data('url.root'),
             fingerprint = new Fingerprint().get();
 
-        $.ajax({
-            url: rootUrl + 'game/player/' + fingerprint
-        })
-        .done(function(response) {
-            console.log("updateGameList success");
-            console.log($.parseJSON(response));
+        $.getJSON(
+            rootUrl + 'game/player/' + fingerprint,
+            function(response) {
+                console.log("updateGameList success");
+                console.log(response);
 
-            ko.mapping.fromJS({}, gameListModel);
-            ko.mapping.fromJS($.parseJSON(response), gameListModel);
-        })
-        .fail(function() { console.log("updateGameList error"); })
-        .always(function() { console.log("updateGameList complete"); });
+                ko.mapping.fromJS({}, gameListModel);
+                ko.mapping.fromJS(response, gameListModel);
+            }
+        );
     }
 });

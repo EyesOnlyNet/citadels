@@ -35,9 +35,9 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
      */
     protected function getRequestParam($name, $default = null)
     {
-        return $this->getRequest()->request->get($name)
-            ?: $this->getRequest()->query->get($name)
+        return $this->getRequest()->query->get($name)
             ?: $this->getRequest()->attributes->get($name)
+            ?: $this->getRequest()->request->get($name)
             ?: $default;
     }
 
@@ -46,9 +46,17 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
      */
     protected function getViewVars()
     {
-        return ($this->getRequest()->isXmlHttpRequest())
+        return ($this->isJsonAccepted())
             ? $this->getAjaxResponse($this->view)
             : $this->view->getArrayCopy();
+    }
+
+    /**
+     * @return bool
+     */
+    private function isJsonAccepted()
+    {
+        return strpos($this->getRequest()->headers->get('accept', ''), 'json') !== false;
     }
 
     /**
@@ -58,7 +66,7 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
     final private function getAjaxResponse($data)
     {
         $response = new JsonResponse();
-        $response->setData(
+        $response->setContent(
             $this->getSerializer()->serialize($data, 'json')
         );
 
