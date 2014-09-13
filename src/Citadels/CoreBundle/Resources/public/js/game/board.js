@@ -8,6 +8,7 @@ $(function() {
     myPlayerModel.update(function() {
         if ($('#my-player .name').text() === '') {
             console.log('player-name empty');
+
             $('#modal').modal({
                 remote: rootUrl + 'modal/player-name/' + new Fingerprint().get()
             });

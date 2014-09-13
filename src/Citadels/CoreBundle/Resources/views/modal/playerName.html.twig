@@ -1,10 +1,19 @@
 <div class="modal-header">
-    Spielernamen eingeben
+    <h4 class="modal-title">Dein Spieler hat noch kein Name.</h4>
 </div>
 
 <div class="modal-body">
-    Dialog
+    <div class="form-group row">
+        <label class="control-label col-xs-4" for="player-name">Du kannst einen eingeben:</label>
+        <div class="col-xs-8">
+            <input class="form-control" id="player-name" name="playerName" type="text" />
+        </div>
+    </div>
+
+    ... oder ein Zufallsname erstellen lassen.
 </div>
 
 <div class="modal-footer">
+    <button class="btn btn-warning">Zufallsname erstellen</button>
+    <button class="btn">Eingabe speichern</button>
 </div>
