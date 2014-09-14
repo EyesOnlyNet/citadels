@@ -1,19 +1,6 @@
-@mixin boxInnerShadow($borderColor, $shadowColor) {
-    border-color: $borderColor;
-    box-shadow: 0 0 8px $shadowColor inset;
-}
-
 @mixin boxColor($textColor, $bgColor) {
     background-color: $bgColor;
     color: $textColor;
-}
-
-%boxInnerShadowBrown {
-    @include boxInnerShadow($colorBrown, $colorLightBrown);
-}
-
-%boxInnerShadowLightGray {
-    @include boxInnerShadow($colorGray, $colorLightGray);
 }
 
 %boxColorBrown {

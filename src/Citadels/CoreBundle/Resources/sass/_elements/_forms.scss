@@ -3,7 +3,7 @@ input, button, .form-control:focus {
     padding: 8px 16px;
 
     &:hover, &:focus {
-        @extend %boxInnerShadowBrown;
+        border-color: $colorBrown;
     }
 }
 
