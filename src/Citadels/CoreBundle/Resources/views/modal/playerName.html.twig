@@ -1,19 +1,20 @@
 <div class="modal-header">
-    <h4 class="modal-title">Dein Spieler hat noch kein Name.</h4>
+    <h4 class="modal-title">Der Namenlose Spieler</h4>
 </div>
 
-<div class="modal-body">
-    <div class="form-group row">
-        <label class="control-label col-xs-4" for="player-name">Du kannst einen eingeben:</label>
-        <div class="col-xs-8">
+<div class="modal-body text-center">
+    <form class="form-group">
+        Damit dich deine Gegenspieler erkennen,
+        <label class="control-label" for="player-name">gebe bitte einen Namen ein:</label>
+        <div class="input-group">
             <input class="form-control" id="player-name" name="playerName" type="text" />
+            <span class="input-group-btn">
+                <button class="btn btn-warning" data-dismiss="modal" name="saveName">speichern & starten</button>
+            </span>
         </div>
-    </div>
+    </form>
 
-    ... oder ein Zufallsname erstellen lassen.
-</div>
+    <p>oder</p>
 
-<div class="modal-footer">
-    <button class="btn btn-warning">Zufallsname erstellen</button>
-    <button class="btn">Eingabe speichern</button>
+    <button class="btn btn-warning" data-dismiss="modal" name="saveRandomName">spiele mit einem Zufallsnamen</button>
 </div>
