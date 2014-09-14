@@ -10,7 +10,9 @@ $(function() {
             console.log('player-name empty');
 
             $('#modal').modal({
-                remote: rootUrl + 'modal/player-name/' + new Fingerprint().get()
+                remote: rootUrl + 'modal/player-name/' + new Fingerprint().get(),
+                backdrop: 'static',
+                keyboard: false
             });
         }
     });
