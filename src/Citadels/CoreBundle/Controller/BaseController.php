@@ -47,7 +47,7 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
     protected function getViewVars()
     {
         return ($this->isJsonAccepted())
-            ? $this->getAjaxResponse($this->view)
+            ? $this->getJsonResponse($this->view)
             : $this->view->getArrayCopy();
     }
 
@@ -63,7 +63,7 @@ abstract class BaseController extends Controller implements BeforeActionHookInte
      * @param mixed $data
      * @return JsonResponse
      */
-    final private function getAjaxResponse($data)
+    final private function getJsonResponse($data)
     {
         $response = new JsonResponse();
         $response->setContent(
