@@ -1,5 +1,6 @@
 $(function() {
-    var rootUrl = $('#app').data('url.root');
+    var rootUrl = $('#app').data('url.root'),
+        gameId = $('#app').data('game.id');
 
     ko.applyBindings(myPlayerModel, document.getElementById('my-player'));
     ko.applyBindings(characterListModel, document.getElementById('character-list'));
@@ -10,7 +11,7 @@ $(function() {
             console.log('player-name empty');
 
             $('#modal').modal({
-                remote: rootUrl + 'modal/player-name/' + new Fingerprint().get(),
+                remote: rootUrl + 'modal/player-name/',
                 backdrop: 'static',
                 keyboard: false
             });
@@ -19,6 +20,16 @@ $(function() {
     characterListModel.update();
     playerListModel.update();
 
+    $('#modal').on('submit', 'form', function(event) {
+        $.ajax({
+            url: rootUrl + 'players/' + new Fingerprint().get() + '/name',
+            data: $(this).serialize() + '&' + $.param({gameId: gameId}),
+            method: 'post'
+        });
+
+        event.preventDefault();
+    });
+
     $('.action-refresh').click(function() {
         game.refreshBoard();
     });
@@ -26,8 +37,7 @@ $(function() {
     $('.action-end-turn').click(function() {
         game.endTurn(function() {
             playerListModel.update(function() {
-                var activePlayerExist = false,
-                    gameId = $('#app').data('game.id');
+                var activePlayerExist = false;
 
                 $(playerListModel.playerList()).each(function() {
                     console.log(this.isActive());

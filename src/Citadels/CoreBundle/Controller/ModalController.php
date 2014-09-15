@@ -8,13 +8,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class ModalController extends BaseController
 {
     /**
-     * @Route("/modal/player-name/{fingerprint}")
+     * @Route("/modal/player-name")
+     * @Route("/modal/player-name/")
      * @Template()
      */
     public function playerNameAction()
     {
-        $this->view->playerId = $this->getRequestParam('fingerprint');
-
-        return $this->getViewVars();
+        return [];
     }
 }

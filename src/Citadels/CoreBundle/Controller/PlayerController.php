@@ -9,7 +9,9 @@ use Citadels\CoreBundle\Enum\Game;
 use Citadels\CoreBundle\Models\ViewModel\Mapper\PlayerMapper;
 use Citadels\CoreBundle\Models\ViewModel\PlayerView;
 use Doctrine\Common\Collections\ArrayCollection;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 
 class PlayerController extends BaseController
 {
@@ -75,7 +77,28 @@ class PlayerController extends BaseController
 
         $this->getMongoDocumentManager()->flush();
 
-        return $this->getViewVars();
+        return new Response;
+    }
+
+    /**
+     * @Route("/players/{playerId}/name")
+     * @Method("post")
+     */
+    public function setNameAction()
+    {
+        $playerId = $this->getRequestParam('playerId');
+        $playerName = $this->getRequestParam('playerName');
+
+        /* @var $player PlayerDoc */
+        $player = $this->game->getPlayers()->filter(function(PlayerDoc $player) use ($playerId) {
+            return $player->getId() == $playerId;
+        })->first();
+
+        $player->setName($playerName);
+
+        $this->getMongoDocumentManager()->flush();
+
+        return new Response;
     }
 
     private function initGame()
