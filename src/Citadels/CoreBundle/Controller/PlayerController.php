@@ -87,7 +87,7 @@ class PlayerController extends BaseController
     public function setNameAction()
     {
         $playerId = $this->getRequestParam('playerId');
-        $playerName = $this->getRequestParam('playerName');
+        $playerName = $this->getRequestParam('playerName', $this->getRandomName());
 
         /* @var $player PlayerDoc */
         $player = $this->game->getPlayers()->filter(function(PlayerDoc $player) use ($playerId) {
@@ -99,6 +99,18 @@ class PlayerController extends BaseController
         $this->getMongoDocumentManager()->flush();
 
         return new Response;
+    }
+
+    /**
+     * @return string
+     */
+    private function getRandomName()
+    {
+        $names = [
+            'Peter Pan', 'Tinkerbell', 'Hook', 'Wendy', 'Smee', 'Tick', 'Trick', 'Track', 'Donald', 'Dagobert',
+        ];
+
+        return $names[array_rand($names)];
     }
 
     private function initGame()

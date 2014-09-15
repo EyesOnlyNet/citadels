@@ -2,11 +2,11 @@ $(function() {
     var rootUrl = $('#app').data('url.root'),
         gameId = $('#app').data('game.id');
 
-    ko.applyBindings(myPlayerModel, document.getElementById('my-player'));
+    ko.applyBindings(myPlayer.model, document.getElementById('my-player'));
     ko.applyBindings(characterListModel, document.getElementById('character-list'));
     ko.applyBindings(playerListModel, document.getElementById('player-list'));
 
-    myPlayerModel.update(function() {
+    myPlayer.update(function() {
         if ($('#my-player .name').text() === '') {
             console.log('player-name empty');
 
@@ -20,14 +20,16 @@ $(function() {
     characterListModel.update();
     playerListModel.update();
 
-    $('#modal').on('submit', 'form', function(event) {
-        $.ajax({
-            url: rootUrl + 'players/' + new Fingerprint().get() + '/name',
-            data: $(this).serialize() + '&' + $.param({gameId: gameId}),
-            method: 'post'
-        });
+    $('#modal').on('submit', 'form', function() {
+        var data = $(this).serialize() + '&' + $.param({gameId: gameId});
 
-        event.preventDefault();
+        myPlayer.setName(data, myPlayer.update);
+    });
+
+    $('#modal').on('click', '.save-random-name-button', function() {
+        var data = $.param({gameId: gameId});
+
+        myPlayer.setName(data, myPlayer.update);
     });
 
     $('.action-refresh').click(function() {
@@ -52,7 +54,7 @@ $(function() {
     });
 
     $('.action-add-gold').click(function() {
-        myPlayerModel.addGold();
+        myPlayer.addGold();
         game.refreshBoard();
     });
 

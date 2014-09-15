@@ -1,5 +1,5 @@
-var myPlayerModel = ko.mapping.fromJS({
-    myPlayer: {
+var myPlayer = {
+    model: ko.mapping.fromJS({
         name: '',
         gold: 0,
         buildings: [],
@@ -12,18 +12,20 @@ var myPlayerModel = ko.mapping.fromJS({
             name: '',
             shortcut: ''
         }
-    },
+    }),
+    rootUrl: $('#app').data('url.root') + 'players/',
     update: function(callback) {
         var fingerprint = new Fingerprint().get(),
-            gameId = $('#app').data('game.id');
+            gameId = $('#app').data('game.id'),
+            rootUrl = myPlayer.rootUrl;
 
         $.getJSON(
-            '/app_dev.php/players/' + fingerprint + '/game/' + gameId,
+            rootUrl + fingerprint + '/game/' + gameId,
             function(response) {
                 console.log("updateMyPlayer success");
                 console.log(response);
 
-                ko.mapping.fromJS(response, myPlayerModel);
+                ko.mapping.fromJS(response, myPlayer.model);
 
                 if (typeof callback === 'function') callback(response);
             }
@@ -33,12 +35,18 @@ var myPlayerModel = ko.mapping.fromJS({
         var fingerprint = new Fingerprint().get(),
             gameId = $('#app').data('game.id');
 
-        $.getJSON(
-            '/app_dev.php/players/' + fingerprint + '/game/' + gameId + '/add-gold',
-            function(response) {
-                console.log("addGold success");
-                console.log(response);
-            }
-        );
+        $.ajax(myPlayer.rootUrl + fingerprint + '/game/' + gameId + '/add-gold');
+    },
+    setName: function(data, callback) {
+        var fingerprint = new Fingerprint().get();
+
+        $.ajax({
+            url: myPlayer.rootUrl + fingerprint + '/name',
+            data: data,
+            method: 'post'
+        })
+        .done(function(response) {
+            if (typeof callback === 'function') callback(response);
+        });
     }
-});
+};

@@ -1,6 +1,6 @@
 var game = {
     refreshBoard: function() {
-        myPlayerModel.update();
+        myPlayer.update();
         characterListModel.update();
         playerListModel.update();
     },

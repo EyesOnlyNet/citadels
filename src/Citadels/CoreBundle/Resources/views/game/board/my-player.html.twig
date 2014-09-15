@@ -1,25 +1,25 @@
-<div id="my-player" class="my-player" data-bind="css: { 'is-king': myPlayer.isKing }">
+<div id="my-player" class="my-player" data-bind="css: { 'is-king': isKing }">
     <div class="name" data-bind="text: myPlayer.name"></div>
 
     <div class="statistic">
-        <div class="character" data-bind="css: myPlayer.character.type, text: myPlayer.character.name"></div>
+        <div class="character" data-bind="css: character.type, text: character.name"></div>
 
         <ul class="calculations">
             <li class="points">
                 <div class="label">pts</div>
-                <div data-bind="text: myPlayer.points"></div>
+                <div data-bind="text: points"></div>
             </li>
             <li class="buildings">
                 <div class="label">bdg</div>
-                <div data-bind="text: myPlayer.buildings.length"></div>
+                <div data-bind="text: buildings.length"></div>
             </li>
             <li class="gold">
                 <div class="label">gld</div>
-                <div data-bind="text: myPlayer.gold"></div>
+                <div data-bind="text: gold"></div>
             </li>
         </ul>
     </div>
 
-    <ul class="hand-cards" data-bind="text: 'HandCards: ' + myPlayer.handCards.length">
+    <ul class="hand-cards" data-bind="text: 'HandCards: ' + handCards.length">
     </ul>
 </div>
