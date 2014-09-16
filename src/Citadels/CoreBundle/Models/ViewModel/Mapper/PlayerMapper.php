@@ -14,6 +14,7 @@ class PlayerMapper
     public static function createFromPlayerDoc(PlayerDoc $player)
     {
         $playerView = new PlayerView();
+        $playerView->id = $player->getId();
         $playerView->gold = $player->getGold();
         $playerView->isKing = $player->isKing();
         $playerView->name = $player->getName();

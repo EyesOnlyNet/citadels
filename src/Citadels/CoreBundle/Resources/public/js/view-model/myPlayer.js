@@ -1,5 +1,6 @@
 var myPlayer = {
     model: ko.mapping.fromJS({
+        id: '',
         name: '',
         gold: 0,
         buildings: [],

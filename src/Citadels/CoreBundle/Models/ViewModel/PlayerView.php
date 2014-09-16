@@ -5,7 +5,8 @@ use JMS\SerializerBundle\Annotation as Jms;
 
 class PlayerView
 {
-    public $name = '-';
+    public $id = '';
+    public $name = '';
     public $gold = 0;
     public $points = 0;
 

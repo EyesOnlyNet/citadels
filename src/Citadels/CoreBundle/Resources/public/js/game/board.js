@@ -7,7 +7,7 @@ $(function() {
     ko.applyBindings(playerListModel, document.getElementById('player-list'));
 
     myPlayer.update(function() {
-        if ($('#my-player .name').text() === '') {
+        if (myPlayer.model.name === '') {
             console.log('player-name empty');
 
             $('#modal').modal({
