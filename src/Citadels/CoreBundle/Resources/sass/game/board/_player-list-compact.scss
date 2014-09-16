@@ -10,12 +10,8 @@
     }
 
     &.is-active {
-        * {
-            text-shadow: 0 0 1px $colorLightBrown;
-        }
-
         .name {
-            text-shadow: 0 0 1px $colorBrown;
+            color: $colorBrown;
         }
     }
 
