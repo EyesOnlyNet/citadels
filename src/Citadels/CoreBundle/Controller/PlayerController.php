@@ -102,6 +102,24 @@ class PlayerController extends BaseController
     }
 
     /**
+     * @Route("/players")
+     * @Route("/players/")
+     * @Method("post")
+     */
+    public function createAction()
+    {
+        $playerId = $this->getRequestParam('id');
+        $player = new PlayerDoc($playerId);
+
+        $this->getMongoDocumentManager()->persist($player);
+        $this->game->addPlayer($player);
+
+        $this->getMongoDocumentManager()->flush();
+
+        return new Response();
+    }
+
+    /**
      * @return string
      */
     private function getRandomName()

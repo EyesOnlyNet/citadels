@@ -7,14 +7,14 @@ $(function() {
     ko.applyBindings(playerListModel, document.getElementById('player-list'));
 
     myPlayer.update(function() {
-        if (myPlayer.model.name === '') {
-            console.log('player-name empty');
+        if (myPlayer.model.id() === '') {
+            console.log('can not load player');
+            myPlayer.create(modal.playerName);
+        }
 
-            $('#modal').modal({
-                remote: rootUrl + 'modal/player-name/',
-                backdrop: 'static',
-                keyboard: false
-            });
+        if (myPlayer.model.name() === '') {
+            console.log('player-name empty');
+            modal.playerName();
         }
     });
     characterListModel.update();
@@ -23,13 +23,13 @@ $(function() {
     $('#modal').on('submit', 'form', function() {
         var data = $(this).serialize() + '&' + $.param({gameId: gameId});
 
-        myPlayer.setName(data, myPlayer.update);
+        myPlayer.setName(data);
     });
 
     $('#modal').on('click', '.save-random-name-button', function() {
         var data = $.param({gameId: gameId});
 
-        myPlayer.setName(data, myPlayer.update);
+        myPlayer.setName(data);
     });
 
     $('.action-refresh').click(function() {
@@ -55,7 +55,6 @@ $(function() {
 
     $('.action-add-gold').click(function() {
         myPlayer.addGold();
-        game.refreshBoard();
     });
 
     $('#action-tabs').tabs({

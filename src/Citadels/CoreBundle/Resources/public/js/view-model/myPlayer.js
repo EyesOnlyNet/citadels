@@ -15,6 +15,23 @@ var myPlayer = {
         }
     }),
     rootUrl: $('#app').data('url.root') + 'players/',
+    create: function(callback) {
+        var fingerprint = new Fingerprint().get(),
+            gameId = $('#app').data('game.id');
+
+        $.ajax({
+            url: myPlayer.rootUrl,
+            data: {
+                id: fingerprint,
+                gameId: gameId
+            },
+            method: 'post'
+        })
+        .done(function(response) {
+            if (typeof callback === 'function') callback(response);
+            game.refreshBoard();
+        });
+    },
     update: function(callback) {
         var fingerprint = new Fingerprint().get(),
             gameId = $('#app').data('game.id'),
@@ -32,11 +49,15 @@ var myPlayer = {
             }
         );
     },
-    addGold: function() {
+    addGold: function(callback) {
         var fingerprint = new Fingerprint().get(),
             gameId = $('#app').data('game.id');
 
-        $.ajax(myPlayer.rootUrl + fingerprint + '/game/' + gameId + '/add-gold');
+        $.ajax(myPlayer.rootUrl + fingerprint + '/game/' + gameId + '/add-gold')
+        .done(function(response) {
+            if (typeof callback === 'function') callback(response);
+            game.refreshBoard();
+        });
     },
     setName: function(data, callback) {
         var fingerprint = new Fingerprint().get();
@@ -48,6 +69,7 @@ var myPlayer = {
         })
         .done(function(response) {
             if (typeof callback === 'function') callback(response);
+            game.refreshBoard();
         });
     }
 };
