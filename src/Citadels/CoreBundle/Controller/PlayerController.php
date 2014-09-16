@@ -44,7 +44,7 @@ class PlayerController extends BaseController
         $myPlayer = PlayerMapper::createFromPlayerDoc($player);
         $myPlayer->isActive = $this->isPlayerActive($player);
 
-        $this->view->myPlayer = $myPlayer;
+        $this->view->model = $myPlayer;
 
         return $this->getViewVars();
     }

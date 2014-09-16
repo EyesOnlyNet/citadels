@@ -26,7 +26,7 @@ var myPlayer = {
                 console.log("updateMyPlayer success");
                 console.log(response);
 
-                ko.mapping.fromJS(response, myPlayer.model);
+                ko.mapping.fromJS(response.model, myPlayer.model);
 
                 if (typeof callback === 'function') callback(response);
             }
