@@ -32,6 +32,12 @@ $(function() {
         myPlayer.setName(data);
     });
 
+    $('.actions .btn').popover({
+        container: 'body',
+        trigger: 'hover',
+        placement: 'top'
+    });
+
     $('.action-refresh').click(function() {
         game.refreshBoard();
     });

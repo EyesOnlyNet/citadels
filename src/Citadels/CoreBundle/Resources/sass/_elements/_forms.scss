@@ -3,10 +3,19 @@ input, button, .form-control:focus {
     padding: 8px 16px;
 
     &:hover, &:focus {
-        border-color: $colorBrown;
+        background-color: $colorBrown;
     }
 }
 
-button {
+.btn {
     background-color: $colorLightBrown;
+
+    &:hover, &:focus {
+        background-color: $colorBrown;
+        color: white;
+
+        .fa {
+            color: white;
+        }
+    }
 }
