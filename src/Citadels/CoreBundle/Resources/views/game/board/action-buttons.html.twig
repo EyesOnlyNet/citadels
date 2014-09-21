@@ -1,31 +1,85 @@
 <div class="actions btn-group">
-    <button class="btn action-refresh" title="Spielfeld aktualisieren">
-        <i class="fa fa-refresh"></i>
+    <button class="btn bank-gold-to-me"
+            title="Goldeinkommen"
+            data-content="Du bekommst 2 Goldstücke. <div class='text-warning'><strong>Gebäude planen</strong> kann nicht mehr gespielt werden.</div>">
+        <i class="fa fa-cubes"></i>
     </button>
 
-    <button class="btn action-add-gold" title="Goldeinkommen">
-        <i class="fa fa-bank"></i>
+    <button class="btn extra-bank-gold-to-me"
+            title="Extra-Gold"
+            data-content="Du bekommst 1 Goldstück.">
+        <i class="fa fa-cube"></i>
     </button>
 
-    <button class="btn action-end-turn" title="Zug beenden">
-        <i class="fa fa-fast-forward"></i>
-    </button>
-
-    <button class="btn action-stall-character" title="Attentat ausführen">
-        <i class="fa fa-wheelchair"></i>
-    </button>
-
-    <button class="btn action-steal-gold" title="Gold stehlen">
+    <button class="btn character-gold-to-me"
+            title="Gold stehlen"
+            data-content="Nenne einen Charakter (außer den Meuchler) den du bestehlen möchtest. <span class='text-info'>Wenn dieser am Zug ist, bekommst du all sein Gold.</span>">
         <i class="fa fa-paw"></i>
     </button>
 
-    <button class="btn action-add-extra-gold" title="Extra-Gold">
+    <button class="btn card-gold-to-me"
+            title="Steuern eintreiben"
+            data-content="Du bekommst für jede Karte in deiner Auslage, die deiner aktuellen Charakterfarbe entspricht, 1 Goldstück.">
         <i class="fa fa-euro"></i>
     </button>
 
-    <button class="btn action-build"
+    <button class="btn drawing-stack-card-to-hand"
+            title="Gebäude planen"
+            data-content="Ziehe 2 Karten vom Nachziehstapel. <span class='text-info'>Eine davon darfst du behalten - die andere kommt auf den Ablagestapel.</span><div class='text-warning'><strong>Goldeinkommen</strong> kann nicht mehr gespielt werden.</div>">
+        <i class="fa fa-sign-out"></i>
+    </button>
+
+    <button class="btn drawing-stack-cards-to-hand"
+            title="Dorf planen"
+            data-content="Ziehe 2 Karten vom Nachziehstapel - <span class='text-info'>du darfst beide behalten.</span>">
+        <i class="fa fa-stack-overflow"></i>
+    </button>
+
+    <button class="btn exchange-hand-with-drawing-stack"
+            title="Pläne tauschen - Nachziehstapel"
+            data-content="Tausche deine Handkarten mit der selben Anzahl der Karten des Nachziehstapels. <div class='text-warning'><strong>Pläne tauschen - Mitspieler</strong> kann nicht mehr gespielt werden.</div>">
+        <i class="fa fa-exchange"></i>
+    </button>
+
+    <button class="btn exchange-hand-with-player-hand"
+            title="Pläne tauschen - Mitspieler"
+            data-content="Tausche all deine Handkarten mit allen Handkarten eines Mitspielers. <div class='text-warning'><strong>Pläne tauschen - Nachziehstapel</strong> kann nicht mehr gespielt werden.</div>">
+        <i class="fa fa-arrows-h"></i>
+    </button>
+
+    <button class="btn hand-card-to-building-stack"
             title="Gebäude bauen"
             data-content="Spiele eine Karte aus deiner Hand und bezahle die angegebenen Goldstücke, um die Karte in deine Auslage aufzunehmen.">
         <i class="fa fa-building-o"></i>
+    </button>
+
+    <button class="btn hand-cards-to-building-stack"
+            title="Dorf bauen"
+            data-content="Spiele bis zu 2 Karten aus deiner Hand und bezahle die angegebenen Goldstücke, um die Karte(n) in deine Auslage aufzunehmen.">
+        <i class="fa fa-building"></i>
+    </button>
+
+    <button class="btn player-card-to-dump"
+            title="Gebäude zerstören"
+            data-content="Nimm 1 Karte aus der Auslage eines Mitspielers, zahle ein Goldstücke weniger, wie abgebildet und lege die Karte auf den Ablagestapel.">
+        <i class="fa fa-fire"></i>
+    </button>
+
+    <button class="btn stall-character"
+            title="Attentat ausführen"
+            data-content="Nenne einen Charakter, der diese Runde aussetzen soll. <span class='text-info'>Dieser muss sich nicht zu erkennen geben.</span>">
+        <i class="fa fa-wheelchair"></i>
+    </button>
+
+    <button class="btn refresh"
+            title="Spielfeld aktualisieren"
+            data-content="Bleibe auf dem laufenden.">
+        <i class="fa fa-refresh"></i>
+    </button>
+
+    <button class="btn end-turn"
+            title="Zug beenden"
+            data-content="Beende deinen Zug.">
+        <i class="fa fa-fast-forward"></i>
     </button>
 </div>

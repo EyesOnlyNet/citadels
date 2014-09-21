@@ -24,27 +24,6 @@
     {% include 'CitadelsCoreBundle:Game:board/character-list.html.twig' %}
     {% include 'CitadelsCoreBundle:Game:board/my-player.html.twig' %}
     {% include 'CitadelsCoreBundle:Game:board/action-buttons.html.twig' %}
-
-    <div id="action-tabs" class="tabs">
-        {% include 'CitadelsCoreBundle:Game:board/tabs/actions.html.twig' %}
-
-        <div class="tab-body">
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/draw-card.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-draw-cards.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-exchange-cards-stack.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-exchange-cards-player.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-get-card-gold.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-get-gold.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-play-cards.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-remove-card.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-stall-character.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/effect-steal-gold.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/get-gold.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/hand.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/play-card.html.twig' %}
-            {% include 'CitadelsCoreBundle:Game:board/tabs/actions/end.html.twig' %}
-        </div>
-    </div>
 {% endblock %}
 
 {% block scripts %}

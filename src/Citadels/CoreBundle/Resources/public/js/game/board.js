@@ -35,7 +35,8 @@ $(function() {
     $('.actions .btn').popover({
         container: 'body',
         trigger: 'hover',
-        placement: 'top'
+        placement: 'top',
+        html: true
     });
 
     $('.action-refresh').click(function() {
@@ -62,27 +63,4 @@ $(function() {
     $('.action-add-gold').click(function() {
         myPlayer.addGold();
     });
-
-    $('#action-tabs').tabs({
-        disabled: [],
-        activate: function() {
-            scrollTo('#action-tabs');
-        },
-        fx: {
-            height: 'toggle',
-            opacity: 'toggle'
-        }
-    });
-
-    $('.show-tab').click(function() {
-        $('#action-tabs').tabs('select', this.hash);
-
-        return false;
-    });
-
-    function scrollTo(element) {
-        $('html, body').animate({
-            scrollTop: $(element).offset().top
-        }, 'slow');
-    }
 });
